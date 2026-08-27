@@ -99,6 +99,7 @@ class Contact(BaseModel):
     clinic: str = ""
     request_type: str = "quote"
     message: str
+    status: str = "new"
     created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
 
 
@@ -123,6 +124,10 @@ class TokenResponse(BaseModel):
     email: str
 
 
+class StatusUpdate(BaseModel):
+    status: str
+
+
 # ---------- Routes ----------
 @api_router.get("/")
 async def root():
@@ -143,6 +148,20 @@ async def login(payload: LoginRequest):
 async def admin_list_contacts(_: str = Depends(get_current_admin)):
     docs = await db.contacts.find({}, {"_id": 0}).sort("created_at", -1).to_list(1000)
     return [Contact(**d) for d in docs]
+
+
+@api_router.patch("/admin/contacts/{contact_id}", response_model=Contact)
+async def admin_update_contact(
+    contact_id: str, payload: StatusUpdate, _: str = Depends(get_current_admin)
+):
+    allowed = {"new", "called", "quoted", "closed"}
+    if payload.status not in allowed:
+        raise HTTPException(status_code=400, detail="Geçersiz durum")
+    await db.contacts.update_one({"id": contact_id}, {"$set": {"status": payload.status}})
+    doc = await db.contacts.find_one({"id": contact_id}, {"_id": 0})
+    if not doc:
+        raise HTTPException(status_code=404, detail="Talep bulunamadı")
+    return Contact(**doc)
 
 
 TYPE_LABELS_TR = {"quote": "Fiyat Teklifi", "demo": "Demo Talebi", "info": "Bilgi"}

@@ -1,8 +1,8 @@
 // Bilingual content (TR / EN) + structured data for the Vetozone landing page.
 
 export const ASSETS = {
-  deviceHero:
-    "https://customer-assets-lqy194kg.emergentagent.net/job_98caa84f-6aad-44a3-b114-d3248f65d171/artifacts/4y8zum12_image.webp",
+  deviceHero: "/devices/vetozone-plus-cut.png",
+  deviceMobile: "/devices/vetozone-mobil.jpg",
   logo:
     "https://customer-assets-lqy194kg.emergentagent.net/job_98caa84f-6aad-44a3-b114-d3248f65d171/artifacts/1l9j6wj8_image.png",
   species: {
@@ -123,7 +123,7 @@ export const CONTENT = {
     manifesto: {
       overline: "Türkiye'de İlk ve Tek",
       title: "Hayvanlarda ozon terapisinde öncü.",
-      body: "Vetozone, 2021 yılında piyasaya sürülen, tamamıyla yerli üretim, en hassas ve güvenilir doz aralığına sahip yüksek teknolojili bir veteriner ozon cihazıdır. Özel tasarım sehpası, 4.3 inç TFT ekranı ve tek encoder tuşuyla ergonomik kullanım sunar.",
+      body: "Vetozone Plus, 2021 yılında piyasaya sürülen, tamamıyla yerli üretim, en hassas ve güvenilir doz aralığına sahip yüksek teknolojili bir veteriner ozon cihazıdır. Özel tasarım sehpası, 4.3 inç TFT ekranı ve tek encoder tuşuyla ergonomik kullanım sunar.",
       chapters: [
         {
           no: "01",
@@ -337,7 +337,7 @@ export const CONTENT = {
     manifesto: {
       overline: "First & Only in Türkiye",
       title: "Pioneering ozone therapy in animals.",
-      body: "Launched in 2021, Vetozone is a fully domestic, high-tech veterinary ozone device with the most precise and reliable dose range. Its custom stand, 4.3\" TFT screen and single-encoder control deliver ergonomic operation.",
+      body: "Launched in 2021, Vetozone Plus is a fully domestic, high-tech veterinary ozone device with the most precise and reliable dose range. Its custom stand, 4.3\" TFT screen and single-encoder control deliver ergonomic operation.",
       chapters: [
         {
           no: "01",

@@ -11,7 +11,7 @@ export const Footer = () => {
           <div className="md:col-span-1">
             <div className="flex items-center gap-2">
               <span className="font-display font-extrabold text-2xl lowercase">vetozone</span>
-              <span className="text-[9px] tracking-[0.25em] font-bold text-[var(--brand)] mt-1">O₃</span>
+              <span className="text-[10px] tracking-[0.2em] font-bold text-[var(--brand)] mt-1">PLUS</span>
             </div>
             <p className="mt-4 text-sm text-white/50 max-w-xs leading-relaxed">{fo.tagline}</p>
           </div>

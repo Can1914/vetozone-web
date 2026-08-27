@@ -6,8 +6,8 @@
 @tailwind utilities;
 
 :root {
-  --brand: #c8362f;
-  --brand-hover: #a82d27;
+  --brand: #1E9BD7;
+  --brand-hover: #167cb0;
   --ink: #0a0a0a;
   --surface: #141414;
   --surface-2: #1f1f1f;
@@ -22,7 +22,7 @@
   --card-foreground: 0 0% 3.9%;
   --popover: 0 0% 100%;
   --popover-foreground: 0 0% 3.9%;
-  --primary: 4 62% 48%;
+  --primary: 199 76% 48%;
   --primary-foreground: 0 0% 100%;
   --secondary: 0 0% 96.1%;
   --secondary-foreground: 0 0% 9%;
@@ -34,7 +34,7 @@
   --destructive-foreground: 0 0% 98%;
   --border: 0 0% 89.8%;
   --input: 0 0% 89.8%;
-  --ring: 4 62% 48%;
+  --ring: 199 76% 48%;
   --radius: 0.25rem;
 }
 
@@ -83,8 +83,8 @@ body {
 .spotlight {
   background: radial-gradient(
     circle at center,
-    rgba(200, 54, 47, 0.35) 0%,
-    rgba(200, 54, 47, 0.08) 35%,
+    rgba(30, 155, 215, 0.38) 0%,
+    rgba(30, 155, 215, 0.1) 35%,
     transparent 70%
   );
 }
@@ -128,7 +128,7 @@ body {
   background: #0a0a0a;
 }
 ::-webkit-scrollbar-thumb {
-  background: #c8362f;
+  background: #1E9BD7;
   border-radius: 0;
 }
 

@@ -119,7 +119,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 60, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 1.1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="relative z-10 max-h-[62vh] lg:max-h-[78vh] w-auto object-contain drop-shadow-[0_40px_80px_rgba(200,54,47,0.25)]"
+              className="relative z-10 max-h-[62vh] lg:max-h-[80vh] w-auto object-contain drop-shadow-[0_40px_90px_rgba(30,155,215,0.35)]"
               data-testid="hero-device-image"
             />
           </motion.div>

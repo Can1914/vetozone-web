@@ -21,6 +21,13 @@ const TYPE_LABELS = {
   info: "Bilgi",
 };
 
+const STATUSES = [
+  { value: "new", label: "Yeni", cls: "bg-white/10 text-white/70" },
+  { value: "called", label: "Arandı", cls: "bg-amber-500/15 text-amber-400" },
+  { value: "quoted", label: "Teklif Gönderildi", cls: "bg-[var(--brand)]/15 text-[var(--brand)]" },
+  { value: "closed", label: "Kapandı", cls: "bg-emerald-500/15 text-emerald-400" },
+];
+
 const inputCls =
   "w-full bg-[var(--surface)] border border-white/10 rounded-sm px-4 py-3.5 text-white placeholder:text-white/35 text-sm focus:outline-none focus:border-[var(--brand)] transition-colors";
 
@@ -129,7 +136,8 @@ export default function Admin() {
       toast.error("Dışa aktarılacak talep yok");
       return;
     }
-    const headers = ["Tarih", "Ad Soyad", "E-posta", "Telefon", "Klinik", "Talep Türü", "Mesaj"];
+    const headers = ["Tarih", "Ad Soyad", "E-posta", "Telefon", "Klinik", "Talep Türü", "Durum", "Mesaj"];
+    const statusLabel = (v) => (STATUSES.find((s) => s.value === (v || "new")) || {}).label || v;
     const esc = (v) => `"${String(v ?? "").replace(/"/g, '""')}"`;
     const rows = contacts.map((c) =>
       [
@@ -139,6 +147,7 @@ export default function Admin() {
         c.phone,
         c.clinic,
         TYPE_LABELS[c.request_type] || c.request_type,
+        statusLabel(c.status),
         c.message,
       ]
         .map(esc)
@@ -155,6 +164,21 @@ export default function Admin() {
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
     toast.success("CSV indirildi");
+  };
+
+  const updateStatus = async (id, status) => {
+    const token = localStorage.getItem(TOKEN_KEY);
+    setContacts((prev) => prev.map((c) => (c.id === id ? { ...c, status } : c)));
+    try {
+      await axios.patch(
+        `${API}/admin/contacts/${id}`,
+        { status },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+    } catch (err) {
+      toast.error("Durum güncellenemedi");
+      load();
+    }
   };
 
   if (!authed) return <LoginView onLogin={() => setAuthed(true)} />;
@@ -244,6 +268,28 @@ export default function Admin() {
                     {c.message}
                   </p>
                 )}
+                <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-white/10 pt-4">
+                  <span className="text-[11px] uppercase tracking-widest font-bold text-white/40 mr-1">
+                    Durum
+                  </span>
+                  {STATUSES.map((s) => {
+                    const active = (c.status || "new") === s.value;
+                    return (
+                      <button
+                        key={s.value}
+                        onClick={() => updateStatus(c.id, s.value)}
+                        className={`text-xs font-semibold px-3 py-1.5 rounded-sm border transition-colors ${
+                          active
+                            ? `${s.cls} border-transparent`
+                            : "border-white/10 text-white/50 hover:text-white hover:border-white/25"
+                        }`}
+                        data-testid={`status-${s.value}-${c.id}`}
+                      >
+                        {s.label}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
             ))}
           </div>

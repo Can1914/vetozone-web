@@ -52,8 +52,8 @@ export const Navbar = () => {
           <span className="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-white lowercase">
             vetozone
           </span>
-          <span className="hidden sm:inline text-[9px] tracking-[0.25em] font-bold text-[var(--brand)] mt-1">
-            O₃
+          <span className="inline text-[10px] tracking-[0.2em] font-bold text-[var(--brand)] mt-1">
+            PLUS
           </span>
         </button>
 
