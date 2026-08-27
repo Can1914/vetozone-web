@@ -7,7 +7,9 @@ import os
 import logging
 import bcrypt
 import jwt
+from html import escape
 from pathlib import Path
+from email_service import send_email
 from pydantic import BaseModel, Field, EmailStr, ConfigDict
 from typing import List, Optional, Annotated, Any
 from pydantic.functional_validators import BeforeValidator
@@ -143,11 +145,46 @@ async def admin_list_contacts(_: str = Depends(get_current_admin)):
     return [Contact(**d) for d in docs]
 
 
+TYPE_LABELS_TR = {"quote": "Fiyat Teklifi", "demo": "Demo Talebi", "info": "Bilgi"}
+
+
+async def notify_new_contact(contact: "Contact") -> None:
+    to = os.environ.get("NOTIFY_EMAIL")
+    if not to:
+        return
+    label = TYPE_LABELS_TR.get(contact.request_type, contact.request_type)
+    html = (
+        '<table role="presentation" width="100%"><tr><td style="padding:24px;'
+        'font-family:Arial,sans-serif;color:#111">'
+        '<h2 style="margin:0 0 4px">Yeni Vetozone Talebi</h2>'
+        f'<p style="margin:0 0 16px;color:#c8362f;font-weight:bold">{escape(label)}</p>'
+        f'<p style="margin:4px 0"><strong>Ad Soyad:</strong> {escape(contact.name)}</p>'
+        f'<p style="margin:4px 0"><strong>E-posta:</strong> {escape(contact.email)}</p>'
+        f'<p style="margin:4px 0"><strong>Telefon:</strong> {escape(contact.phone)}</p>'
+        f'<p style="margin:4px 0"><strong>Klinik:</strong> {escape(contact.clinic or "-")}</p>'
+        f'<p style="margin:12px 0 4px"><strong>Mesaj:</strong></p>'
+        f'<p style="margin:0;padding:12px;background:#f4f4f5;border-radius:4px">{escape(contact.message)}</p>'
+        '<p style="font-size:12px;color:#888;margin-top:20px">Bu bildirim Vetozone web '
+        'sitesi iletişim formundan otomatik gönderilmiştir.</p>'
+        '</td></tr></table>'
+    )
+    try:
+        await send_email(
+            to=to,
+            subject=f"Yeni Vetozone Talebi — {contact.name} ({label})",
+            html=html,
+            reply_to=contact.email,
+        )
+    except Exception as e:
+        logger.error(f"Contact notification email failed: {e}")
+
+
 @api_router.post("/contact", response_model=Contact)
 async def create_contact(payload: ContactCreate):
     contact = Contact(**payload.model_dump())
     doc = contact.model_dump()
     await db.contacts.insert_one(doc)
+    await notify_new_contact(contact)
     return contact
 
 

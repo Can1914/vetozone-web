@@ -9,6 +9,7 @@ import {
   Phone,
   Buildings,
   Tag,
+  DownloadSimple,
 } from "@phosphor-icons/react";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
@@ -123,6 +124,39 @@ export default function Admin() {
     setAuthed(false);
   };
 
+  const exportCsv = () => {
+    if (!contacts.length) {
+      toast.error("Dışa aktarılacak talep yok");
+      return;
+    }
+    const headers = ["Tarih", "Ad Soyad", "E-posta", "Telefon", "Klinik", "Talep Türü", "Mesaj"];
+    const esc = (v) => `"${String(v ?? "").replace(/"/g, '""')}"`;
+    const rows = contacts.map((c) =>
+      [
+        new Date(c.created_at).toLocaleString("tr-TR"),
+        c.name,
+        c.email,
+        c.phone,
+        c.clinic,
+        TYPE_LABELS[c.request_type] || c.request_type,
+        c.message,
+      ]
+        .map(esc)
+        .join(",")
+    );
+    const csv = "\uFEFF" + [headers.map(esc).join(","), ...rows].join("\r\n");
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `vetozone-talepler-${new Date().toISOString().slice(0, 10)}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    toast.success("CSV indirildi");
+  };
+
   if (!authed) return <LoginView onLogin={() => setAuthed(true)} />;
 
   return (
@@ -149,13 +183,22 @@ export default function Admin() {
             <h1 className="font-display font-bold text-3xl sm:text-4xl tracking-tight">Gelen Talepler</h1>
             <p className="text-white/50 mt-1 text-sm">Toplam {contacts.length} talep</p>
           </div>
-          <button
-            onClick={load}
-            className="text-sm font-semibold text-[var(--brand)] hover:underline"
-            data-testid="admin-refresh"
-          >
-            Yenile
-          </button>
+          <div className="flex items-center gap-4">
+            <button
+              onClick={exportCsv}
+              className="inline-flex items-center gap-2 text-sm font-semibold bg-white/10 hover:bg-white/15 text-white rounded-sm px-4 py-2 transition-colors"
+              data-testid="admin-export-csv"
+            >
+              <DownloadSimple size={16} weight="bold" /> CSV İndir
+            </button>
+            <button
+              onClick={load}
+              className="text-sm font-semibold text-[var(--brand)] hover:underline"
+              data-testid="admin-refresh"
+            >
+              Yenile
+            </button>
+          </div>
         </div>
 
         {loading ? (
