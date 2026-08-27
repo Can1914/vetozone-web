@@ -100,6 +100,7 @@ class Contact(BaseModel):
     request_type: str = "quote"
     message: str
     status: str = "new"
+    note: str = ""
     created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
 
 
@@ -126,6 +127,10 @@ class TokenResponse(BaseModel):
 
 class StatusUpdate(BaseModel):
     status: str
+
+
+class NoteUpdate(BaseModel):
+    note: str
 
 
 # ---------- Routes ----------
@@ -165,6 +170,19 @@ async def admin_update_contact(
     if payload.status == "closed":
         await notify_contact_closed(contact)
     return contact
+
+
+@api_router.patch("/admin/contacts/{contact_id}/note", response_model=Contact)
+async def admin_update_note(
+    contact_id: str, payload: NoteUpdate, _: str = Depends(get_current_admin)
+):
+    await db.contacts.update_one(
+        {"id": contact_id}, {"$set": {"note": payload.note[:2000]}}
+    )
+    doc = await db.contacts.find_one({"id": contact_id}, {"_id": 0})
+    if not doc:
+        raise HTTPException(status_code=404, detail="Talep bulunamadı")
+    return Contact(**doc)
 
 
 async def notify_contact_closed(contact: "Contact") -> None:

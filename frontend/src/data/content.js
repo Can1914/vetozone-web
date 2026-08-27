@@ -330,6 +330,7 @@ export const CONTENT = {
         ["Tüm ozon protokolleri", true, true],
         ["İdeal kullanım", "Yoğun klinik kullanımı", "Gezici veteriner / saha"],
       ],
+      brochure: "Broşür İndir (PDF)",
     },
   },
 
@@ -573,6 +574,7 @@ export const CONTENT = {
         ["All ozone protocols", true, true],
         ["Ideal use", "High-volume clinic use", "Mobile vet / field service"],
       ],
+      brochure: "Download Brochure (PDF)",
     },
   },
 };

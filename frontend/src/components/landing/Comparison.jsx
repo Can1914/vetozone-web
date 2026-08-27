@@ -1,5 +1,4 @@
-import { Check } from "@phosphor-icons/react";
-import { useLang } from "@/context/LanguageContext";
+import { Check, FilePdf } from "@phosphor-icons/react";import { useLang } from "@/context/LanguageContext";
 import { Reveal } from "./Reveal";
 
 const Cell = ({ value, highlight }) => {
@@ -78,6 +77,20 @@ export const Comparison = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.15}>
+          <div className="mt-8 flex justify-center">
+            <a
+              href="/vetozone-brosur.pdf"
+              download
+              className="group inline-flex items-center gap-2.5 bg-[var(--brand)] hover:bg-[var(--brand-hover)] text-white font-semibold px-7 py-4 rounded-sm transition-colors active:scale-[0.98]"
+              data-testid="brochure-download"
+            >
+              <FilePdf size={20} weight="fill" />
+              {c.brochure}
+            </a>
           </div>
         </Reveal>
       </div>

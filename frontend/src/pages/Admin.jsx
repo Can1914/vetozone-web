@@ -31,6 +31,35 @@ const STATUSES = [
 const inputCls =
   "w-full bg-[var(--surface)] border border-white/10 rounded-sm px-4 py-3.5 text-white placeholder:text-white/35 text-sm focus:outline-none focus:border-[var(--brand)] transition-colors";
 
+const NoteEditor = ({ contact, onSave }) => {
+  const [text, setText] = useState(contact.note || "");
+  const dirty = text !== (contact.note || "");
+  return (
+    <div className="mt-4 border-t border-white/10 pt-4">
+      <span className="text-[11px] uppercase tracking-widest font-bold text-white/40">
+        Dahili Not
+      </span>
+      <textarea
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        rows={2}
+        placeholder="Bu talep hakkında dahili not (ör. görüşme özeti)..."
+        className="mt-2 w-full bg-[var(--surface)] border border-white/10 rounded-sm px-3 py-2 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[var(--brand)] resize-none"
+        data-testid={`note-input-${contact.id}`}
+      />
+      {dirty && (
+        <button
+          onClick={() => onSave(text)}
+          className="mt-2 text-xs font-semibold bg-[var(--brand)] hover:bg-[var(--brand-hover)] text-white px-4 py-1.5 rounded-sm transition-colors"
+          data-testid={`note-save-${contact.id}`}
+        >
+          Notu Kaydet
+        </button>
+      )}
+    </div>
+  );
+};
+
 const LoginView = ({ onLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -102,6 +131,8 @@ export default function Admin() {
   const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState("all");
   const [dateFilter, setDateFilter] = useState("all");
+  const [customStart, setCustomStart] = useState("");
+  const [customEnd, setCustomEnd] = useState("");
 
   const load = async () => {
     setLoading(true);
@@ -138,7 +169,7 @@ export default function Admin() {
       toast.error("Dışa aktarılacak talep yok");
       return;
     }
-    const headers = ["Tarih", "Ad Soyad", "E-posta", "Telefon", "Klinik", "Talep Türü", "Durum", "Mesaj"];
+    const headers = ["Tarih", "Ad Soyad", "E-posta", "Telefon", "Klinik", "Talep Türü", "Durum", "Not", "Mesaj"];
     const statusLabel = (v) => (STATUSES.find((s) => s.value === (v || "new")) || {}).label || v;
     const esc = (v) => `"${String(v ?? "").replace(/"/g, '""')}"`;
     const rows = contacts.map((c) =>
@@ -150,6 +181,7 @@ export default function Admin() {
         c.clinic,
         TYPE_LABELS[c.request_type] || c.request_type,
         statusLabel(c.status),
+        c.note,
         c.message,
       ]
         .map(esc)
@@ -183,13 +215,34 @@ export default function Admin() {
     }
   };
 
+  const updateNote = async (id, note) => {
+    const token = localStorage.getItem(TOKEN_KEY);
+    setContacts((prev) => prev.map((c) => (c.id === id ? { ...c, note } : c)));
+    try {
+      await axios.patch(
+        `${API}/admin/contacts/${id}/note`,
+        { note },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      toast.success("Not kaydedildi");
+    } catch (err) {
+      toast.error("Not kaydedilemedi");
+      load();
+    }
+  };
+
   if (!authed) return <LoginView onLogin={() => setAuthed(true)} />;
 
   const inRange = (c) => {
-    if (dateFilter === "all") return true;
     const d = new Date(c.created_at).getTime();
-    const days = dateFilter === "week" ? 7 : 30;
-    return d >= Date.now() - days * 86400000;
+    if (dateFilter === "week") return d >= Date.now() - 7 * 86400000;
+    if (dateFilter === "month") return d >= Date.now() - 30 * 86400000;
+    if (dateFilter === "custom") {
+      const s = customStart ? new Date(customStart + "T00:00:00").getTime() : -Infinity;
+      const e = customEnd ? new Date(customEnd + "T23:59:59").getTime() : Infinity;
+      return d >= s && d <= e;
+    }
+    return true;
   };
   const dateScoped = contacts.filter(inRange);
   const counts = dateScoped.reduce((a, c) => {
@@ -204,6 +257,7 @@ export default function Admin() {
     { value: "all", label: "Tüm Zamanlar" },
     { value: "week", label: "Bu Hafta" },
     { value: "month", label: "Bu Ay" },
+    { value: "custom", label: "Özel" },
   ];
 
   return (
@@ -277,21 +331,42 @@ export default function Admin() {
             })}
           </div>
 
-          <div className="flex items-center border border-white/10 rounded-sm overflow-hidden self-start" data-testid="admin-date-filter">
-            {dateTabs.map((d) => (
-              <button
-                key={d.value}
-                onClick={() => setDateFilter(d.value)}
-                className={`text-xs font-semibold px-3.5 py-2 transition-colors ${
-                  dateFilter === d.value
-                    ? "bg-white/15 text-white"
-                    : "text-white/50 hover:text-white"
-                }`}
-                data-testid={`date-${d.value}`}
-              >
-                {d.label}
-              </button>
-            ))}
+          <div className="flex flex-col gap-2 self-start">
+            <div className="flex items-center border border-white/10 rounded-sm overflow-hidden" data-testid="admin-date-filter">
+              {dateTabs.map((d) => (
+                <button
+                  key={d.value}
+                  onClick={() => setDateFilter(d.value)}
+                  className={`text-xs font-semibold px-3.5 py-2 transition-colors ${
+                    dateFilter === d.value
+                      ? "bg-white/15 text-white"
+                      : "text-white/50 hover:text-white"
+                  }`}
+                  data-testid={`date-${d.value}`}
+                >
+                  {d.label}
+                </button>
+              ))}
+            </div>
+            {dateFilter === "custom" && (
+              <div className="flex items-center gap-2" data-testid="custom-date-range">
+                <input
+                  type="date"
+                  value={customStart}
+                  onChange={(e) => setCustomStart(e.target.value)}
+                  className="bg-[var(--surface)] border border-white/10 rounded-sm px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-[var(--brand)]"
+                  data-testid="date-start"
+                />
+                <span className="text-white/40 text-xs">—</span>
+                <input
+                  type="date"
+                  value={customEnd}
+                  onChange={(e) => setCustomEnd(e.target.value)}
+                  className="bg-[var(--surface)] border border-white/10 rounded-sm px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-[var(--brand)]"
+                  data-testid="date-end"
+                />
+              </div>
+            )}
           </div>
         </div>
 
@@ -360,6 +435,7 @@ export default function Admin() {
                     );
                   })}
                 </div>
+                <NoteEditor contact={c} onSave={(note) => updateNote(c.id, note)} />
               </div>
             ))}
           </div>
