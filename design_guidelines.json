@@ -1,0 +1,148 @@
+{
+  "project_name": "Vetozone - Premium Veterinary Medical Ozone Generator",
+  "design_archetype": "The Performance Pro & Swiss High-Contrast Hybrid (Elite Tactical Precision + Medical Authority)",
+  "theme_strategy": "Hybrid Theme. Dark mode (Obsidian) for Hero and visual impact sections to highlight the Red/Black product. Light mode (Medical White) for data-heavy sections (Specs, Treatments) for clinical trust and readability.",
+  "typography": {
+    "primary_font": "Cabinet Grotesk",
+    "primary_font_usage": "Headings, Large UI typography, Marquees (Provides an engineered, premium, authoritative feel). Do NOT use Inter.",
+    "secondary_font": "Manrope",
+    "secondary_font_usage": "Body text, UI elements, Data tables, Form inputs (Excellent legibility for technical data).",
+    "hierarchy": {
+      "h1": "text-5xl sm:text-6xl lg:text-7xl tracking-tighter font-black leading-none",
+      "h2": "text-4xl sm:text-5xl tracking-tight font-bold leading-tight",
+      "h3": "text-2xl sm:text-3xl tracking-tight font-medium",
+      "body": "text-base lg:text-lg leading-relaxed text-opacity-80",
+      "overline": "text-xs uppercase tracking-[0.2em] font-bold"
+    },
+    "installation": "Import from Google Fonts (Manrope) and Fontshare (Cabinet Grotesk) in index.css"
+  },
+  "colors": {
+    "brand": {
+      "primary": "#c8362f",
+      "primary_hover": "#a82d27",
+      "primary_foreground": "#ffffff"
+    },
+    "dark_mode_palette": {
+      "background": "#0a0a0a",
+      "surface": "#141414",
+      "surface_elevated": "#1f1f1f",
+      "border": "rgba(255,255,255,0.1)",
+      "text_main": "#ffffff",
+      "text_muted": "#a1a1aa"
+    },
+    "light_mode_palette": {
+      "background": "#fafafa",
+      "surface": "#ffffff",
+      "surface_elevated": "#f4f4f5",
+      "border": "rgba(0,0,0,0.08)",
+      "text_main": "#09090b",
+      "text_muted": "#71717a"
+    }
+  },
+  "visual_enhancers": {
+    "glassmorphism": "Used strictly on the sticky Navbar and floating UI cards over the hero image. Settings: backdrop-blur-xl bg-black/60 (Dark) or bg-white/70 (Light) with 1px border-white/10.",
+    "shadows": "Minimal. Deep ambient shadows for product shots to create a 3D float effect. Sharp, high-contrast borders for standard cards.",
+    "gradients": "No massive flat gradients. Use a radial spotlight gradient behind the main product in the hero (e.g., radial-gradient from #c8362f/20 to transparent) to make the black/red device pop.",
+    "textures": "Subtle noise overlay (grain) in the dark hero section to give a tactile, premium physical product feel."
+  },
+  "motion": {
+    "scrolling": "Mandatory use of `lenis` for smooth, momentum-based scrolling. This is crucial for the premium feel.",
+    "hero_reveal": "Masked line-by-line staggered text reveal using `framer-motion` (initial y: 100%, clip-path).",
+    "parallax": "Subtle parallax on the hero product image as the user scrolls down.",
+    "hover_states": "Buttons use fluid scaling (scale 0.98 on tap) and background color shifts. Links use an underline expansion effect.",
+    "cards": "Subtle y-axis lift (-translate-y-1) and border color illumination on hover."
+  },
+  "layouts": {
+    "grid_system": "Bento 'Tetris' Grid for the features section. Asymmetric layouts heavily prioritized over symmetric center-aligned content.",
+    "spacing": "Extremely generous. Sections should be padded with py-24 or py-32. Elements within features should use gap-8 or gap-12."
+  },
+  "components_and_sections": [
+    {
+      "name": "Navigation",
+      "type": "Sticky Header",
+      "instructions": "Crystal Glassmorphism (backdrop-blur-xl, subtle border-b). Includes Logo (text based with O3 mark), TR/EN Language Switcher (styled as sleek text toggle), and 'Request Quote' primary button. Z-index 50."
+    },
+    {
+      "name": "Hero Section",
+      "type": "Dark Mode Kinetic Hero",
+      "instructions": "Massive asymmetric layout. Left: H1 text 'The New Standard in Veterinary Ozone Therapy' (in EN/TR based on state). Right: Placeholder for Product Image. Add a subtle radial red glow behind the product placeholder. Use a Framer Motion staggered reveal for the text."
+    },
+    {
+      "name": "Manifesto Marquee",
+      "type": "Editorial Ribbon",
+      "instructions": "react-fast-marquee. Massive outline text (Cabinet Grotesk text-8xl, transparent text, 1px white/black border) moving slowly. Text: '100% DOMESTIC PRODUCTION • VETERINARY EXCLUSIVE • CE CERTIFIED •'"
+    },
+    {
+      "name": "Features Bento Grid",
+      "type": "Light/Dark Asymmetric Grid",
+      "instructions": "Grid cols-1 md:cols-12. Showcase features: 0.1-50 ug/ml Wide Dose Range (col-span-8), 800 mBar High Vacuum (col-span-4), 4.3 inch TFT Screen (col-span-4), Dual Catalyst Odorless Tech (col-span-8). Cards have sharp 1px borders, minimal padding, highly technical look."
+    },
+    {
+      "name": "Target Species & Use Cases",
+      "type": "Interactive Tabs (Shadcn customized)",
+      "instructions": "Tabs for Dogs & Cats, Horses, Cattle. Selecting a tab fades in the corresponding premium image and a list of specific treatment methods (Major Autohemotherapy, Saline, etc.). Image should fill the container with an elegant aspect ratio."
+    },
+    {
+      "name": "Technical Specifications",
+      "type": "Medical Data Table",
+      "instructions": "Light mode section. High contrast, clean, minimalist table for tech specs. border-collapse, subtle border-b on rows. Highly legible."
+    },
+    {
+      "name": "Contact / Quote Form",
+      "type": "Conversion Section",
+      "instructions": "Split layout. Left: Persuasive text and contact info. Right: Shadcn Form. Must include working validation and a sleek, non-default styling (square inputs, brand red submit button)."
+    },
+    {
+      "name": "Footer",
+      "type": "Massive Typography",
+      "instructions": "Huge 'VETOZONE' text taking up the width of the screen. Clean links, copyright, CE/ÜTS badges."
+    }
+  ],
+  "media_and_images": {
+    "rules": "Use ONLY these URLs for corresponding sections. Never use dummyimage or placeholders.",
+    "images": [
+      {
+        "category": "Target Species - Dogs & Cats",
+        "url": "https://images.pexels.com/photos/6235011/pexels-photo-6235011.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Veterinarian and client with dog in a premium clinic."
+      },
+      {
+        "category": "Target Species - Dogs & Cats Alternate",
+        "url": "https://images.pexels.com/photos/6235238/pexels-photo-6235238.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Veterinarian in blue scrubs examining a fluffy dog."
+      },
+      {
+        "category": "Target Species - Horses",
+        "url": "https://images.pexels.com/photos/15358596/pexels-photo-15358596.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Premium equestrian scene."
+      },
+      {
+        "category": "Target Species - Cattle",
+        "url": "https://images.pexels.com/photos/5633476/pexels-photo-5633476.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Holstein cow in a lush field."
+      }
+    ]
+  },
+  "accessibility": {
+    "contrast": "All text must pass APCA/WCAG standards. Do NOT put unshadowed text over images. Use gradients or overlays.",
+    "interactive": "All buttons, tabs, and form elements MUST have a `data-testid` attribute."
+  },
+  "instructions_to_main_agent": [
+    "You are building a premium, Awwwards-level landing page. DO NOT USE STANDARD BOOTSTRAP-LIKE LAYOUTS.",
+    "Initialize and implement 'lenis' for smooth scrolling.",
+    "Implement 'framer-motion' for all entrance animations and text reveals.",
+    "Use 'react-fast-marquee' for the manifesto section.",
+    "Implement an i18n solution or simple React state Context for TR/EN language switching. The prompt explicitly requested English + Turkish.",
+    "The Hero section must have a dark background to make the brand's Red/Black physical device pop. Do not make the whole site dark; transition into light mode for the technical specs and medical details to build clinical trust.",
+    "Use Phosphor Icons (@phosphor-icons/react) or Lucide (lucide-react) for a sharp, technical look.",
+    "Build the contact form using Shadcn UI form components but strip Vercel defaults; use sharp corners or 4px radiuses max to match the 'engineered' vibe."
+  ],
+  "universal_guidelines_for_main_agent": [
+    "Do not converge toward generic outputs. Use layered depth and sharp contrasts.",
+    "Do not apply `transition: all` globally.",
+    "Do not center-align the main app container or standard text. Use left alignment for structure.",
+    "Use Sonner for toasts (`/app/src/components/ui/sonner.jsx`).",
+    "Add test IDs (`data-testid`) to all actionable elements.",
+    "Never use AI assistant emojis."
+  ]
+}

@@ -1,0 +1,426 @@
+// Bilingual content (TR / EN) + structured data for the Vetozone landing page.
+
+export const ASSETS = {
+  deviceHero:
+    "https://customer-assets-lqy194kg.emergentagent.net/job_98caa84f-6aad-44a3-b114-d3248f65d171/artifacts/4y8zum12_image.webp",
+  logo:
+    "https://customer-assets-lqy194kg.emergentagent.net/job_98caa84f-6aad-44a3-b114-d3248f65d171/artifacts/1l9j6wj8_image.png",
+  species: {
+    dogcat:
+      "https://images.pexels.com/photos/6235238/pexels-photo-6235238.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    horse:
+      "https://images.pexels.com/photos/15358596/pexels-photo-15358596.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    cattle:
+      "https://images.pexels.com/photos/5633476/pexels-photo-5633476.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  },
+};
+
+export const CONTENT = {
+  tr: {
+    nav: {
+      product: "Ürün",
+      features: "Özellikler",
+      uses: "Kullanım",
+      specs: "Teknik",
+      contact: "İletişim",
+      quote: "Teklif Al",
+    },
+    hero: {
+      overline: "Veteriner Hekimler İçin — 2021",
+      titleLines: ["Veteriner", "Ozon Terapisinde", "Yeni Standart."],
+      accentWord: "Ozon Terapisinde",
+      sub: "Tamamıyla yerli üretim, en hassas doz aralığına sahip yüksek teknolojili medikal ozon jeneratörü. Türkiye'de ilk ve tek.",
+      ctaPrimary: "Fiyat Teklifi Al",
+      ctaSecondary: "Demo Talep Et",
+      stats: [
+        { value: "0.1–50", label: "µg/ml doz aralığı" },
+        { value: "800", label: "mBar vakum gücü" },
+        { value: "%100", label: "yerli üretim" },
+      ],
+    },
+    marquee: [
+      "%100 YERLİ ÜRETİM",
+      "VETERİNER HEKİMLERE ÖZEL",
+      "CE BELGELİ",
+      "ÜTS KAYITLI",
+      "SIFIR OZON KOKUSU",
+    ],
+    manifesto: {
+      overline: "Türkiye'de İlk ve Tek",
+      title: "Hayvanlarda ozon terapisinde öncü.",
+      body: "Vetozone, 2021 yılında piyasaya sürülen, tamamıyla yerli üretim, en hassas ve güvenilir doz aralığına sahip yüksek teknolojili bir veteriner ozon cihazıdır. Özel tasarım sehpası, 4.3 inç TFT ekranı ve tek encoder tuşuyla ergonomik kullanım sunar.",
+      chapters: [
+        {
+          no: "01",
+          title: "ÜTS Kayıtlı & CE Belgeli",
+          text: "Türkiye'nin ilk ve tek ÜTS kayıtlı, CE belgeli medikal ozon jeneratörü.",
+        },
+        {
+          no: "02",
+          title: "Sürdürülebilirlik & Kalite",
+          text: "Özenle seçilmiş komponentler ve 10 yıl yedek parça temin garantisi.",
+        },
+        {
+          no: "03",
+          title: "Güçlü Teknik Servis",
+          text: "İlk 1 yıl içinde oluşabilecek arızalara karşı yeni cihazla değiştirme garantisi.",
+        },
+        {
+          no: "04",
+          title: "Ekonomik",
+          text: "Yurt dışındaki muadillerine göre fiyat/performans açısından çok ekonomik.",
+        },
+      ],
+    },
+    features: {
+      overline: "Teknolojik Üstünlük",
+      title: "Neden Vetozone?",
+      sub: "Klinik ihtiyaçlarınız düşünülerek tasarlanmış, kullanıcı dostu ve güvenli çözümler.",
+      items: [
+        {
+          key: "dose",
+          title: "Geniş & Hassas Doz Aralığı",
+          text: "0,1 µg/ml'den 50 µg/ml'ye kadar geniş yelpaze. Serum fizyolojik ozonlama için 3 µg/ml altında güvenilir düşük doz üretimi.",
+          tag: "0.1 – 50 µg/ml",
+        },
+        {
+          key: "vacuum",
+          title: "800 mBar Yüksek Vakum",
+          text: "Yüksek vakum gücüyle yara tedavilerinde torbayı hızla boşaltır. Çift katalizatör ozonu oksijene çevirir.",
+          tag: "800 mBar",
+        },
+        {
+          key: "screen",
+          title: "4.3\" TFT Renkli Ekran",
+          text: "Yüksek çözünürlüklü ekran ile tüm değerleri net görün. Işıklı encoder ile tek düğmeyle kontrol.",
+          tag: "TFT",
+        },
+        {
+          key: "stand",
+          title: "Özel Tasarım Sehpa",
+          text: "Ergonomik özel sehpa. Arka bölme 5 lt oksijen tüpü girecek şekilde tasarlandı.",
+          tag: "5L Tüp",
+        },
+        {
+          key: "catalyst",
+          title: "Çift Katalizatör",
+          text: "Çift katalizatör sistemiyle sıfır ozon kokusu ve uzun ömür. Maksimum güvenlik, minimum bakım.",
+          tag: "Kokusuz",
+        },
+        {
+          key: "domestic",
+          title: "%100 Yerli Üretim",
+          text: "2021'den bu yana tamamıyla Türkiye'de üretilir. Hızlı servis ve yedek parça desteği.",
+          tag: "Made in Türkiye",
+        },
+      ],
+    },
+    uses: {
+      overline: "Uygulama Alanları",
+      title: "Hangi hayvanlarda kullanılır?",
+      sub: "Vetozone; köpek, kedi, at ve büyükbaş hayvanlar başta olmak üzere pek çok türde uygulanabilir.",
+      tabs: [
+        {
+          key: "dogcat",
+          label: "Köpek & Kedi",
+          heading: "Köpek & Kedi",
+          text: "Yara tedavisi, enfeksiyon kontrolü ve bağışıklık desteğinde etkili. FIP, Parvoviral enterit ve panleukopeni gibi durumlarda destekleyici.",
+          points: ["Yara tedavisi", "Enfeksiyon kontrolü", "Bağışıklık desteği", "FIP & Parvo desteği"],
+        },
+        {
+          key: "horse",
+          label: "At",
+          heading: "At",
+          text: "Eklem sorunları, kas iyileştirme ve performans desteğinde tercih edilir. Kronik problemlerde bütünleyici tedavi.",
+          points: ["Eklem sorunları", "Kas iyileştirme", "Performans desteği", "Analjezik destek"],
+        },
+        {
+          key: "cattle",
+          label: "Büyükbaş & Küçükbaş",
+          heading: "Büyükbaş & Küçükbaş",
+          text: "Meme iltihabı, ayak hastalıkları ve genel sağlık yönetiminde güvenli çözüm.",
+          points: ["Meme iltihabı", "Ayak hastalıkları", "Genel sağlık", "Enfeksiyon yönetimi"],
+        },
+      ],
+      methodsTitle: "Tedavi Yöntemleri",
+      methods: [
+        "Majör Otohemoterapi",
+        "Minör Otohemoterapi",
+        "Serum Fizyolojik Ozonlama",
+        "Topikal Uygulama",
+        "Rektal Uygulama",
+        "Su Ozonlama",
+        "Lokal Uygulamalar",
+      ],
+    },
+    specs: {
+      overline: "Teknik Özellikler",
+      title: "Detaylı Teknik Veriler",
+      rows: [
+        ["Düşük Doz Aralığı", "0,1 — 2,9 µg/ml (0,1 artışla 29 kademe)"],
+        ["Yüksek Doz Aralığı", "3 — 50 µg/ml"],
+        ["Vakum Gücü", "800 mBar (Yüksek Emiş)"],
+        ["Ekran", "4.3\" TFT Renkli Ekran"],
+        ["Kontrol", "Tek tuşlu ergonomik encoder (ışıklı)"],
+        ["Güvenlik", "Çift Katalizatör (Kokusuz, uzun ömürlü)"],
+        ["Sehpa", "Özel tasarım, 5L oksijen tüpü bölmeli"],
+        ["Belgelendirme", "CE Belgeli · ÜTS Kayıtlı"],
+      ],
+    },
+    testimonials: {
+      overline: "Hekimlerimiz Ne Diyor?",
+      title: "Sahada kanıtlanmış güven.",
+      items: [
+        {
+          quote: "Vetozone ile çalışmaya başladığımızdan beri tedavilerimize büyük destek oldu. Direkt tedavi amaçlı da kullanıyoruz.",
+          name: "Semih Alçın",
+          role: "Veteriner Hekim · Vetplus Veteriner Kliniği",
+        },
+        {
+          quote: "Birçok umutsuz can, ozon sayesinde hayata tutunuyor. Mesleğimize yaptığınız katkı çok büyük.",
+          name: "H. İbrahim Başyiğit",
+          role: "Veteriner Hekim · Clinic Atakum Samsun",
+        },
+        {
+          quote: "İlaçsız bir tedavi yöntemi olmasından oldukça mutluyuz. Kronik hastalıklarda minik dostlarımızın refahını sağlayabildik.",
+          name: "Burcu Gül Çaçaron",
+          role: "Veteriner Hekim · Miravet Veteriner Kliniği",
+        },
+      ],
+    },
+    contact: {
+      overline: "İletişim",
+      title: "Vetozone hakkında bilgi alın.",
+      sub: "Fiyat teklifi veya demo talebi için hemen iletişime geçin. Ekibimiz en kısa sürede size dönüş yapar.",
+      phone: "0530 020 83 13",
+      email: "info@vetozone.com.tr",
+      location: "İzmir, Türkiye",
+      form: {
+        name: "Ad Soyad",
+        email: "E-posta",
+        phone: "Telefon",
+        clinic: "Klinik / Kurum",
+        type: "Talep türü",
+        typeOptions: [
+          { value: "quote", label: "Fiyat Teklifi" },
+          { value: "demo", label: "Demo Talebi" },
+          { value: "info", label: "Bilgi" },
+        ],
+        message: "Mesajınız",
+        submit: "Gönder",
+        sending: "Gönderiliyor...",
+        success: "Talebiniz alındı. En kısa sürede dönüş yapacağız.",
+        error: "Bir hata oluştu. Lütfen tekrar deneyin.",
+      },
+    },
+    footer: {
+      tagline: "Türkiye'nin ilk ve tek veteriner medikal ozon jeneratörü.",
+      rights: "Tüm hakları saklıdır.",
+      badges: ["CE Belgeli", "ÜTS Kayıtlı", "%100 Yerli"],
+    },
+  },
+
+  en: {
+    nav: {
+      product: "Product",
+      features: "Features",
+      uses: "Uses",
+      specs: "Specs",
+      contact: "Contact",
+      quote: "Get a Quote",
+    },
+    hero: {
+      overline: "For Veterinarians — Since 2021",
+      titleLines: ["The New Standard", "in Veterinary", "Ozone Therapy."],
+      accentWord: "in Veterinary",
+      sub: "A fully domestic, high-tech medical ozone generator with the most precise dose range. The first and only of its kind in Türkiye.",
+      ctaPrimary: "Get a Quote",
+      ctaSecondary: "Request a Demo",
+      stats: [
+        { value: "0.1–50", label: "µg/ml dose range" },
+        { value: "800", label: "mBar vacuum power" },
+        { value: "100%", label: "domestic production" },
+      ],
+    },
+    marquee: [
+      "100% DOMESTIC PRODUCTION",
+      "VETERINARY EXCLUSIVE",
+      "CE CERTIFIED",
+      "ÜTS REGISTERED",
+      "ZERO OZONE ODOR",
+    ],
+    manifesto: {
+      overline: "First & Only in Türkiye",
+      title: "Pioneering ozone therapy in animals.",
+      body: "Launched in 2021, Vetozone is a fully domestic, high-tech veterinary ozone device with the most precise and reliable dose range. Its custom stand, 4.3\" TFT screen and single-encoder control deliver ergonomic operation.",
+      chapters: [
+        {
+          no: "01",
+          title: "ÜTS Registered & CE Certified",
+          text: "Türkiye's first and only ÜTS-registered, CE-certified medical ozone generator.",
+        },
+        {
+          no: "02",
+          title: "Sustainability & Quality",
+          text: "Carefully selected components with a 10-year spare-parts supply guarantee.",
+        },
+        {
+          no: "03",
+          title: "Strong Technical Service",
+          text: "Full device replacement guarantee against faults within the first year.",
+        },
+        {
+          no: "04",
+          title: "Economical",
+          text: "Exceptional price/performance compared to international equivalents.",
+        },
+      ],
+    },
+    features: {
+      overline: "Technological Superiority",
+      title: "Why Vetozone?",
+      sub: "User-friendly, safe solutions designed around your clinical needs.",
+      items: [
+        {
+          key: "dose",
+          title: "Wide & Precise Dose Range",
+          text: "A broad spectrum from 0.1 µg/ml to 50 µg/ml. Reliable low-dose output below 3 µg/ml for saline ozonation.",
+          tag: "0.1 – 50 µg/ml",
+        },
+        {
+          key: "vacuum",
+          title: "800 mBar High Vacuum",
+          text: "High vacuum power empties the bag rapidly in wound treatments. Dual catalyst converts ozone back to oxygen.",
+          tag: "800 mBar",
+        },
+        {
+          key: "screen",
+          title: "4.3\" TFT Color Screen",
+          text: "See every value clearly on a high-resolution display. Single-button control via illuminated encoder.",
+          tag: "TFT",
+        },
+        {
+          key: "stand",
+          title: "Custom-Designed Stand",
+          text: "Ergonomic bespoke stand. The rear compartment fits a 5L oxygen tank.",
+          tag: "5L Tank",
+        },
+        {
+          key: "catalyst",
+          title: "Dual Catalyst",
+          text: "Dual catalyst system means zero ozone odor and long life. Maximum safety, minimal maintenance.",
+          tag: "Odorless",
+        },
+        {
+          key: "domestic",
+          title: "100% Domestic Production",
+          text: "Fully produced in Türkiye since 2021. Fast service and spare-parts support.",
+          tag: "Made in Türkiye",
+        },
+      ],
+    },
+    uses: {
+      overline: "Applications",
+      title: "Which animals is it used for?",
+      sub: "Vetozone can be applied across many species — dogs, cats, horses and livestock in particular.",
+      tabs: [
+        {
+          key: "dogcat",
+          label: "Dogs & Cats",
+          heading: "Dogs & Cats",
+          text: "Effective in wound care, infection control and immune support. Supportive in conditions such as FIP, parvoviral enteritis and panleukopenia.",
+          points: ["Wound care", "Infection control", "Immune support", "FIP & Parvo support"],
+        },
+        {
+          key: "horse",
+          label: "Horse",
+          heading: "Horse",
+          text: "Preferred for joint issues, muscle recovery and performance support. A complementary therapy for chronic problems.",
+          points: ["Joint issues", "Muscle recovery", "Performance support", "Analgesic support"],
+        },
+        {
+          key: "cattle",
+          label: "Cattle & Livestock",
+          heading: "Cattle & Livestock",
+          text: "A safe solution for mastitis, hoof diseases and general health management.",
+          points: ["Mastitis", "Hoof diseases", "General health", "Infection management"],
+        },
+      ],
+      methodsTitle: "Treatment Methods",
+      methods: [
+        "Major Autohemotherapy",
+        "Minor Autohemotherapy",
+        "Saline Ozonation",
+        "Topical Application",
+        "Rectal Application",
+        "Water Ozonation",
+        "Local Applications",
+      ],
+    },
+    specs: {
+      overline: "Technical Specifications",
+      title: "Detailed Technical Data",
+      rows: [
+        ["Low Dose Range", "0.1 — 2.9 µg/ml (29 steps of 0.1)"],
+        ["High Dose Range", "3 — 50 µg/ml"],
+        ["Vacuum Power", "800 mBar (High Suction)"],
+        ["Display", "4.3\" TFT Color Screen"],
+        ["Control", "Single illuminated ergonomic encoder"],
+        ["Safety", "Dual Catalyst (Odorless, long-life)"],
+        ["Stand", "Custom design, 5L oxygen tank compartment"],
+        ["Certification", "CE Certified · ÜTS Registered"],
+      ],
+    },
+    testimonials: {
+      overline: "What Vets Say",
+      title: "Trust proven in the field.",
+      items: [
+        {
+          quote: "Since we started using Vetozone it has been a huge support to our treatments. We also use it as a direct therapy.",
+          name: "Semih Alçın",
+          role: "Veterinarian · Vetplus Clinic",
+        },
+        {
+          quote: "Many hopeless lives hold on thanks to ozone. Your contribution to our profession is immense.",
+          name: "H. İbrahim Başyiğit",
+          role: "Veterinarian · Clinic Atakum Samsun",
+        },
+        {
+          quote: "We are delighted it is a drug-free method. We improved the welfare of our little friends with chronic diseases.",
+          name: "Burcu Gül Çaçaron",
+          role: "Veterinarian · Miravet Clinic",
+        },
+      ],
+    },
+    contact: {
+      overline: "Contact",
+      title: "Learn more about Vetozone.",
+      sub: "Get in touch now for a price quote or a demo. Our team will respond as soon as possible.",
+      phone: "0530 020 83 13",
+      email: "info@vetozone.com.tr",
+      location: "İzmir, Türkiye",
+      form: {
+        name: "Full Name",
+        email: "Email",
+        phone: "Phone",
+        clinic: "Clinic / Institution",
+        type: "Request type",
+        typeOptions: [
+          { value: "quote", label: "Price Quote" },
+          { value: "demo", label: "Demo Request" },
+          { value: "info", label: "Information" },
+        ],
+        message: "Your Message",
+        submit: "Send",
+        sending: "Sending...",
+        success: "Your request has been received. We'll get back to you shortly.",
+        error: "Something went wrong. Please try again.",
+      },
+    },
+    footer: {
+      tagline: "Türkiye's first and only veterinary medical ozone generator.",
+      rights: "All rights reserved.",
+      badges: ["CE Certified", "ÜTS Registered", "100% Domestic"],
+    },
+  },
+};
