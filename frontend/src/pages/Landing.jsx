@@ -7,6 +7,7 @@ import { Manifesto } from "@/components/landing/Manifesto";
 import { Features } from "@/components/landing/Features";
 import { UseCases } from "@/components/landing/UseCases";
 import { MobileProduct } from "@/components/landing/MobileProduct";
+import { Comparison } from "@/components/landing/Comparison";
 import { Gallery } from "@/components/landing/Gallery";
 import { TechSpecs } from "@/components/landing/TechSpecs";
 import { Testimonials } from "@/components/landing/Testimonials";
@@ -45,6 +46,7 @@ export default function Landing() {
         <Features />
         <UseCases />
         <MobileProduct />
+        <Comparison />
         <Gallery />
         <TechSpecs />
         <Testimonials />

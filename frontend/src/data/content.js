@@ -314,6 +314,23 @@ export const CONTENT = {
       ],
       cta: "Bilgi Al",
     },
+    compare: {
+      overline: "Model Karşılaştırma",
+      title: "Size uygun Vetozone hangisi?",
+      sub: "Klinik içi yoğun kullanım mı, yoksa saha ve mobil hizmet mi? İki modeli yan yana karşılaştırın.",
+      col1: "Vetozone Plus",
+      col2: "Portatif Model",
+      badge: "Popüler",
+      rows: [
+        ["Kullanım yeri", "Klinik / sabit", "Saha & mobil"],
+        ["Gövde tasarımı", "Özel sehpa + tekerlek", "Dayanıklı taşıma valizi"],
+        ["Taşınabilirlik", "Klinik içi", "Teleskopik kol ile her yere"],
+        ["Doz aralığı", "0.1 – 50 µg/ml", "0.1 – 50 µg/ml"],
+        ["Vakum gücü", "800 mBar", "800 mBar"],
+        ["Tüm ozon protokolleri", true, true],
+        ["İdeal kullanım", "Yoğun klinik kullanımı", "Gezici veteriner / saha"],
+      ],
+    },
   },
 
   en: {
@@ -539,6 +556,23 @@ export const CONTENT = {
         "Fully equipped ozone generator",
       ],
       cta: "Learn More",
+    },
+    compare: {
+      overline: "Model Comparison",
+      title: "Which Vetozone is right for you?",
+      sub: "Intensive in-clinic use, or field and mobile service? Compare the two models side by side.",
+      col1: "Vetozone Plus",
+      col2: "Portable Model",
+      badge: "Popular",
+      rows: [
+        ["Place of use", "Clinic / stationary", "Field & mobile"],
+        ["Body design", "Custom stand + wheels", "Rugged transport case"],
+        ["Portability", "Within the clinic", "Telescopic handle, anywhere"],
+        ["Dose range", "0.1 – 50 µg/ml", "0.1 – 50 µg/ml"],
+        ["Vacuum power", "800 mBar", "800 mBar"],
+        ["All ozone protocols", true, true],
+        ["Ideal use", "High-volume clinic use", "Mobile vet / field service"],
+      ],
     },
   },
 };

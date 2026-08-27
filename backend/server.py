@@ -161,7 +161,44 @@ async def admin_update_contact(
     doc = await db.contacts.find_one({"id": contact_id}, {"_id": 0})
     if not doc:
         raise HTTPException(status_code=404, detail="Talep bulunamadı")
-    return Contact(**doc)
+    contact = Contact(**doc)
+    if payload.status == "closed":
+        await notify_contact_closed(contact)
+    return contact
+
+
+async def notify_contact_closed(contact: "Contact") -> None:
+    to = os.environ.get("NOTIFY_EMAIL")
+    if not to:
+        return
+    label = TYPE_LABELS_TR.get(contact.request_type, contact.request_type)
+    html = (
+        '<table role="presentation" width="100%"><tr><td style="padding:24px;'
+        'font-family:Arial,sans-serif;color:#111">'
+        '<h2 style="margin:0 0 4px">Talep Kapatıldı ✓</h2>'
+        '<p style="margin:0 0 16px;color:#10b981;font-weight:bold">Bu talep '
+        '\"Kapandı\" olarak işaretlendi.</p>'
+        f'<p style="margin:4px 0"><strong>Ad Soyad:</strong> {escape(contact.name)}</p>'
+        f'<p style="margin:4px 0"><strong>Talep Türü:</strong> {escape(label)}</p>'
+        f'<p style="margin:4px 0"><strong>E-posta:</strong> {escape(contact.email)}</p>'
+        f'<p style="margin:4px 0"><strong>Telefon:</strong> {escape(contact.phone)}</p>'
+        f'<p style="margin:4px 0"><strong>Klinik:</strong> {escape(contact.clinic or "-")}</p>'
+        f'<p style="margin:12px 0 4px"><strong>Talep Mesajı:</strong></p>'
+        f'<p style="margin:0;padding:12px;background:#f4f4f5;border-radius:4px">{escape(contact.message)}</p>'
+        f'<p style="margin:12px 0 0;font-size:13px;color:#555"><strong>Oluşturulma:</strong> {escape(contact.created_at)}</p>'
+        '<p style="font-size:12px;color:#888;margin-top:20px">Bu özet, talep admin panelinde '
+        'kapatıldığında Vetozone tarafından otomatik gönderilmiştir.</p>'
+        '</td></tr></table>'
+    )
+    try:
+        await send_email(
+            to=to,
+            subject=f"Talep Kapatıldı — {contact.name} ({label})",
+            html=html,
+            reply_to=contact.email,
+        )
+    except Exception as e:
+        logger.error(f"Contact closed notification email failed: {e}")
 
 
 TYPE_LABELS_TR = {"quote": "Fiyat Teklifi", "demo": "Demo Talebi", "info": "Bilgi"}
