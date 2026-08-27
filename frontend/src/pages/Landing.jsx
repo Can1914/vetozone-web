@@ -6,6 +6,7 @@ import { ManifestoMarquee } from "@/components/landing/ManifestoMarquee";
 import { Manifesto } from "@/components/landing/Manifesto";
 import { Features } from "@/components/landing/Features";
 import { UseCases } from "@/components/landing/UseCases";
+import { MobileProduct } from "@/components/landing/MobileProduct";
 import { Gallery } from "@/components/landing/Gallery";
 import { TechSpecs } from "@/components/landing/TechSpecs";
 import { Testimonials } from "@/components/landing/Testimonials";
@@ -43,6 +44,7 @@ export default function Landing() {
         <Manifesto />
         <Features />
         <UseCases />
+        <MobileProduct />
         <Gallery />
         <TechSpecs />
         <Testimonials />

@@ -100,6 +100,7 @@ export default function Admin() {
   const [authed, setAuthed] = useState(!!localStorage.getItem(TOKEN_KEY));
   const [contacts, setContacts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [filter, setFilter] = useState("all");
 
   const load = async () => {
     setLoading(true);
@@ -183,6 +184,15 @@ export default function Admin() {
 
   if (!authed) return <LoginView onLogin={() => setAuthed(true)} />;
 
+  const counts = contacts.reduce((a, c) => {
+    const s = c.status || "new";
+    a[s] = (a[s] || 0) + 1;
+    return a;
+  }, {});
+  const filtered =
+    filter === "all" ? contacts : contacts.filter((c) => (c.status || "new") === filter);
+  const filterTabs = [{ value: "all", label: "Tümü" }, ...STATUSES];
+
   return (
     <div className="min-h-screen bg-[var(--ink)] text-white">
       <header className="border-b border-white/10 sticky top-0 bg-black/70 backdrop-blur-xl z-10">
@@ -202,7 +212,7 @@ export default function Admin() {
       </header>
 
       <main className="max-w-6xl mx-auto px-5 sm:px-8 py-10">
-        <div className="flex items-end justify-between mb-8">
+        <div className="flex items-end justify-between mb-6">
           <div>
             <h1 className="font-display font-bold text-3xl sm:text-4xl tracking-tight">Gelen Talepler</h1>
             <p className="text-white/50 mt-1 text-sm">Toplam {contacts.length} talep</p>
@@ -225,15 +235,43 @@ export default function Admin() {
           </div>
         </div>
 
+        <div className="flex flex-wrap gap-2 mb-8" data-testid="admin-filters">
+          {filterTabs.map((tb) => {
+            const count = tb.value === "all" ? contacts.length : counts[tb.value] || 0;
+            const active = filter === tb.value;
+            return (
+              <button
+                key={tb.value}
+                onClick={() => setFilter(tb.value)}
+                className={`inline-flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-sm border transition-colors ${
+                  active
+                    ? "bg-[var(--brand)] text-white border-[var(--brand)]"
+                    : "border-white/10 text-white/60 hover:text-white hover:border-white/25"
+                }`}
+                data-testid={`filter-${tb.value}`}
+              >
+                {tb.label}
+                <span
+                  className={`text-xs font-bold px-1.5 py-0.5 rounded-sm ${
+                    active ? "bg-white/25" : "bg-white/10"
+                  }`}
+                >
+                  {count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
         {loading ? (
           <p className="text-white/50">Yükleniyor...</p>
-        ) : contacts.length === 0 ? (
+        ) : filtered.length === 0 ? (
           <div className="border border-white/10 rounded-sm p-12 text-center text-white/40">
-            Henüz talep yok.
+            {contacts.length === 0 ? "Henüz talep yok." : "Bu durumda talep yok."}
           </div>
         ) : (
           <div className="grid gap-3" data-testid="admin-contacts-list">
-            {contacts.map((c) => (
+            {filtered.map((c) => (
               <div
                 key={c.id}
                 className="border border-white/10 rounded-sm p-5 sm:p-6 hover:border-[var(--brand)]/40 transition-colors"

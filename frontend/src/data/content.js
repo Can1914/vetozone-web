@@ -302,6 +302,18 @@ export const CONTENT = {
       title: "Ozon terapisiyle iyileşen hikayeler.",
       sub: "Kliniklerimizde Vetozone ile gerçekleştirilen tedavilerden kareler. (Görseller temsilidir; kendi vaka fotoğraflarınızla değiştirilebilir.)",
     },
+    mobile: {
+      overline: "Portatif Model",
+      title: "Her yere Vetozone: taşınabilir valiz modeli.",
+      text: "Saha çalışmaları ve mobil veteriner hizmetleri için özel valiz tasarımı. Dayanıklı, tekerlekli ve teleskopik kollu gövdesiyle Vetozone'u kliniğin dışına, hastanın yanına taşıyın.",
+      points: [
+        "Dayanıklı valiz gövde",
+        "Tekerlekli & teleskopik kol",
+        "Saha ve mobil kullanım",
+        "Tam donanımlı ozon jeneratörü",
+      ],
+      cta: "Bilgi Al",
+    },
   },
 
   en: {
@@ -515,6 +527,18 @@ export const CONTENT = {
       overline: "Case Gallery",
       title: "Stories of recovery through ozone therapy.",
       sub: "Moments from treatments performed with Vetozone in our clinics. (Images are illustrative and can be replaced with your own case photos.)",
+    },
+    mobile: {
+      overline: "Portable Model",
+      title: "Vetozone anywhere: the portable case model.",
+      text: "A rugged case design for field work and mobile veterinary services. Take Vetozone beyond the clinic — right to the patient — with its durable, wheeled, telescopic-handle body.",
+      points: [
+        "Rugged case body",
+        "Wheeled & telescopic handle",
+        "Field & mobile use",
+        "Fully equipped ozone generator",
+      ],
+      cta: "Learn More",
     },
   },
 };

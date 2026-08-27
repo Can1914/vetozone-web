@@ -54,6 +54,21 @@ export const Hero = () => {
             </span>
           </motion.div>
 
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="mb-4 flex items-baseline gap-1.5"
+          >
+            <span className="font-display font-black text-3xl sm:text-4xl text-white lowercase tracking-tight">
+              vetozone
+            </span>
+            <span className="font-display font-black text-3xl sm:text-4xl text-[var(--brand)] tracking-tight">
+              Plus
+              <sup className="text-lg">++</sup>
+            </span>
+          </motion.div>
+
           <h1 className="font-display font-black text-white text-[3rem] leading-[0.92] sm:text-6xl lg:text-[5.5rem] tracking-tighter">
             <MaskedLines lines={h.titleLines} accent={h.accentWord} />
           </h1>
