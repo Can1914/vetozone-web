@@ -16,8 +16,12 @@ export const Hero = () => {
   const y = useTransform(scrollYProgress, [0, 1], [0, 160]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
 
-  const scrollTo = (id) =>
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  const scrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (window.lenis) window.lenis.scrollTo(el, { offset: -10 });
+    else el.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <section

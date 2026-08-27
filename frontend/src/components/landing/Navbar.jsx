@@ -7,6 +7,7 @@ const links = [
   { id: "product", key: "product" },
   { id: "features", key: "features" },
   { id: "uses", key: "uses" },
+  { id: "gallery", key: "gallery" },
   { id: "specs", key: "specs" },
   { id: "contact", key: "contact" },
 ];
@@ -25,7 +26,9 @@ export const Navbar = () => {
   const scrollTo = (id) => {
     setOpen(false);
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    if (!el) return;
+    if (window.lenis) window.lenis.scrollTo(el, { offset: -10 });
+    else el.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
