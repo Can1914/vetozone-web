@@ -21,9 +21,9 @@ export const TechSpecs = () => {
             </h2>
             <div className="mt-8 relative rounded-sm overflow-hidden bg-[var(--ink)] p-6 spotlight">
               <img
-                src={ASSETS.deviceHero}
+                src={ASSETS.deviceSpecs}
                 alt="Vetozone"
-                className="mx-auto max-h-64 w-auto object-contain drop-shadow-2xl"
+                className="mx-auto max-h-64 w-auto object-contain drop-shadow-[0_25px_45px_rgba(0,0,0,0.55)]"
                 data-testid="specs-device-image"
               />
             </div>

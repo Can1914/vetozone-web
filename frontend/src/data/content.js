@@ -1,8 +1,9 @@
 // Bilingual content (TR / EN) + structured data for the Vetozone landing page.
 
 export const ASSETS = {
-  deviceHero: "/devices/vetozone-plus-cut.png",
-  deviceMobile: "/devices/vetozone-mobil.jpg",
+  deviceHero: "/devices/vetozone-plus-blue.png",
+  deviceSpecs: "/devices/vetozone-plus-gold.png",
+  deviceMobile: "/devices/vetozone-case.png",
   logo:
     "https://customer-assets-lqy194kg.emergentagent.net/job_98caa84f-6aad-44a3-b114-d3248f65d171/artifacts/1l9j6wj8_image.png",
   species: {
@@ -89,6 +90,8 @@ export const REFERENCES = [
   "Tralles Veteriner Kliniği Aydın",
 ];
 
+export const VIDEOS = ["VWPBA2QLogY", "s5CYEi8pax8", "Mzh2SuFvzkI"];
+
 export const CONTENT = {
   tr: {
     nav: {
@@ -146,6 +149,10 @@ export const CONTENT = {
           text: "Yurt dışındaki muadillerine göre fiyat/performans açısından çok ekonomik.",
         },
       ],
+    },
+    videos: {
+      overline: "Sahadan Görüntüler",
+      title: "Ozon terapisi uygulamalarını izleyin",
     },
     features: {
       overline: "Teknolojik Üstünlük",
@@ -390,6 +397,10 @@ export const CONTENT = {
           text: "Exceptional price/performance compared to international equivalents.",
         },
       ],
+    },
+    videos: {
+      overline: "From the Field",
+      title: "Watch ozone therapy in action",
     },
     features: {
       overline: "Technological Superiority",
