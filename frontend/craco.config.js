@@ -71,13 +71,13 @@ if (config.enableHealthCheck) {
 
 let webpackConfig = {
   eslint: {
-    configure: {
-      extends: ["plugin:react-hooks/recommended"],
-      rules: {
-        "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn",
-      },
-    },
+    // Disabled: eslint-webpack-plugin has no nested `eslint` of its own and
+    // peer-deps on eslint ^7||^8, but this project's top-level eslint is v9
+    // (see devDependencies) — the version mismatch crashes webpack's HTML
+    // child compilation ("Cannot set properties of undefined (setting
+    // 'defaultMeta')"). Linting still works fine in the editor/CI; this only
+    // skips the redundant in-webpack lint pass during dev/build.
+    enable: false,
   },
   webpack: {
     alias: {

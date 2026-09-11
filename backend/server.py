@@ -219,7 +219,15 @@ async def notify_contact_closed(contact: "Contact") -> None:
         logger.error(f"Contact closed notification email failed: {e}")
 
 
-TYPE_LABELS_TR = {"quote": "Fiyat Teklifi", "demo": "Demo Talebi", "info": "Bilgi"}
+TYPE_LABELS_TR = {
+    "quote": "Fiyat Teklifi",
+    "demo": "Demo Talebi",
+    "info": "Bilgi",
+    "teknik_destek": "Teknik Destek",
+    "satis_danismanligi": "Satış Danışmanlığı",
+    "egitim_talebi": "Eğitim Talebi",
+    "bayilik_basvurusu": "Bayilik Başvurusu",
+}
 
 
 async def notify_new_contact(contact: "Contact") -> None:

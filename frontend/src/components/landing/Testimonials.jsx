@@ -6,7 +6,7 @@ export const Testimonials = () => {
   const { t } = useLang();
   const tm = t.testimonials;
   return (
-    <section className="bg-[var(--ink)] text-white py-24 sm:py-32 grain relative" data-testid="testimonials-section">
+    <section id="testimonials" className="bg-[var(--ink)] text-white py-24 sm:py-32 grain relative" data-testid="testimonials-section">
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 relative z-10">
         <Reveal>
           <div className="flex items-center gap-3 mb-6">

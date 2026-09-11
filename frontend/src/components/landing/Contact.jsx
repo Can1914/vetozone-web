@@ -9,12 +9,13 @@ const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
 const empty = { name: "", email: "", phone: "", clinic: "", request_type: "quote", message: "" };
 
-export const Contact = () => {
+export const Contact = ({ extraOptions = [], defaultType, compact = false, overline, title, sub, testid = "contact-section" }) => {
   const { t } = useLang();
   const c = t.contact;
   const f = c.form;
-  const [form, setForm] = useState(empty);
+  const [form, setForm] = useState({ ...empty, request_type: defaultType || empty.request_type });
   const [loading, setLoading] = useState(false);
+  const options = [...f.typeOptions, ...extraOptions];
 
   const update = (k) => (e) => setForm((s) => ({ ...s, [k]: e.target.value }));
 
@@ -24,7 +25,7 @@ export const Contact = () => {
     try {
       await axios.post(`${API}/contact`, form);
       toast.success(f.success);
-      setForm(empty);
+      setForm({ ...empty, request_type: defaultType || empty.request_type });
     } catch (err) {
       toast.error(f.error);
     } finally {
@@ -35,21 +36,75 @@ export const Contact = () => {
   const inputCls =
     "w-full bg-[var(--surface)] border border-white/10 rounded-sm px-4 py-3.5 text-white placeholder:text-white/35 text-sm focus:outline-none focus:border-[var(--brand)] transition-colors";
 
+  const form_ = (
+    <Reveal delay={compact ? 0 : 0.15}>
+      <form onSubmit={submit} className="bg-[var(--surface)]/40 border border-white/10 rounded-sm p-6 sm:p-8" data-testid="contact-form">
+        <div className="grid sm:grid-cols-2 gap-4">
+          <input required value={form.name} onChange={update("name")} placeholder={f.name} className={inputCls} data-testid="form-name" />
+          <input required type="email" value={form.email} onChange={update("email")} placeholder={f.email} className={inputCls} data-testid="form-email" />
+          <input required value={form.phone} onChange={update("phone")} placeholder={f.phone} className={inputCls} data-testid="form-phone" />
+          <input value={form.clinic} onChange={update("clinic")} placeholder={f.clinic} className={inputCls} data-testid="form-clinic" />
+        </div>
+        <div className="mt-4">
+          <select value={form.request_type} onChange={update("request_type")} className={`${inputCls} appearance-none cursor-pointer`} data-testid="form-type">
+            {options.map((o) => (
+              <option key={o.value} value={o.value} className="bg-[var(--surface)] text-white">
+                {o.label}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="mt-4">
+          <textarea required rows={4} value={form.message} onChange={update("message")} placeholder={f.message} className={`${inputCls} resize-none`} data-testid="form-message" />
+        </div>
+        <button
+          type="submit"
+          disabled={loading}
+          className="mt-5 w-full inline-flex items-center justify-center gap-2 bg-[var(--brand)] hover:bg-[var(--brand-hover)] disabled:opacity-60 text-white font-semibold py-4 rounded-sm transition-colors active:scale-[0.99]"
+          data-testid="form-submit"
+        >
+          {loading ? f.sending : f.submit}
+          {!loading && <ArrowRight size={18} weight="bold" />}
+        </button>
+      </form>
+    </Reveal>
+  );
+
+  if (compact) {
+    return (
+      <div data-testid={testid}>
+        {(overline || title) && (
+          <div className="mb-6">
+            {overline && (
+              <div className="flex items-center gap-3 mb-4">
+                <span className="w-8 h-px bg-[var(--brand)]" />
+                <span className="text-[11px] uppercase tracking-[0.25em] font-bold text-white/60">{overline}</span>
+              </div>
+            )}
+            {title && <h3 className="font-display font-bold text-2xl sm:text-3xl tracking-tight">{title}</h3>}
+            {sub && <p className="mt-3 text-white/60 leading-relaxed max-w-lg">{sub}</p>}
+          </div>
+        )}
+        {form_}
+      </div>
+    );
+  }
+
   return (
-    <section id="contact" className="bg-[var(--ink)] text-white py-24 sm:py-32 border-t border-white/10" data-testid="contact-section">
+    <section id="contact" className="bg-[var(--ink)] text-white py-24 sm:py-32 border-t border-white/10" data-testid={testid}>
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-12 lg:gap-20">
         <div>
           <Reveal>
             <div className="flex items-center gap-3 mb-6">
               <span className="w-8 h-px bg-[var(--brand)]" />
               <span className="text-[11px] uppercase tracking-[0.25em] font-bold text-white/60">
-                {c.overline}
+                {overline || c.overline}
               </span>
             </div>
             <h2 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.02]">
-              {c.title}
+              {title || c.title}
             </h2>
-            <p className="mt-6 text-white/60 max-w-md leading-relaxed">{c.sub}</p>
+            <p className="mt-6 text-white/60 max-w-md leading-relaxed">{sub || c.sub}</p>
 
             <div className="mt-10 space-y-5">
               <a href={`tel:${c.phone.replace(/\s/g, "")}`} className="flex items-center gap-4 group" data-testid="contact-phone">
@@ -76,37 +131,7 @@ export const Contact = () => {
           </Reveal>
         </div>
 
-        <Reveal delay={0.15}>
-          <form onSubmit={submit} className="bg-[var(--surface)]/40 border border-white/10 rounded-sm p-6 sm:p-8" data-testid="contact-form">
-            <div className="grid sm:grid-cols-2 gap-4">
-              <input required value={form.name} onChange={update("name")} placeholder={f.name} className={inputCls} data-testid="form-name" />
-              <input required type="email" value={form.email} onChange={update("email")} placeholder={f.email} className={inputCls} data-testid="form-email" />
-              <input required value={form.phone} onChange={update("phone")} placeholder={f.phone} className={inputCls} data-testid="form-phone" />
-              <input value={form.clinic} onChange={update("clinic")} placeholder={f.clinic} className={inputCls} data-testid="form-clinic" />
-            </div>
-            <div className="mt-4">
-              <select value={form.request_type} onChange={update("request_type")} className={`${inputCls} appearance-none cursor-pointer`} data-testid="form-type">
-                {f.typeOptions.map((o) => (
-                  <option key={o.value} value={o.value} className="bg-[var(--surface)] text-white">
-                    {o.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="mt-4">
-              <textarea required rows={4} value={form.message} onChange={update("message")} placeholder={f.message} className={`${inputCls} resize-none`} data-testid="form-message" />
-            </div>
-            <button
-              type="submit"
-              disabled={loading}
-              className="mt-5 w-full inline-flex items-center justify-center gap-2 bg-[var(--brand)] hover:bg-[var(--brand-hover)] disabled:opacity-60 text-white font-semibold py-4 rounded-sm transition-colors active:scale-[0.99]"
-              data-testid="form-submit"
-            >
-              {loading ? f.sending : f.submit}
-              {!loading && <ArrowRight size={18} weight="bold" />}
-            </button>
-          </form>
-        </Reveal>
+        {form_}
       </div>
     </section>
   );

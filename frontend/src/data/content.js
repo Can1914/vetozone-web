@@ -102,6 +102,14 @@ export const CONTENT = {
       specs: "Teknik",
       contact: "İletişim",
       quote: "Teklif Al",
+      treatmentAreas: "Tedavi Alanları",
+      devices: "Cihazlar",
+      doctorsSay: "Hekimler Ne Diyor",
+      academy: "Vetozone Akademi",
+      caseCenter: "Vaka Merkezi",
+      library: "Bilimsel Kütüphane",
+      corporate: "Kurumsal",
+      home: "Ana Sayfa",
     },
     hero: {
       overline: "Veteriner Hekimler İçin — 2021",
@@ -254,9 +262,19 @@ export const CONTENT = {
       title: "Sahada kanıtlanmış güven.",
       items: [
         {
+          quote: "Kliniğimizde neredeyse tüm tedavilerimizde destekleyici olarak ozon terapiyi tüm bilimsel gerçekliğiyle kullanıyoruz. Ürünlerinin arkasında duran, dürüst bir firma oldukları için teşekkürler.",
+          name: "Bahadır Pekyürek",
+          role: "Veteriner Hekim · Hayat Veteriner Kliniği Manisa",
+        },
+        {
           quote: "Vetozone ile çalışmaya başladığımızdan beri tedavilerimize büyük destek oldu. Direkt tedavi amaçlı da kullanıyoruz.",
           name: "Semih Alçın",
           role: "Veteriner Hekim · Vetplus Veteriner Kliniği",
+        },
+        {
+          quote: "Opere etmeye karar verdiğimiz hastalarımızda bile operasyona gerek kalmadan tedavilerden yanıt aldık. İlaçsız bir tedavi yöntemi olması bizi oldukça mutlu ediyor.",
+          name: "Tuğba Pelvanoğlu",
+          role: "Veteriner Hekim · Hopyap Veteriner Kliniği İzmir",
         },
         {
           quote: "Birçok umutsuz can, ozon sayesinde hayata tutunuyor. Mesleğimize yaptığınız katkı çok büyük.",
@@ -264,9 +282,19 @@ export const CONTENT = {
           role: "Veteriner Hekim · Clinic Atakum Samsun",
         },
         {
-          quote: "İlaçsız bir tedavi yöntemi olmasından oldukça mutluyuz. Kronik hastalıklarda minik dostlarımızın refahını sağlayabildik.",
+          quote: "Birden fazla tedavi alanında kullanılabilecek, şık ve kullanımı kolay bir cihaz. Firma eğitim ve sarf malzemesi konularında da çözüm ortağı oluyor.",
+          name: "Sedef Alkut",
+          role: "Veteriner Hekim · Çanakkale Veteriner Kliniği",
+        },
+        {
+          quote: "Ozon tedavisi hem tedaviye destek hem de hassas hasta gruplarında koruyucu amaçlı kullanılabiliyor. Kullanım sahası çok geniş.",
           name: "Burcu Gül Çaçaron",
           role: "Veteriner Hekim · Miravet Veteriner Kliniği",
+        },
+        {
+          quote: "Kullanımının kolay olması, şık tasarımı ve sarf malzemesi temininin kolaylığı, cihazın kliniğimizce tercih edilme sebebi oldu. İyi ki sizlerle tanıştık.",
+          name: "Aydın Alkan Kuşcu",
+          role: "Uzm. Veteriner Hekim · Petcity Veteriner Kliniği Çanakkale",
         },
       ],
     },
@@ -350,6 +378,14 @@ export const CONTENT = {
       specs: "Specs",
       contact: "Contact",
       quote: "Get a Quote",
+      treatmentAreas: "Treatment Areas",
+      devices: "Devices",
+      doctorsSay: "What Doctors Say",
+      academy: "Vetozone Academy",
+      caseCenter: "Case Center",
+      library: "Scientific Library",
+      corporate: "Corporate",
+      home: "Home",
     },
     hero: {
       overline: "For Veterinarians — Since 2021",
@@ -502,9 +538,19 @@ export const CONTENT = {
       title: "Trust proven in the field.",
       items: [
         {
+          quote: "We use ozone therapy, backed by its full scientific reality, as a supportive treatment in nearly every therapy at our clinic. Thank you for standing behind your products and being an honest company.",
+          name: "Bahadır Pekyürek",
+          role: "Veterinarian · Hayat Clinic, Manisa",
+        },
+        {
           quote: "Since we started using Vetozone it has been a huge support to our treatments. We also use it as a direct therapy.",
           name: "Semih Alçın",
           role: "Veterinarian · Vetplus Clinic",
+        },
+        {
+          quote: "Even in patients we had decided to operate on, we got a response from treatment without needing surgery. We're delighted it's a drug-free method.",
+          name: "Tuğba Pelvanoğlu",
+          role: "Veterinarian · Hopyap Clinic, İzmir",
         },
         {
           quote: "Many hopeless lives hold on thanks to ozone. Your contribution to our profession is immense.",
@@ -512,9 +558,19 @@ export const CONTENT = {
           role: "Veterinarian · Clinic Atakum Samsun",
         },
         {
-          quote: "We are delighted it is a drug-free method. We improved the welfare of our little friends with chronic diseases.",
+          quote: "A device that can be used across multiple treatment areas — sleek and easy to use. The company is also a solutions partner for training and consumables.",
+          name: "Sedef Alkut",
+          role: "Veterinarian · Çanakkale Clinic",
+        },
+        {
+          quote: "Ozone therapy can support many treatments and also serve a protective role in sensitive patient groups. Its range of use is very wide.",
           name: "Burcu Gül Çaçaron",
           role: "Veterinarian · Miravet Clinic",
+        },
+        {
+          quote: "Ease of use, sleek design, and easy access to consumables are why our clinic prefers this device. We're glad we found you.",
+          name: "Aydın Alkan Kuşcu",
+          role: "Senior Veterinarian · Petcity Clinic, Çanakkale",
         },
       ],
     },

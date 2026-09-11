@@ -1,16 +1,21 @@
+import { useNavigate, useLocation } from "react-router-dom";
 import { Check, ArrowRight, Briefcase } from "@phosphor-icons/react";
 import { useLang } from "@/context/LanguageContext";
 import { ASSETS } from "@/data/content";
+import { scrollToId } from "@/lib/scrollToId";
 import { Reveal } from "./Reveal";
 
 export const MobileProduct = () => {
   const { t } = useLang();
   const m = t.mobile;
+  const navigate = useNavigate();
+  const location = useLocation();
   const scrollTo = () => {
-    const el = document.getElementById("contact");
-    if (!el) return;
-    if (window.lenis) window.lenis.scrollTo(el, { offset: -10 });
-    else el.scrollIntoView({ behavior: "smooth" });
+    if (location.pathname === "/" && document.getElementById("contact")) {
+      scrollToId("contact");
+    } else {
+      navigate("/iletisim");
+    }
   };
 
   return (

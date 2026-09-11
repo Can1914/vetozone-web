@@ -19,6 +19,10 @@ const TYPE_LABELS = {
   quote: "Fiyat Teklifi",
   demo: "Demo",
   info: "Bilgi",
+  teknik_destek: "Teknik Destek",
+  satis_danismanligi: "Satış Danışmanlığı",
+  egitim_talebi: "Eğitim Talebi",
+  bayilik_basvurusu: "Bayilik Başvurusu",
 };
 
 const STATUSES = [
