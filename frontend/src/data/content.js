@@ -330,7 +330,7 @@ export const CONTENT = {
     },
     references: {
       overline: "Referanslar",
-      title: "Türkiye genelinde 60+ klinik Vetozone kullanıyor.",
+      title: "Türkiye genelinde 100+ klinik Vetozone kullanıyor.",
     },
     gallery: {
       overline: "Vaka Galerisi",
@@ -606,7 +606,7 @@ export const CONTENT = {
     },
     references: {
       overline: "References",
-      title: "60+ clinics across Türkiye use Vetozone.",
+      title: "100+ clinics across Türkiye use Vetozone.",
     },
     gallery: {
       overline: "Case Gallery",
