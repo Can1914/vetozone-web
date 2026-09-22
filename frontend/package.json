@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://can1914.github.io/vetozone-web",
   "dependencies": {
     "@hookform/resolvers": "5.0.1",
     "@phosphor-icons/react": "^2.1.10",
@@ -67,7 +68,8 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "postinstall": "node scripts/fix-legacy-ajv-keywords.js"
+    "postinstall": "node scripts/fix-legacy-ajv-keywords.js",
+    "deploy": "npm run build && cp build/index.html build/404.html && npx --yes gh-pages@6 -d build"
   },
   "overrides": {
     "ajv": "^8.17.1"

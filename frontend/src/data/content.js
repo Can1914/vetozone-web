@@ -1,9 +1,11 @@
 // Bilingual content (TR / EN) + structured data for the Vetozone landing page.
 
+const BASE = process.env.PUBLIC_URL || "";
+
 export const ASSETS = {
-  deviceHero: "/devices/vetozone-plus-blue.png",
-  deviceSpecs: "/devices/vetozone-plus-gold.png",
-  deviceMobile: "/devices/vetozone-case.png",
+  deviceHero: `${BASE}/devices/vetozone-plus-blue.png`,
+  deviceSpecs: `${BASE}/devices/vetozone-plus-gold.png`,
+  deviceMobile: `${BASE}/devices/vetozone-case.png`,
   logo:
     "https://customer-assets-lqy194kg.emergentagent.net/job_98caa84f-6aad-44a3-b114-d3248f65d171/artifacts/1l9j6wj8_image.png",
   species: {

@@ -19,7 +19,7 @@ function App() {
     <LanguageProvider>
       <div className="App">
         <Toaster position="top-center" richColors />
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL || "/"}>
           <Routes>
             <Route element={<SiteLayout />}>
               <Route path="/" element={<Landing />} />

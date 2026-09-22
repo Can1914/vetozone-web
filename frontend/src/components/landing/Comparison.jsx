@@ -83,7 +83,7 @@ export const Comparison = () => {
         <Reveal delay={0.15}>
           <div className="mt-8 flex justify-center">
             <a
-              href="/vetozone-brosur.pdf"
+              href={`${process.env.PUBLIC_URL || ""}/vetozone-brosur.pdf`}
               download
               className="group inline-flex items-center gap-2.5 bg-[var(--brand)] hover:bg-[var(--brand-hover)] text-white font-semibold px-7 py-4 rounded-sm transition-colors active:scale-[0.98]"
               data-testid="brochure-download"
