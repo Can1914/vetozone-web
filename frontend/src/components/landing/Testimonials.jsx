@@ -28,7 +28,10 @@ export const Testimonials = () => {
                 data-testid={`testimonial-${i}`}
               >
                 <Quotes size={34} weight="fill" className="text-[var(--brand)]" />
-                <p className="mt-5 text-white/80 leading-relaxed flex-1">"{it.quote}"</p>
+                {it.headline && (
+                  <h3 className="mt-5 font-display font-bold text-lg leading-snug">{it.headline}</h3>
+                )}
+                <p className="mt-3 text-sm text-white/70 leading-relaxed flex-1">{it.quote}</p>
                 <div className="mt-8 pt-6 border-t border-white/10">
                   <div className="font-display font-bold text-lg">{it.name}</div>
                   <div className="text-xs text-white/50 mt-1">{it.role}</div>

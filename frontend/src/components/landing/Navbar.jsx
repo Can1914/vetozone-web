@@ -59,61 +59,86 @@ export const Navbar = () => {
           <span className="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-white lowercase">
             vetozone
           </span>
-          <span className="inline text-[10px] tracking-[0.2em] font-bold text-[var(--brand)] mt-1">
-            PLUS
-          </span>
         </button>
 
         <nav className="hidden lg:flex items-center gap-1">
-          {NAV_TREE.map((item) => (
-            <div
-              key={item.key}
-              className="relative"
-              onMouseEnter={() => item.children && setOpenKey(item.key)}
-              onMouseLeave={() => item.children && setOpenKey((k) => (k === item.key ? null : k))}
-            >
-              <Link
-                to={item.to}
-                onClick={handleTopClick(item)}
-                className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-white/80 hover:text-white transition-colors"
-                data-testid={`nav-${item.key}`}
+          {NAV_TREE.map((item) => {
+            const expandable = Boolean(item.children || item.mega);
+            return (
+              <div
+                key={item.key}
+                className={item.mega ? "" : "relative"}
+                onMouseEnter={() => expandable && setOpenKey(item.key)}
+                onMouseLeave={() => expandable && setOpenKey((k) => (k === item.key ? null : k))}
               >
-                {t.nav[item.key]}
-                {item.children && (
-                  <CaretDown size={11} weight="bold" className={`transition-transform ${openKey === item.key ? "rotate-180" : ""}`} />
-                )}
-              </Link>
+                <Link
+                  to={item.to}
+                  onClick={handleTopClick(item)}
+                  className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-white/80 hover:text-white transition-colors"
+                  data-testid={`nav-${item.key}`}
+                >
+                  {t.nav[item.key]}
+                  {expandable && (
+                    <CaretDown size={11} weight="bold" className={`transition-transform ${openKey === item.key ? "rotate-180" : ""}`} />
+                  )}
+                </Link>
 
-              {item.children && (
                 <AnimatePresence>
-                  {openKey === item.key && (
+                  {expandable && openKey === item.key && (
                     <motion.div
                       initial={{ opacity: 0, y: -8 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -8 }}
                       transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                      className="absolute top-full left-0 pt-2"
+                      className={item.mega ? "absolute top-full left-0 right-0" : "absolute top-full left-0 pt-2"}
                       data-testid={`nav-dropdown-${item.key}`}
                     >
-                      <div className="min-w-[240px] bg-black/90 backdrop-blur-xl border border-white/10 rounded-sm p-2">
-                        {item.children.map((child, i) => (
-                          <Link
-                            key={i}
-                            to={child.to}
-                            onClick={handleChildClick}
-                            className="block px-3 py-2.5 rounded-sm text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors"
-                            data-testid={`nav-dropdown-item-${item.key}-${i}`}
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
-                      </div>
+                      {item.mega ? (
+                        <div className="bg-black/95 backdrop-blur-xl border-y border-white/10">
+                          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 py-10 grid grid-cols-4 gap-8">
+                            {item.mega.map((col, ci) => (
+                              <div key={ci}>
+                                <div className="text-[11px] uppercase tracking-[0.2em] font-bold text-[var(--brand)] mb-4">
+                                  {col.title}
+                                </div>
+                                <div className="space-y-0.5">
+                                  {col.items.map((child, i) => (
+                                    <Link
+                                      key={i}
+                                      to={child.to}
+                                      onClick={handleChildClick}
+                                      className="block py-2 text-sm text-white/70 hover:text-white transition-colors"
+                                      data-testid={`nav-mega-item-${item.key}-${ci}-${i}`}
+                                    >
+                                      {child.label}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="min-w-[240px] bg-black/90 backdrop-blur-xl border border-white/10 rounded-sm p-2">
+                          {item.children.map((child, i) => (
+                            <Link
+                              key={i}
+                              to={child.to}
+                              onClick={handleChildClick}
+                              className="block px-3 py-2.5 rounded-sm text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+                              data-testid={`nav-dropdown-item-${item.key}-${i}`}
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
                     </motion.div>
                   )}
                 </AnimatePresence>
-              )}
-            </div>
-          ))}
+              </div>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-3 sm:gap-5">
@@ -165,7 +190,43 @@ export const Navbar = () => {
             <div className="px-4 py-4">
               <Accordion type="multiple" className="w-full">
                 {NAV_TREE.map((item) =>
-                  item.children ? (
+                  item.mega ? (
+                    <AccordionItem key={item.key} value={item.key} className="border-white/10">
+                      <AccordionTrigger
+                        className="text-lg font-display font-bold text-white hover:no-underline px-2"
+                        data-testid={`nav-mobile-accordion-${item.key}`}
+                      >
+                        {t.nav[item.key]}
+                      </AccordionTrigger>
+                      <AccordionContent className="pl-2">
+                        <Link
+                          to={item.to}
+                          onClick={handleChildClick}
+                          className="block py-2 text-sm font-semibold text-[var(--brand)]"
+                        >
+                          {t.nav[item.key]} →
+                        </Link>
+                        {item.mega.map((col, ci) => (
+                          <div key={ci} className="mt-3">
+                            <div className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/40 mb-1">
+                              {col.title}
+                            </div>
+                            {col.items.map((child, i) => (
+                              <Link
+                                key={i}
+                                to={child.to}
+                                onClick={handleChildClick}
+                                className="block py-1.5 text-sm text-white/70"
+                                data-testid={`nav-mobile-mega-${item.key}-${ci}-${i}`}
+                              >
+                                {child.label}
+                              </Link>
+                            ))}
+                          </div>
+                        ))}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ) : item.children ? (
                     <AccordionItem key={item.key} value={item.key} className="border-white/10">
                       <AccordionTrigger
                         className="text-lg font-display font-bold text-white hover:no-underline px-2"

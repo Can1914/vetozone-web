@@ -63,10 +63,6 @@ export const Hero = () => {
             <span className="font-display font-black text-3xl sm:text-4xl text-white lowercase tracking-tight">
               vetozone
             </span>
-            <span className="font-display font-black text-3xl sm:text-4xl text-[var(--brand)] tracking-tight">
-              Plus
-              <sup className="text-lg">++</sup>
-            </span>
           </motion.div>
 
           <h1 className="font-display font-black text-white text-[3rem] leading-[0.92] sm:text-6xl lg:text-[5.5rem] tracking-tighter">

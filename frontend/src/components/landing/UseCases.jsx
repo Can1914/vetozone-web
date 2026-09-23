@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check } from "@phosphor-icons/react";
 import { useLang } from "@/context/LanguageContext";
 import { ASSETS } from "@/data/content";
 import { Reveal } from "./Reveal";
@@ -25,7 +24,7 @@ export const UseCases = () => {
           <h2 className="font-display font-bold text-4xl sm:text-5xl tracking-tight text-[var(--ink)] max-w-2xl">
             {u.title}
           </h2>
-          <p className="mt-5 text-[var(--muted-light)] max-w-xl">{u.sub}</p>
+          <p className="mt-5 text-[var(--muted-light)] max-w-2xl leading-relaxed">{u.sub}</p>
         </Reveal>
 
         {/* Tabs */}
@@ -46,9 +45,9 @@ export const UseCases = () => {
           ))}
         </div>
 
-        <div className="mt-8 grid lg:grid-cols-2 gap-6 items-stretch">
+        <div className="mt-8 grid lg:grid-cols-12 gap-6 items-start">
           {/* Image */}
-          <div className="relative overflow-hidden rounded-sm min-h-[320px] lg:min-h-[460px]">
+          <div className="lg:col-span-4 relative overflow-hidden rounded-sm min-h-[260px] lg:min-h-[420px] lg:sticky lg:top-28">
             <AnimatePresence mode="wait">
               <motion.img
                 key={tab.key}
@@ -71,7 +70,7 @@ export const UseCases = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="font-display font-bold text-3xl sm:text-4xl text-white"
+                  className="font-display font-bold text-3xl text-white"
                 >
                   {tab.heading}
                 </motion.h3>
@@ -79,8 +78,8 @@ export const UseCases = () => {
             </div>
           </div>
 
-          {/* Detail */}
-          <div className="bg-white border border-black/10 rounded-sm p-8 sm:p-10 flex flex-col">
+          {/* Groups */}
+          <div className="lg:col-span-8">
             <AnimatePresence mode="wait">
               <motion.div
                 key={tab.key}
@@ -88,22 +87,31 @@ export const UseCases = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.4 }}
+                className="grid sm:grid-cols-2 gap-4"
               >
-                <p className="text-[var(--muted-light)] leading-relaxed">{tab.text}</p>
-                <div className="mt-7 grid sm:grid-cols-2 gap-3">
-                  {tab.points.map((p, i) => (
-                    <div key={i} className="flex items-center gap-2.5">
-                      <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-[var(--brand)]/10 text-[var(--brand)]">
-                        <Check size={12} weight="bold" />
-                      </span>
-                      <span className="text-sm font-medium text-[var(--ink)]">{p}</span>
-                    </div>
-                  ))}
-                </div>
+                {tab.groups.map((g, i) => (
+                  <div
+                    key={i}
+                    className="bg-white border border-black/10 rounded-sm p-6 hover:border-[var(--brand)]/40 transition-colors duration-500"
+                    data-testid={`usecase-group-${i}`}
+                  >
+                    <h4 className="font-display font-bold text-base text-[var(--ink)] leading-snug">
+                      {g.title}
+                    </h4>
+                    <ul className="mt-3 space-y-1.5">
+                      {g.items.map((it, j) => (
+                        <li key={j} className="flex gap-2 text-sm text-[var(--muted-light)] leading-relaxed">
+                          <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-[var(--brand)]" />
+                          {it}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </motion.div>
             </AnimatePresence>
 
-            <div className="mt-auto pt-8">
+            <div className="mt-8 bg-white border border-black/10 rounded-sm p-6">
               <p className="text-[11px] uppercase tracking-[0.2em] font-bold text-[var(--muted-light)] mb-4">
                 {u.methodsTitle}
               </p>

@@ -7,14 +7,45 @@ export const NAV_TREE = [
   {
     key: "treatmentAreas",
     to: "/tedavi-alanlari",
-    children: [
-      { label: "Dermatoloji", to: "/tedavi-alanlari#dermatoloji" },
-      { label: "Yara Yönetimi", to: "/tedavi-alanlari#yara-yonetimi" },
-      { label: "Otitis", to: "/tedavi-alanlari#otitis" },
-      { label: "Nöroloji", to: "/tedavi-alanlari#noroloji" },
-      { label: "Diş ve Ağız Sağlığı", to: "/tedavi-alanlari#dis-ve-agiz-sagligi" },
-      { label: "Rejeneratif Tedaviler", to: "/tedavi-alanlari#rejeneratif-tedaviler" },
-      { label: "Büyükbaş Uygulamaları", to: "/tedavi-alanlari#buyukbas-uygulamalari" },
+    // Rendered as a full-width mega menu instead of a single dropdown column.
+    mega: [
+      {
+        title: "KÜÇÜK HAYVAN",
+        items: [
+          { label: "Dermatoloji", to: "/tedavi-alanlari#dermatoloji" },
+          { label: "Yara ve Doku", to: "/tedavi-alanlari#yara-ve-doku" },
+          { label: "Kulak Hastalıkları", to: "/tedavi-alanlari#kulak-hastaliklari" },
+          { label: "Ağız ve Diş", to: "/tedavi-alanlari#agiz-ve-dis" },
+          { label: "Üriner Sistem", to: "/tedavi-alanlari#uriner-sistem" },
+        ],
+      },
+      {
+        title: "ORTOPEDİ & NÖROLOJİ",
+        items: [
+          { label: "Osteoartrit", to: "/tedavi-alanlari#osteoartrit" },
+          { label: "IVDD ve Omurga", to: "/tedavi-alanlari#ivdd-ve-omurga" },
+          { label: "Kas-Tendon-Ligament", to: "/tedavi-alanlari#kas-tendon-ligament" },
+          { label: "Rejeneratif Ortopedi", to: "/tedavi-alanlari#rejeneratif-ortopedi" },
+        ],
+      },
+      {
+        title: "SİSTEMİK",
+        items: [
+          { label: "Enfeksiyon Hastalıkları", to: "/tedavi-alanlari#enfeksiyon-hastaliklari" },
+          { label: "Onkoloji", to: "/tedavi-alanlari#onkoloji" },
+          { label: "Yoğun Bakım", to: "/tedavi-alanlari#yogun-bakim" },
+          { label: "Kronik Hastalıklar", to: "/tedavi-alanlari#kronik-hastaliklar" },
+        ],
+      },
+      {
+        title: "BÜYÜKBAŞ",
+        items: [
+          { label: "Mastitis", to: "/tedavi-alanlari#mastitis" },
+          { label: "Buzağı Hastalıkları", to: "/tedavi-alanlari#buzagi-hastaliklari" },
+          { label: "Neonatal Sepsis", to: "/tedavi-alanlari#neonatal-sepsis" },
+          { label: "Yara & Ayak", to: "/tedavi-alanlari#yara-ayak" },
+        ],
+      },
     ],
   },
   {
@@ -83,6 +114,5 @@ export const NAV_TREE = [
 // Top-level nav keys that still map to an in-page section on the homepage —
 // clicking these while on "/" smooth-scrolls instead of navigating away.
 export const HOMEPAGE_ANCHOR = {
-  devices: "specs",
   doctorsSay: "testimonials",
 };
