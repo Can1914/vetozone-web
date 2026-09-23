@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { CaretDown } from "@phosphor-icons/react";
+import { CaretDown, ArrowRight, BookOpen } from "@phosphor-icons/react";
 import { useLang } from "@/context/LanguageContext";
 import { NAV_TREE, HOMEPAGE_ANCHOR } from "@/data/navTree";
 import { scrollToId } from "@/lib/scrollToId";
@@ -95,28 +95,89 @@ export const Navbar = () => {
                     >
                       {item.mega ? (
                         <div className="bg-black/95 backdrop-blur-xl border-y border-white/10">
-                          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 py-10 grid grid-cols-4 gap-8">
-                            {item.mega.map((col, ci) => (
-                              <div key={ci}>
-                                <div className="text-[11px] uppercase tracking-[0.2em] font-bold text-[var(--brand)] mb-4">
-                                  {col.title}
+                          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 py-8 grid grid-cols-4 gap-px bg-white/10">
+                            {item.mega.map((col, ci) => {
+                              const ColIcon = col.icon;
+                              return (
+                                <div key={ci} className="bg-black/95 px-6 first:pl-0 last:pr-0">
+                                  <div className="relative h-32 overflow-hidden rounded-sm">
+                                    <img
+                                      src={col.image}
+                                      alt={col.title}
+                                      className="absolute inset-0 w-full h-full object-cover"
+                                      loading="lazy"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                                  </div>
+
+                                  <div className="mt-4 flex items-center gap-2">
+                                    {ColIcon && (
+                                      <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[var(--brand)]/15 text-[var(--brand)]">
+                                        <ColIcon size={13} weight="duotone" />
+                                      </span>
+                                    )}
+                                    <span className="text-[11px] uppercase tracking-[0.18em] font-bold text-[var(--brand)]">
+                                      {col.title}
+                                    </span>
+                                  </div>
+                                  {col.desc && (
+                                    <p className="mt-2 text-xs leading-relaxed text-white/45">{col.desc}</p>
+                                  )}
+
+                                  <div className="mt-4 pt-3 border-t border-white/10">
+                                    {col.items.map((child, i) => (
+                                      <Link
+                                        key={i}
+                                        to={child.to}
+                                        onClick={handleChildClick}
+                                        className="group/link flex items-center justify-between gap-3 py-2 border-b border-white/[0.06] text-sm text-white/70 hover:text-white transition-colors"
+                                        data-testid={`nav-mega-item-${item.key}-${ci}-${i}`}
+                                      >
+                                        {child.label}
+                                        <ArrowRight
+                                          size={13}
+                                          className="shrink-0 text-white/20 transition-all group-hover/link:text-[var(--brand)] group-hover/link:translate-x-0.5"
+                                        />
+                                      </Link>
+                                    ))}
+                                  </div>
+
+                                  <Link
+                                    to={`${item.to}#${col.slug}`}
+                                    onClick={handleChildClick}
+                                    className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--brand)] hover:gap-2.5 transition-all"
+                                  >
+                                    Tümünü Gör <ArrowRight size={12} weight="bold" />
+                                  </Link>
                                 </div>
-                                <div className="space-y-0.5">
-                                  {col.items.map((child, i) => (
-                                    <Link
-                                      key={i}
-                                      to={child.to}
-                                      onClick={handleChildClick}
-                                      className="block py-2 text-sm text-white/70 hover:text-white transition-colors"
-                                      data-testid={`nav-mega-item-${item.key}-${ci}-${i}`}
-                                    >
-                                      {child.label}
-                                    </Link>
-                                  ))}
-                                </div>
-                              </div>
-                            ))}
+                              );
+                            })}
                           </div>
+
+                          {item.megaFooter && (
+                            <div className="border-t border-white/10">
+                              <Link
+                                to={item.megaFooter.to}
+                                onClick={handleChildClick}
+                                className="group/f max-w-[1400px] mx-auto px-5 sm:px-8 py-5 flex items-center gap-4 hover:bg-white/[0.03] transition-colors"
+                                data-testid="nav-mega-footer"
+                              >
+                                <BookOpen size={22} className="shrink-0 text-[var(--brand)]" weight="duotone" />
+                                <span className="flex-1">
+                                  <span className="block font-display font-bold text-white">
+                                    {item.megaFooter.title}
+                                  </span>
+                                  <span className="block text-xs text-white/45 mt-0.5">
+                                    {item.megaFooter.desc}
+                                  </span>
+                                </span>
+                                <ArrowRight
+                                  size={18}
+                                  className="shrink-0 text-white/30 transition-all group-hover/f:text-[var(--brand)] group-hover/f:translate-x-1"
+                                />
+                              </Link>
+                            </div>
+                          )}
                         </div>
                       ) : (
                         <div className="min-w-[240px] bg-black/90 backdrop-blur-xl border border-white/10 rounded-sm p-2">
