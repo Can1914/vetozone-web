@@ -32,7 +32,7 @@ export default function TreatmentAreas() {
                 </h2>
               </div>
             </Reveal>
-            <TopicGrid items={group.items} lang={lang} />
+            <TopicGrid items={group.items} lang={lang} linkBase="/tedavi-alanlari" />
           </div>
         </section>
       ))}

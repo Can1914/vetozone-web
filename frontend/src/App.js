@@ -5,6 +5,7 @@ import { LanguageProvider } from "@/context/LanguageContext";
 import SiteLayout from "@/components/layout/SiteLayout";
 import Landing from "@/pages/Landing";
 import TreatmentAreas from "@/pages/TreatmentAreas";
+import TreatmentAreaDetail from "@/pages/TreatmentAreaDetail";
 import Devices from "@/pages/Devices";
 import DoctorsSay from "@/pages/DoctorsSay";
 import Academy from "@/pages/Academy";
@@ -24,6 +25,7 @@ function App() {
             <Route element={<SiteLayout />}>
               <Route path="/" element={<Landing />} />
               <Route path="/tedavi-alanlari" element={<TreatmentAreas />} />
+              <Route path="/tedavi-alanlari/:slug" element={<TreatmentAreaDetail />} />
               <Route path="/cihazlar" element={<Devices />} />
               <Route path="/hekimler-ne-diyor" element={<DoctorsSay />} />
               <Route path="/vetozone-akademi" element={<Academy />} />
