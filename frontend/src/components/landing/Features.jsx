@@ -37,9 +37,12 @@ export const Features = () => {
               {f.overline}
             </span>
           </div>
-          <p className="mb-14 max-w-3xl text-xl sm:text-2xl leading-relaxed text-[var(--ink)]">
-            {f.sub}
-          </p>
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-14">
+            <h2 className="font-display font-bold text-4xl sm:text-5xl tracking-tight text-[var(--ink)] max-w-lg">
+              {f.title}
+            </h2>
+            <p className="text-[var(--muted-light)] max-w-md lg:text-right">{f.sub}</p>
+          </div>
         </Reveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
