@@ -54,6 +54,11 @@ export default function TreatmentAreaDetail() {
         <div className="absolute inset-y-0 right-0 w-full sm:w-3/5 lg:w-1/2">
           <img src={image} alt={item.title} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-[var(--ink)] via-[var(--ink)]/80 to-transparent" />
+          {override?.script && (
+            <span className="hidden lg:block absolute top-12 right-10 max-w-[180px] text-right font-script text-2xl leading-tight text-white/80 -rotate-6">
+              {override.script}
+            </span>
+          )}
         </div>
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8 pt-28 sm:pt-32 pb-16 sm:pb-20">

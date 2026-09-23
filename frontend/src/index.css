@@ -67,6 +67,11 @@ body {
   font-family: var(--font-sans);
 }
 
+/* Handwritten accent over treatment-area hero imagery */
+.font-script {
+  font-family: "Snell Roundhand", "Apple Chancery", "Brush Script MT", cursive;
+}
+
 ::selection {
   background: var(--brand);
   color: #fff;
