@@ -20,7 +20,7 @@ export const MaskedLines = ({ lines, accent, className = "", lineClassName = "" 
       <span key={i} className="reveal-mask">
         <motion.span
           className={`block ${lineClassName} ${line === accent ? "text-[var(--brand)]" : ""}`}
-          initial={{ y: "110%" }}
+          initial={{ y: "130%" }}
           animate={{ y: "0%" }}
           transition={{
             duration: 0.9,

@@ -8,7 +8,10 @@ export const ManifestoMarquee = () => {
       <Marquee speed={45} gradient={false} autoFill>
         {t.marquee.map((word, i) => (
           <div key={i} className="flex items-center">
-            <span className="font-display font-black text-5xl sm:text-7xl lg:text-8xl text-stroke uppercase px-6 tracking-tight">
+            {/* leading must clear the full ascender: Turkish İ/Ö diacritics sit
+                above cap height and get clipped by the marquee's overflow at
+                line-height 1 */}
+            <span className="font-display font-black text-5xl sm:text-7xl lg:text-8xl leading-[1.3] text-stroke uppercase px-6 tracking-tight">
               {word}
             </span>
             <span className="text-[var(--brand)] text-4xl sm:text-6xl">◦</span>

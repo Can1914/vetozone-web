@@ -144,4 +144,9 @@ body {
 .reveal-mask {
   overflow: hidden;
   display: block;
+  /* The mask clips to the line box, but tight leading leaves Turkish
+     diacritics (İ, Ö, ğ) outside it. Grow the clip region and pull the
+     layout back so line spacing is unchanged. */
+  padding-block: 0.15em;
+  margin-block: -0.15em;
 }
