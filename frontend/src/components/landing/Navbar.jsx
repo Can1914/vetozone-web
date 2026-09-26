@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { CaretDown, ArrowRight, BookOpen } from "@phosphor-icons/react";
@@ -15,11 +15,29 @@ export const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const closeTimer = useRef(null);
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => () => clearTimeout(closeTimer.current), []);
+
+  const openMenu = (key) => {
+    clearTimeout(closeTimer.current);
+    setOpenKey(key);
+  };
+
+  // Small grace period so brushing past a gap on the way to the panel
+  // doesn't snap the menu shut.
+  const scheduleClose = (key) => {
+    clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => {
+      setOpenKey((k) => (k === key ? null : k));
+    }, 140);
+  };
 
   const handleTopClick = (item) => (e) => {
     const anchor = HOMEPAGE_ANCHOR[item.key];
@@ -61,15 +79,17 @@ export const Navbar = () => {
           </span>
         </button>
 
-        <nav className="hidden lg:flex items-center gap-1">
+        <nav className="hidden lg:flex items-stretch gap-1 h-full">
           {NAV_TREE.map((item) => {
             const expandable = Boolean(item.children || item.mega);
             return (
+              // Full header height, so the hover area reaches down to where the
+              // panel starts — otherwise the gap below the link is a dead zone.
               <div
                 key={item.key}
-                className={item.mega ? "" : "relative"}
-                onMouseEnter={() => expandable && setOpenKey(item.key)}
-                onMouseLeave={() => expandable && setOpenKey((k) => (k === item.key ? null : k))}
+                className={`flex items-center h-full ${item.mega ? "" : "relative"}`}
+                onMouseEnter={() => expandable && openMenu(item.key)}
+                onMouseLeave={() => expandable && scheduleClose(item.key)}
               >
                 <Link
                   to={item.to}
