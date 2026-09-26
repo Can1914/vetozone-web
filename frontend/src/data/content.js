@@ -120,11 +120,7 @@ export const CONTENT = {
       sub: "Medikal ozon teknolojisi, uygulamaya özel ekipmanlar, eğitim ve klinik destek tek bir sistemde.",
       ctaPrimary: "Fiyat Teklifi Al",
       ctaSecondary: "Demo Talep Et",
-      stats: [
-        { value: "0.1–80", label: "µg/ml doz aralığı" },
-        { value: "150–800", label: "mBar ayarlanabilir vakum" },
-        { value: "2000+", label: "klinik kullanıyor" },
-      ],
+      stats: [{ value: "2000+", label: "klinik kullanıyor" }],
     },
     marquee: [
       "%100 YERLİ ÜRETİM",
@@ -504,11 +500,7 @@ export const CONTENT = {
       sub: "Medical ozone technology, application-specific equipment, training and clinical support in a single system.",
       ctaPrimary: "Get a Quote",
       ctaSecondary: "Request a Demo",
-      stats: [
-        { value: "0.1–80", label: "µg/ml dose range" },
-        { value: "150–800", label: "mBar adjustable vacuum" },
-        { value: "2000+", label: "clinics using it" },
-      ],
+      stats: [{ value: "2000+", label: "clinics using it" }],
     },
     marquee: [
       "100% DOMESTIC PRODUCTION",

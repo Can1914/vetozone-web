@@ -105,14 +105,14 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="mt-14 grid grid-cols-3 gap-6 max-w-lg border-t border-white/10 pt-8"
+            className="mt-14 flex flex-wrap gap-x-14 gap-y-8 max-w-lg border-t border-white/10 pt-8"
           >
             {h.stats.map((s, i) => (
               <div key={i} data-testid={`hero-stat-${i}`}>
-                <div className="font-display font-extrabold text-2xl sm:text-3xl text-white tracking-tight">
+                <div className="font-display font-black text-5xl sm:text-6xl lg:text-7xl leading-none text-white tracking-tight">
                   {s.value}
                 </div>
-                <div className="mt-1 text-[11px] sm:text-xs text-white/50 leading-tight">
+                <div className="mt-3 text-sm sm:text-base text-white/50 leading-tight">
                   {s.label}
                 </div>
               </div>
