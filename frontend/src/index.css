@@ -98,10 +98,15 @@ body {
   );
 }
 
-/* Outline / stroke text for marquee */
+/* Outline / stroke text for marquee.
+   font-synthesis must stay off: the system font stack has no true 900, and a
+   browser-faked bold draws the glyph twice at an offset — invisible when
+   filled, but as ghost diagonals through M/N/B once only the outline is drawn. */
 .text-stroke {
   -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.35);
   color: transparent;
+  font-synthesis: none;
+  paint-order: stroke fill;
 }
 .text-stroke-dark {
   -webkit-text-stroke: 1.5px rgba(10, 10, 10, 0.18);
