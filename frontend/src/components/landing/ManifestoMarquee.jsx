@@ -11,7 +11,7 @@ export const ManifestoMarquee = () => {
             {/* leading must clear the full ascender: Turkish İ/Ö diacritics sit
                 above cap height and get clipped by the marquee's overflow at
                 line-height 1 */}
-            <span className="font-display font-semibold text-5xl sm:text-7xl lg:text-8xl leading-[1.3] text-stroke uppercase px-6 tracking-tight">
+            <span className="font-display font-black text-5xl sm:text-7xl lg:text-8xl leading-[1.3] text-white uppercase px-6 tracking-tight">
               {word}
             </span>
             <span className="text-[var(--brand)] text-4xl sm:text-6xl">◦</span>
