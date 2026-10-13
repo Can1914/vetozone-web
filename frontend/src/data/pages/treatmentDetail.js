@@ -23,11 +23,11 @@ export const DETAIL_SHARED = {
       title: "Uygulama Yöntemleri",
       sub: "Vakanın klinik durumuna göre farklı ozon uygulama yöntemleri kullanılabilir.",
       items: [
-        { icon: Drop, title: "Ozonlu Su", text: "Temizleme ve yıkama uygulamaları" },
-        { icon: Eyedropper, title: "Ozonlu Yağ", text: "Lokal deri uygulamaları" },
-        { icon: Sparkle, title: "Lokal Ozon", text: "Hedefe yönelik uygulamalar" },
-        { icon: Package, title: "Torbalama", text: "Geniş bölgelerde kapalı uygulama" },
-        { icon: Syringe, title: "Sistemik Uygulamalar", text: "Majör otohemoterapi ve destekleyici yaklaşımlar" },
+        { icon: Drop, image: ASSETS.methods.water, title: "Ozonlu Su", text: "Temizleme ve yıkama uygulamaları" },
+        { icon: Eyedropper, image: ASSETS.methods.oil, title: "Ozonlu Yağ", text: "Lokal deri uygulamaları" },
+        { icon: Sparkle, image: ASSETS.methods.local, title: "Lokal Ozon", text: "Hedefe yönelik uygulamalar" },
+        { icon: Package, image: ASSETS.methods.bagging, title: "Torbalama", text: "Geniş bölgelerde kapalı uygulama" },
+        { icon: Syringe, image: ASSETS.methods.systemic, title: "Sistemik Uygulamalar", text: "Majör otohemoterapi ve destekleyici yaklaşımlar" },
       ],
     },
     studies: {
@@ -74,11 +74,11 @@ export const DETAIL_SHARED = {
       title: "Application Methods",
       sub: "Different ozone application methods can be used depending on the clinical picture.",
       items: [
-        { icon: Drop, title: "Ozonated Water", text: "Cleansing and irrigation" },
-        { icon: Eyedropper, title: "Ozonated Oil", text: "Local skin applications" },
-        { icon: Sparkle, title: "Local Ozone", text: "Targeted applications" },
-        { icon: Package, title: "Bagging", text: "Enclosed application over larger areas" },
-        { icon: Syringe, title: "Systemic Applications", text: "Major autohemotherapy and supportive approaches" },
+        { icon: Drop, image: ASSETS.methods.water, title: "Ozonated Water", text: "Cleansing and irrigation" },
+        { icon: Eyedropper, image: ASSETS.methods.oil, title: "Ozonated Oil", text: "Local skin applications" },
+        { icon: Sparkle, image: ASSETS.methods.local, title: "Local Ozone", text: "Targeted applications" },
+        { icon: Package, image: ASSETS.methods.bagging, title: "Bagging", text: "Enclosed application over larger areas" },
+        { icon: Syringe, image: ASSETS.methods.systemic, title: "Systemic Applications", text: "Major autohemotherapy and supportive approaches" },
       ],
     },
     studies: {

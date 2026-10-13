@@ -6,6 +6,13 @@ export const ASSETS = {
   deviceHero: `${BASE}/devices/vetozone-plus-blue.png`,
   deviceSpecs: `${BASE}/devices/vetozone-plus-gold.png`,
   deviceMobile: `${BASE}/devices/vetozone-case.png`,
+  methods: {
+    water: `${BASE}/methods/ozonlu-su.jpg`,
+    oil: `${BASE}/methods/ozonlu-yag.jpg`,
+    local: `${BASE}/methods/lokal-ozon.jpg`,
+    bagging: `${BASE}/methods/torbalama.jpg`,
+    systemic: `${BASE}/methods/sistemik.jpg`,
+  },
   logo:
     "https://customer-assets-lqy194kg.emergentagent.net/job_98caa84f-6aad-44a3-b114-d3248f65d171/artifacts/1l9j6wj8_image.png",
   species: {

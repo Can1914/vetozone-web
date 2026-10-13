@@ -204,12 +204,28 @@ export default function TreatmentAreaDetail() {
               return (
                 <Reveal key={i} delay={(i % 5) * 0.06}>
                   <div
-                    className="h-full bg-white border border-black/10 rounded-sm p-5 text-center hover:border-[var(--brand)]/40 transition-colors duration-500"
+                    className="group h-full bg-white border border-black/10 rounded-sm overflow-hidden hover:border-[var(--brand)]/40 transition-colors duration-500"
                     data-testid={`area-method-${i}`}
                   >
-                    <MIcon size={30} weight="duotone" className="mx-auto text-[var(--brand)]" />
-                    <h3 className="mt-4 font-display font-bold text-sm text-[var(--ink)]">{m.title}</h3>
-                    <p className="mt-2 text-xs leading-relaxed text-[var(--muted-light)]">{m.text}</p>
+                    <div className="relative aspect-square overflow-hidden bg-[var(--paper-2)]">
+                      {m.image ? (
+                        <img
+                          src={m.image}
+                          alt={m.title}
+                          loading="lazy"
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      ) : (
+                        <MIcon size={30} weight="duotone" className="absolute inset-0 m-auto text-[var(--brand)]" />
+                      )}
+                      <span className="absolute bottom-2 left-2 inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/90 text-[var(--brand)] backdrop-blur">
+                        <MIcon size={16} weight="duotone" />
+                      </span>
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-display font-bold text-sm text-[var(--ink)]">{m.title}</h3>
+                      <p className="mt-1.5 text-xs leading-relaxed text-[var(--muted-light)]">{m.text}</p>
+                    </div>
                   </div>
                 </Reveal>
               );
