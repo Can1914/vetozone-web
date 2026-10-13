@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
-import { ArrowRight, CaretRight, Quotes } from "@phosphor-icons/react";
+import { ArrowRight, CaretRight } from "@phosphor-icons/react";
 import { useLang } from "@/context/LanguageContext";
 import { TREATMENT_AREAS_CONTENT } from "@/data/pages/treatmentAreas";
 import { DETAIL_SHARED, DETAIL_OVERRIDES } from "@/data/pages/treatmentDetail";
@@ -40,6 +40,7 @@ export default function TreatmentAreaDetail() {
   const body = override?.body || s.defaultBody;
   const image = override?.image || ASSETS.species.dogcat;
   const conditions = override?.conditions || item.bullets.map((b) => ({ title: b }));
+  const intro = override?.intro;
   const Icon = item.icon;
 
   const goTab = (id) => {
@@ -126,19 +127,10 @@ export default function TreatmentAreaDetail() {
       <section id="durumlar" className="bg-[var(--paper)] py-16 sm:py-20 scroll-mt-32" data-testid="area-conditions">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-8">
           <Reveal>
-            <div className="flex items-center gap-3 mb-4">
-              <span className="w-8 h-px bg-[var(--brand)]" />
-              <span className="text-[11px] uppercase tracking-[0.25em] font-bold text-[var(--muted-light)]">
-                {s.conditions.overline}
-              </span>
-            </div>
-            <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
-              <div>
-                <h2 className="font-display font-bold text-3xl sm:text-4xl tracking-tight text-[var(--ink)]">
-                  {s.conditions.title}
-                </h2>
-                <p className="mt-3 text-[var(--muted-light)]">{s.conditions.sub}</p>
-              </div>
+            <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
+              <h2 className="font-display font-bold text-3xl sm:text-4xl tracking-tight text-[var(--ink)]">
+                {s.conditions.title}
+              </h2>
               <Link
                 to="/tedavi-alanlari"
                 className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--brand)] hover:gap-2.5 transition-all"
@@ -146,91 +138,82 @@ export default function TreatmentAreaDetail() {
                 {s.conditions.all} <ArrowRight size={14} weight="bold" />
               </Link>
             </div>
+
+            {intro ? (
+              <div className="max-w-3xl">
+                <p className="text-xl sm:text-2xl font-semibold leading-snug text-[var(--ink)]">
+                  {intro.lead}
+                </p>
+                <div className="mt-5 space-y-4">
+                  {intro.paragraphs.map((para, i) => (
+                    <p key={i} className="text-[var(--muted-light)] leading-relaxed">
+                      {para}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <p className="max-w-3xl text-[var(--muted-light)]">{s.conditions.sub}</p>
+            )}
           </Reveal>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {conditions.map((c, i) => (
-              <Reveal key={i} delay={(i % 5) * 0.06}>
-                <div
-                  className="h-full bg-white border border-black/10 rounded-sm overflow-hidden hover:border-[var(--brand)]/40 transition-colors duration-500"
+          <Reveal delay={0.1}>
+            <div className="mt-10 flex flex-wrap gap-2.5">
+              {conditions.map((c, i) => (
+                <span
+                  key={i}
+                  className="inline-flex items-center gap-2 bg-white border border-black/10 rounded-sm px-4 py-2.5 text-sm font-semibold text-[var(--ink)]"
                   data-testid={`area-condition-${i}`}
                 >
-                  <div className="aspect-[4/3] bg-[var(--paper-2)] flex items-center justify-center">
-                    {c.image ? (
-                      <img src={c.image} alt={c.title} className="w-full h-full object-cover" loading="lazy" />
-                    ) : (
-                      Icon && <Icon size={34} weight="duotone" className="text-[var(--brand)]/40" />
-                    )}
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-display font-bold text-sm text-[var(--ink)]">{c.title}</h3>
-                    {c.text && (
-                      <p className="mt-1.5 text-xs leading-relaxed text-[var(--muted-light)]">{c.text}</p>
-                    )}
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+                  {Icon && <Icon size={16} weight="duotone" className="text-[var(--brand)]" />}
+                  {c.title}
+                </span>
+              ))}
+            </div>
+          </Reveal>
+
+          {intro?.closing && (
+            <Reveal delay={0.15}>
+              <p className="mt-10 max-w-3xl border-l-2 border-[var(--brand)] pl-5 text-[var(--ink)] leading-relaxed">
+                {intro.closing}
+              </p>
+            </Reveal>
+          )}
         </div>
       </section>
 
       {/* Methods */}
       <section id="yontemler" className="bg-[var(--paper-2)] py-16 sm:py-20 scroll-mt-32" data-testid="area-methods">
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-8 grid lg:grid-cols-12 gap-8">
-          <div className="lg:col-span-8">
-            <Reveal>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="w-8 h-px bg-[var(--brand)]" />
-                <span className="text-[11px] uppercase tracking-[0.25em] font-bold text-[var(--muted-light)]">
-                  {s.methods.overline}
-                </span>
-              </div>
-              <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
-                <div>
-                  <h2 className="font-display font-bold text-3xl sm:text-4xl tracking-tight text-[var(--ink)]">
-                    {s.methods.title}
-                  </h2>
-                  <p className="mt-3 text-[var(--muted-light)] max-w-md">{s.methods.sub}</p>
-                </div>
-                <Link
-                  to="/"
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--brand)] hover:gap-2.5 transition-all"
-                >
-                  {s.methods.videos} <ArrowRight size={14} weight="bold" />
-                </Link>
-              </div>
-            </Reveal>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-              {s.methods.items.map((m, i) => {
-                const MIcon = m.icon;
-                return (
-                  <Reveal key={i} delay={(i % 5) * 0.06}>
-                    <div
-                      className="h-full bg-white border border-black/10 rounded-sm p-5 text-center hover:border-[var(--brand)]/40 transition-colors duration-500"
-                      data-testid={`area-method-${i}`}
-                    >
-                      <MIcon size={30} weight="duotone" className="mx-auto text-[var(--brand)]" />
-                      <h3 className="mt-4 font-display font-bold text-sm text-[var(--ink)]">{m.title}</h3>
-                      <p className="mt-2 text-xs leading-relaxed text-[var(--muted-light)]">{m.text}</p>
-                    </div>
-                  </Reveal>
-                );
-              })}
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-8">
+          <Reveal>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-8 h-px bg-[var(--brand)]" />
+              <span className="text-[11px] uppercase tracking-[0.25em] font-bold text-[var(--muted-light)]">
+                {s.methods.overline}
+              </span>
             </div>
-          </div>
+            <h2 className="font-display font-bold text-3xl sm:text-4xl tracking-tight text-[var(--ink)]">
+              {s.methods.title}
+            </h2>
+            <p className="mt-3 mb-8 text-[var(--muted-light)] max-w-xl">{s.methods.sub}</p>
+          </Reveal>
 
-          <div className="lg:col-span-4">
-            <Reveal delay={0.15}>
-              <div className="h-full bg-[var(--brand)]/[0.07] border border-[var(--brand)]/15 rounded-sm p-8 flex flex-col">
-                <Quotes size={30} weight="fill" className="text-[var(--brand)]" />
-                <p className="mt-5 text-[var(--ink)] leading-relaxed">
-                  {override?.quote || s.defaultBody}
-                </p>
-                <span className="mt-auto pt-8 w-10 h-px bg-[var(--brand)]/40" />
-              </div>
-            </Reveal>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+            {s.methods.items.map((m, i) => {
+              const MIcon = m.icon;
+              return (
+                <Reveal key={i} delay={(i % 5) * 0.06}>
+                  <div
+                    className="h-full bg-white border border-black/10 rounded-sm p-5 text-center hover:border-[var(--brand)]/40 transition-colors duration-500"
+                    data-testid={`area-method-${i}`}
+                  >
+                    <MIcon size={30} weight="duotone" className="mx-auto text-[var(--brand)]" />
+                    <h3 className="mt-4 font-display font-bold text-sm text-[var(--ink)]">{m.title}</h3>
+                    <p className="mt-2 text-xs leading-relaxed text-[var(--muted-light)]">{m.text}</p>
+                  </div>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
