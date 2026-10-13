@@ -15,7 +15,6 @@ export const DETAIL_SHARED = {
     ],
     conditions: {
       title: "Hangi Durumlarda Kullanılıyor?",
-      sub: "Ozon tedavisinin araştırıldığı başlıca alanlar:",
       all: "Tümünü Gör",
     },
     methods: {
@@ -52,9 +51,6 @@ export const DETAIL_SHARED = {
       button: "Vetozone'u İnceleyin",
       to: "/cihazlar",
     },
-    defaultLead: "Klinik pratiğinizde ozon tedavisinin değerlendirilebileceği uygulama alanları.",
-    defaultBody:
-      "Medikal ozon; antimikrobiyal etkileri, inflamatuvar süreçler ve doku iyileşmesi üzerindeki potansiyel etkileri nedeniyle bu alanda farklı uygulama yöntemleriyle değerlendirilmektedir.",
   },
   en: {
     tabs: [
@@ -66,7 +62,6 @@ export const DETAIL_SHARED = {
     ],
     conditions: {
       title: "Where Is It Used?",
-      sub: "The main areas in which ozone therapy has been studied:",
       all: "See All",
     },
     methods: {
@@ -103,9 +98,6 @@ export const DETAIL_SHARED = {
       button: "Explore Vetozone",
       to: "/cihazlar",
     },
-    defaultLead: "Application areas where ozone therapy can be considered in your clinical practice.",
-    defaultBody:
-      "Medical ozone is evaluated in this area through different application methods, owing to its antimicrobial effects and its potential effects on inflammatory processes and tissue healing.",
   },
 };
 
@@ -118,8 +110,6 @@ export const DETAIL_OVERRIDES = {
       titleLines: ["Veteriner Dermatolojide", "Ozon Tedavisi"],
       accentLine: "Ozon Tedavisi",
       script: "Sağlıklı Deri, Mutlu Hastalar",
-      lead: "Daha sağlıklı bir deri, daha iyi bir yaşam kalitesi.",
-      body: "Medikal ozon; antimikrobiyal etkileri, inflamatuvar süreçler ve doku iyileşmesi üzerindeki potansiyel etkileri nedeniyle veteriner dermatolojide farklı uygulama yöntemleriyle değerlendirilmektedir.",
       image: ASSETS.species.dogcat,
       intro: {
         lead: "Kronik ve tekrarlayan deri problemlerinde farklı bir tedavi yaklaşımı.",
@@ -143,8 +133,6 @@ export const DETAIL_OVERRIDES = {
       titleLines: ["Ozone Therapy in", "Veterinary Dermatology"],
       accentLine: "Veterinary Dermatology",
       script: "Healthy Skin, Happy Patients",
-      lead: "Healthier skin, a better quality of life.",
-      body: "Medical ozone is evaluated in veterinary dermatology through different application methods, owing to its antimicrobial effects and its potential effects on inflammatory processes and tissue healing.",
       image: ASSETS.species.dogcat,
       intro: {
         lead: "A different treatment approach in chronic and recurrent skin problems.",

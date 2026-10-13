@@ -36,8 +36,8 @@ export default function TreatmentAreaDetail() {
 
   const titleLines = override?.titleLines || [item.title];
   const accentLine = override?.accentLine;
-  const lead = override?.lead || s.defaultLead;
-  const body = override?.body || s.defaultBody;
+  const lead = override?.lead;
+  const body = override?.body;
   const image = override?.image || ASSETS.species.dogcat;
   const conditions = override?.conditions || item.bullets.map((b) => ({ title: b }));
   const intro = override?.intro;
@@ -97,8 +97,8 @@ export default function TreatmentAreaDetail() {
                 </span>
               ))}
             </h1>
-            <p className="mt-6 text-lg sm:text-xl font-semibold max-w-xl">{lead}</p>
-            <p className="mt-4 text-white/60 leading-relaxed max-w-xl">{body}</p>
+            {lead && <p className="mt-6 text-lg sm:text-xl font-semibold max-w-xl">{lead}</p>}
+            {body && <p className="mt-4 text-white/60 leading-relaxed max-w-xl">{body}</p>}
           </Reveal>
         </div>
       </section>
@@ -139,7 +139,7 @@ export default function TreatmentAreaDetail() {
               </Link>
             </div>
 
-            {intro ? (
+            {intro && (
               <div className="max-w-3xl">
                 <p className="text-xl sm:text-2xl font-semibold leading-snug text-[var(--ink)]">
                   {intro.lead}
@@ -152,8 +152,6 @@ export default function TreatmentAreaDetail() {
                   ))}
                 </div>
               </div>
-            ) : (
-              <p className="max-w-3xl text-[var(--muted-light)]">{s.conditions.sub}</p>
             )}
           </Reveal>
 
