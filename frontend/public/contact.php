@@ -2,17 +2,55 @@
 declare(strict_types=1);
 
 /**
- * Vetozone iletişim formu — paylaşımlı hosting'in PHP'si ile e-posta gönderir.
+ * Vetozone iletişim formu — PHPMailer ile SMTP üzerinden e-posta gönderir.
  * Arkasında veritabanı veya yönetim paneli yoktur; talepler yalnızca e-posta
- * olarak düşer. Alıcı adres sabittir, dışarıdan değiştirilemez.
+ * olarak düşer. Alıcı adres config dosyasından gelir, istekle değiştirilemez.
+ *
+ * SMTP bilgileri için mail-config.example.php dosyasına bakın.
  */
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception as MailException;
 
 header('Content-Type: application/json; charset=utf-8');
 
-$RECIPIENT = 'info@vetozone.com.tr';
-// SPF'nin geçmesi için gönderen kendi alan adımız olmalı; ziyaretçinin
-// adresi Reply-To'ya konur, böylece "Yanıtla" doğrudan ona gider.
-$SENDER = 'info@vetozone.com.tr';
+function respond(int $status, array $payload): void
+{
+    http_response_code($status);
+    echo json_encode($payload, JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
+/** Başlık satırlarına kaçış karakteri enjekte edilmesini engeller. */
+function singleLine(string $value): string
+{
+    return trim(str_replace(["\r", "\n", "\0"], ' ', $value));
+}
+
+if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
+    respond(405, ['ok' => false, 'error' => 'method_not_allowed']);
+}
+
+// Web kökünün dışındaki konum tercih edilir; oradaki dosya tarayıcıdan
+// hiçbir koşulda istenemez.
+$configPaths = [
+    __DIR__ . '/../vetozone-mail-config.php',
+    __DIR__ . '/mail-config.php',
+];
+
+$config = null;
+foreach ($configPaths as $path) {
+    if (is_readable($path)) {
+        $config = require $path;
+        break;
+    }
+}
+
+if (!is_array($config)) {
+    error_log('[vetozone] mail yapılandırması bulunamadı');
+    respond(500, ['ok' => false, 'error' => 'not_configured']);
+}
 
 $MAX = [
     'name' => 120,
@@ -32,23 +70,6 @@ $TYPE_LABELS = [
     'egitim_talebi' => 'Eğitim Talebi',
     'bayilik_basvurusu' => 'Bayilik Başvurusu',
 ];
-
-function respond(int $status, array $payload): void
-{
-    http_response_code($status);
-    echo json_encode($payload, JSON_UNESCAPED_UNICODE);
-    exit;
-}
-
-/** Başlık satırlarına kaçış karakteri enjekte edilmesini engeller. */
-function singleLine(string $value): string
-{
-    return trim(str_replace(["\r", "\n", "\0"], ' ', $value));
-}
-
-if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
-    respond(405, ['ok' => false, 'error' => 'method_not_allowed']);
-}
 
 $raw = file_get_contents('php://input');
 $data = json_decode($raw ?: '', true);
@@ -77,8 +98,8 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     respond(422, ['ok' => false, 'error' => 'invalid_email']);
 }
 
-$typeLabel = $TYPE_LABELS[$fields['request_type']] ?? $fields['request_type'];
 $name = singleLine($fields['name']);
+$typeLabel = $TYPE_LABELS[$fields['request_type']] ?? singleLine($fields['request_type']);
 
 $body = "Vetozone web sitesi iletişim formu\n"
     . str_repeat('-', 40) . "\n\n"
@@ -92,19 +113,38 @@ $body = "Vetozone web sitesi iletişim formu\n"
     . "Gönderim: " . date('d.m.Y H:i') . "\n"
     . "IP      : " . ($_SERVER['REMOTE_ADDR'] ?? '-') . "\n";
 
-$subject = '=?UTF-8?B?' . base64_encode('Yeni Talep — ' . $name . ' (' . $typeLabel . ')') . '?=';
+require __DIR__ . '/lib/PHPMailer/Exception.php';
+require __DIR__ . '/lib/PHPMailer/PHPMailer.php';
+require __DIR__ . '/lib/PHPMailer/SMTP.php';
 
-$headers = implode("\r\n", [
-    'From: Vetozone Web <' . $SENDER . '>',
-    'Reply-To: ' . $name . ' <' . $email . '>',
-    'Content-Type: text/plain; charset=UTF-8',
-    'MIME-Version: 1.0',
-    'X-Mailer: PHP/' . phpversion(),
-]);
+$mail = new PHPMailer(true);
 
-$sent = @mail($RECIPIENT, $subject, $body, $headers, '-f' . $SENDER);
+try {
+    $mail->isSMTP();
+    $mail->Host = $config['host'];
+    $mail->Port = (int) $config['port'];
+    $mail->SMTPAuth = true;
+    $mail->Username = $config['username'];
+    $mail->Password = $config['password'];
+    $mail->SMTPSecure = ($config['secure'] ?? 'ssl') === 'tls'
+        ? PHPMailer::ENCRYPTION_STARTTLS
+        : PHPMailer::ENCRYPTION_SMTPS;
+    $mail->CharSet = PHPMailer::CHARSET_UTF8;
+    $mail->Timeout = 15;
 
-if (!$sent) {
+    // Gönderen kendi alan adımız olmalı, yoksa SPF düşer ve posta spam'e gider.
+    $mail->setFrom($config['from'], $config['from_name'] ?? 'Vetozone Web');
+    $mail->addAddress($config['recipient']);
+    // "Yanıtla" doğrudan formu dolduran kişiye gitsin.
+    $mail->addReplyTo($email, $name);
+
+    $mail->Subject = 'Yeni Talep — ' . $name . ' (' . $typeLabel . ')';
+    $mail->Body = $body;
+
+    $mail->send();
+} catch (MailException $e) {
+    // Ayrıntı sunucu günlüğüne yazılır; istemciye sızdırılmaz.
+    error_log('[vetozone] mail gönderilemedi: ' . $mail->ErrorInfo);
     respond(500, ['ok' => false, 'error' => 'send_failed']);
 }
 
