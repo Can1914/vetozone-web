@@ -13,7 +13,6 @@ import CaseCenter from "@/pages/CaseCenter";
 import ScientificLibrary from "@/pages/ScientificLibrary";
 import Corporate from "@/pages/Corporate";
 import ContactPage from "@/pages/ContactPage";
-import Admin from "@/pages/Admin";
 
 function App() {
   return (
@@ -34,7 +33,6 @@ function App() {
               <Route path="/kurumsal" element={<Corporate />} />
               <Route path="/iletisim" element={<ContactPage />} />
             </Route>
-            <Route path="/admin" element={<Admin />} />
           </Routes>
         </BrowserRouter>
       </div>

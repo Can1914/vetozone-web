@@ -13,8 +13,6 @@ export const ASSETS = {
     bagging: `${BASE}/methods/torbalama.jpg`,
     systemic: `${BASE}/methods/sistemik.jpg`,
   },
-  logo:
-    "https://customer-assets-lqy194kg.emergentagent.net/job_98caa84f-6aad-44a3-b114-d3248f65d171/artifacts/1l9j6wj8_image.png",
   species: {
     dogcat:
       "https://images.pexels.com/photos/6235238/pexels-photo-6235238.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",

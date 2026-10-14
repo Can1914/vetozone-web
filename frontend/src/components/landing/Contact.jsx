@@ -5,9 +5,12 @@ import { Phone, EnvelopeSimple, MapPin, ArrowRight } from "@phosphor-icons/react
 import { useLang } from "@/context/LanguageContext";
 import { Reveal } from "./Reveal";
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+// Shared hosting runs PHP, not the FastAPI backend, so the form posts to a
+// script sitting next to the built files.
+const CONTACT_ENDPOINT = `${process.env.PUBLIC_URL || ""}/contact.php`;
 
-const empty = { name: "", email: "", phone: "", clinic: "", request_type: "quote", message: "" };
+// `website` is a honeypot: hidden from people, filled in by bots.
+const empty = { name: "", email: "", phone: "", clinic: "", request_type: "quote", message: "", website: "" };
 
 export const Contact = ({ extraOptions = [], defaultType, compact = false, overline, title, sub, testid = "contact-section" }) => {
   const { t } = useLang();
@@ -23,7 +26,7 @@ export const Contact = ({ extraOptions = [], defaultType, compact = false, overl
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post(`${API}/contact`, form);
+      await axios.post(CONTACT_ENDPOINT, form);
       toast.success(f.success);
       setForm({ ...empty, request_type: defaultType || empty.request_type });
     } catch (err) {
@@ -54,6 +57,16 @@ export const Contact = ({ extraOptions = [], defaultType, compact = false, overl
             ))}
           </select>
         </div>
+        <input
+          type="text"
+          name="website"
+          value={form.website}
+          onChange={update("website")}
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          className="hidden"
+        />
         <div className="mt-4">
           <textarea required rows={4} value={form.message} onChange={update("message")} placeholder={f.message} className={`${inputCls} resize-none`} data-testid="form-message" />
         </div>
