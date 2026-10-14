@@ -70,7 +70,7 @@
     "test": "craco test",
     "postinstall": "node scripts/fix-legacy-ajv-keywords.js",
     "deploy": "npm run build && cp build/index.html build/404.html && npx --yes gh-pages@6 -d build",
-    "build:host": "PUBLIC_URL=/ craco build"
+    "build:host": "PUBLIC_URL=/ craco build && find build -type d -exec chmod 755 {} + && find build -type f -exec chmod 644 {} +"
   },
   "overrides": {
     "ajv": "^8.17.1"
