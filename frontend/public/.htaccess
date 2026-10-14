@@ -1,0 +1,13 @@
+# React Router uses real URLs (/cihazlar, /tedavi-alanlari/dermatoloji ...).
+# Apache would look for matching folders on disk and return 404 on a direct
+# visit or refresh, so anything that is not an existing file or directory is
+# served index.html and routed client-side instead.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
