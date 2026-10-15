@@ -36,12 +36,22 @@ jobs:
         working-directory: frontend
         run: npm run build:host
 
-      - name: Upload over FTP
+      # Plain FTP dropped its data sockets on this host (ECONNRESET), which a
+      # firewall in front of shared hosting commonly does. FTPS keeps the data
+      # channel encrypted so it is not inspected and cut; `loose` accepts the
+      # certificate mismatch these servers usually have. Allowed to fail so the
+      # lftp fallback below can take over within the same run.
+      - name: Upload over FTPS
+        id: ftps
+        continue-on-error: true
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          security: loose
+          timeout: 60000
           # The FTP account already lands in the site directory.
           local-dir: ./frontend/build/
           server-dir: ./
@@ -63,3 +73,33 @@ jobs:
             **/.well-known/**
             mail-config.php
             **/mail-config.php
+
+      # Fallback for when the connection is still torn down mid-transfer. lftp
+      # reconnects and resumes instead of aborting the whole upload, keeps to a
+      # single data connection, and only sends files that changed.
+      - name: Install lftp
+        if: steps.ftps.outcome == 'failure'
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Upload over FTPS with lftp
+        if: steps.ftps.outcome == 'failure'
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          # Read from the environment so the password never reaches argv.
+          LFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          lftp -c "
+          set ftp:ssl-allow true;
+          set ftp:ssl-protect-data true;
+          set ssl:verify-certificate no;
+          set ftp:passive-mode true;
+          set net:max-retries 10;
+          set net:reconnect-interval-base 5;
+          set net:reconnect-interval-multiplier 1;
+          set net:timeout 20;
+          set xfer:clobber on;
+          open -u '$FTP_USERNAME' --env-password '$FTP_SERVER';
+          mirror --reverse --only-newer --parallel=1 --delete --verbose --exclude-glob .cl.selector/ --exclude-glob .cagefs/ --exclude-glob .well-known/ --exclude-glob mail-config.php ./frontend/build/ ./;
+          bye
+          "
