@@ -113,9 +113,9 @@ $body = "Vetozone web sitesi iletişim formu\n"
     . "Gönderim: " . date('d.m.Y H:i') . "\n"
     . "IP      : " . ($_SERVER['REMOTE_ADDR'] ?? '-') . "\n";
 
-require __DIR__ . '/lib/PHPMailer/Exception.php';
-require __DIR__ . '/lib/PHPMailer/PHPMailer.php';
-require __DIR__ . '/lib/PHPMailer/SMTP.php';
+require __DIR__ . '/phpmailer/Exception.php';
+require __DIR__ . '/phpmailer/PHPMailer.php';
+require __DIR__ . '/phpmailer/SMTP.php';
 
 $mail = new PHPMailer(true);
 

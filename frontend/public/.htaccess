@@ -5,7 +5,7 @@
 </FilesMatch>
 
 # PHPMailer's sources are only ever included by contact.php, never requested.
-RedirectMatch 404 ^/lib/PHPMailer/.*$
+RedirectMatch 404 ^/phpmailer/.*$
 
 # React Router uses real URLs (/cihazlar, /tedavi-alanlari/dermatoloji ...).
 # Apache would look for matching folders on disk and return 404 on a direct
