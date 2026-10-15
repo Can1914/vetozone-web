@@ -52,6 +52,10 @@ jobs:
           protocol: ftps
           security: loose
           timeout: 60000
+          # The previous state file still lists the lib/ directory that was
+          # never created, so every run tried to delete a path that does not
+          # exist and failed. A new state name starts the bookkeeping over.
+          state-name: .vetozone-deploy-state.json
           # The FTP account already lands in the site directory.
           local-dir: ./frontend/build/
           server-dir: ./
