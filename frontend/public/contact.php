@@ -119,36 +119,57 @@ require __DIR__ . '/phpmailer/Exception.php';
 require __DIR__ . '/phpmailer/PHPMailer.php';
 require __DIR__ . '/phpmailer/SMTP.php';
 
-$mail = new PHPMailer(true);
+$port = (int) $config['port'];
 
-try {
-    $mail->isSMTP();
-    $mail->Host = $config['host'];
-    $mail->Port = (int) $config['port'];
-    $mail->SMTPAuth = true;
-    $mail->Username = $config['username'];
-    $mail->Password = $config['password'];
-    $mail->SMTPSecure = ($config['secure'] ?? 'ssl') === 'tls'
-        ? PHPMailer::ENCRYPTION_STARTTLS
-        : PHPMailer::ENCRYPTION_SMTPS;
-    $mail->CharSet = PHPMailer::CHARSET_UTF8;
-    $mail->Timeout = 15;
+// 465 TLS ile başlar, 587 ise düz başlayıp STARTTLS ile yükseltir. İkisinin
+// karıştırılması "STARTTLS command failed" hatasının olağan sebebi; bu yüzden
+// portun kendi yöntemi önce denenir, diğeri yedekte durur.
+$modes = $port === 465 ? ['ssl', 'tls'] : ['tls', 'ssl'];
+if (!empty($config['secure'])) {
+    array_unshift($modes, strtolower((string) $config['secure']));
+    $modes = array_values(array_unique($modes));
+}
 
-    // Gönderen kendi alan adımız olmalı, yoksa SPF düşer ve posta spam'e gider.
-    $mail->setFrom($config['from'], $config['from_name'] ?? 'Vetozone Web');
-    $mail->addAddress($config['recipient']);
-    // "Yanıtla" doğrudan formu dolduran kişiye gitsin.
-    $mail->addReplyTo($email, $name);
+$sent = false;
+$errors = [];
 
-    $mail->Subject = 'Yeni Talep — ' . $name . ' (' . $typeLabel . ')';
-    $mail->Body = $body;
+foreach ($modes as $mode) {
+    $mail = new PHPMailer(true);
+    try {
+        $mail->isSMTP();
+        $mail->Host = $config['host'];
+        $mail->Port = $port;
+        $mail->SMTPAuth = true;
+        $mail->Username = $config['username'];
+        $mail->Password = $config['password'];
+        $mail->SMTPSecure = $mode === 'tls'
+            ? PHPMailer::ENCRYPTION_STARTTLS
+            : PHPMailer::ENCRYPTION_SMTPS;
+        $mail->CharSet = PHPMailer::CHARSET_UTF8;
+        $mail->Timeout = 15;
 
-    $mail->send();
-} catch (MailException $e) {
+        // Gönderen kendi alan adımız olmalı, yoksa SPF düşer ve posta spam'e gider.
+        $mail->setFrom($config['from'], $config['from_name'] ?? 'Vetozone Web');
+        $mail->addAddress($config['recipient']);
+        // "Yanıtla" doğrudan formu dolduran kişiye gitsin.
+        $mail->addReplyTo($email, $name);
+
+        $mail->Subject = 'Yeni Talep — ' . $name . ' (' . $typeLabel . ')';
+        $mail->Body = $body;
+
+        $mail->send();
+        $sent = true;
+        break;
+    } catch (MailException $e) {
+        $errors[] = $mode . ' → ' . ($mail->ErrorInfo ?: $e->getMessage());
+    }
+}
+
+if (!$sent) {
     // Ayrıntı yalnızca sunucu tarafında kalır; istemciye sızdırılmaz.
     // PHP'nin kendi günlüğünün nerede olduğu panelden panele değiştiği için
     // sebebi config dosyasının yanına da yazıyoruz — şifre içermez.
-    $detail = $mail->ErrorInfo ?: $e->getMessage();
+    $detail = implode('  ||  ', $errors);
     error_log('[vetozone] mail gönderilemedi: ' . $detail);
     @file_put_contents(
         $configDir . '/vetozone-mail-error.log',
