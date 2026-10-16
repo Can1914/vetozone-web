@@ -40,9 +40,11 @@ $configPaths = [
 ];
 
 $config = null;
+$configDir = __DIR__;
 foreach ($configPaths as $path) {
     if (is_readable($path)) {
         $config = require $path;
+        $configDir = dirname($path);
         break;
     }
 }
@@ -143,8 +145,16 @@ try {
 
     $mail->send();
 } catch (MailException $e) {
-    // Ayrıntı sunucu günlüğüne yazılır; istemciye sızdırılmaz.
-    error_log('[vetozone] mail gönderilemedi: ' . $mail->ErrorInfo);
+    // Ayrıntı yalnızca sunucu tarafında kalır; istemciye sızdırılmaz.
+    // PHP'nin kendi günlüğünün nerede olduğu panelden panele değiştiği için
+    // sebebi config dosyasının yanına da yazıyoruz — şifre içermez.
+    $detail = $mail->ErrorInfo ?: $e->getMessage();
+    error_log('[vetozone] mail gönderilemedi: ' . $detail);
+    @file_put_contents(
+        $configDir . '/vetozone-mail-error.log',
+        date('d.m.Y H:i') . ' — ' . $detail . "\n",
+        FILE_APPEND
+    );
     respond(500, ['ok' => false, 'error' => 'send_failed']);
 }
 

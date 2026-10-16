@@ -21,10 +21,14 @@
  */
 
 return [
-    // Hosting panelinizdeki giden posta (SMTP) sunucusu
-    'host' => 'mail.vetozone.com.tr',
+    // DİKKAT: Bu alan adının postaları Plesk sunucusunda değil, Natro'nun
+    // kurumsal e-posta servisinde tutuluyor (MX kayıtları kurumsaleposta.com'a
+    // gidiyor). Bu yüzden SMTP sunucusu "mail.vetozone.com.tr" DEĞİL — öyle bir
+    // DNS kaydı yok, bağlantı daha kurulmadan düşer.
+    // Doğru değeri Natro panelindeki e-posta hesabı ayarlarından teyit edin.
+    'host' => 'mail.kurumsaleposta.com',
 
-    // 465 → SSL, 587 → STARTTLS. Natro genelde 465 kullanır.
+    // 465 → SSL, 587 → STARTTLS. Panelde hangisi yazıyorsa onu kullanın.
     'port' => 465,
     'secure' => 'ssl', // 'ssl' veya 'tls'
 
