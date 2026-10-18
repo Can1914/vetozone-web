@@ -13,11 +13,16 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception as MailException;
 
+// Sunucuya hangi sürümün yüklendiğini dışarıdan doğrulamak için; her yanıtta
+// "v" alanı olarak döner. İçinde yapılandırma veya kimlik bilgisi yok.
+const CONTACT_VERSION = '2026-10-18c';
+
 header('Content-Type: application/json; charset=utf-8');
 
 function respond(int $status, array $payload): void
 {
     http_response_code($status);
+    $payload['v'] = CONTACT_VERSION;
     echo json_encode($payload, JSON_UNESCAPED_UNICODE);
     exit;
 }
