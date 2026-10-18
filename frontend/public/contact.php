@@ -15,7 +15,7 @@ use PHPMailer\PHPMailer\Exception as MailException;
 
 // Sunucuya hangi sürümün yüklendiğini dışarıdan doğrulamak için; her yanıtta
 // "v" alanı olarak döner. İçinde yapılandırma veya kimlik bilgisi yok.
-const CONTACT_VERSION = '2026-10-18c';
+const CONTACT_VERSION = '2026-10-18d';
 
 header('Content-Type: application/json; charset=utf-8');
 
@@ -201,7 +201,20 @@ $sent = false;
 $method = null;
 $errors = [];
 
+// PHPMailer mail()'i @ ile çağırdığı için başarısızlığın gerçek sebebi
+// ("disabled for security reasons", "Could not execute: /usr/sbin/sendmail"
+// gibi) yutuluyor; geriye yalnızca "Could not instantiate mail function"
+// kalıyor. Bastırılmış uyarılar da bu işleyiciye uğradığı için sebebi
+// buradan toplayıp log'a ekliyoruz. Çıktıya hiçbir şey yazdırmıyor.
+$notices = [];
+set_error_handler(function (int $no, string $msg) use (&$notices): bool {
+    $notices[] = $msg;
+
+    return true;
+});
+
 foreach ($transports as $label => $configure) {
+    $notices = [];
     $mail = new PHPMailer(true);
     try {
         $compose($mail);
@@ -213,9 +226,15 @@ foreach ($transports as $label => $configure) {
         $method = $label;
         break;
     } catch (MailException $e) {
-        $errors[] = $label . ' → ' . ($mail->ErrorInfo ?: $e->getMessage());
+        $detail = $mail->ErrorInfo ?: $e->getMessage();
+        if ($notices) {
+            $detail .= ' [php: ' . implode('; ', array_unique($notices)) . ']';
+        }
+        $errors[] = $label . ' → ' . $detail;
     }
 }
+
+restore_error_handler();
 
 // PHP'nin kendi günlüğünün yeri panelden panele değiştiği için config
 // dosyasının yanına da yazıyoruz. Satırlar şifre içermez.
