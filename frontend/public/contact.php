@@ -130,7 +130,22 @@ if (!empty($config['secure'])) {
     $modes = array_values(array_unique($modes));
 }
 
+/** Taşıma yöntemi dışındaki her şey ortak; onu çağıran belirler. */
+$compose = function (PHPMailer $mail) use ($config, $email, $name, $typeLabel, $body): void {
+    $mail->CharSet = PHPMailer::CHARSET_UTF8;
+    // Gönderen kendi alan adımız olmalı, yoksa SPF düşer ve posta spam'e gider.
+    $mail->setFrom($config['from'], $config['from_name'] ?? 'Vetozone Web');
+    // Zarf göndericisi de aynı adres olsun; SPF buna bakar.
+    $mail->Sender = $config['from'];
+    $mail->addAddress($config['recipient']);
+    // "Yanıtla" doğrudan formu dolduran kişiye gitsin.
+    $mail->addReplyTo($email, $name);
+    $mail->Subject = 'Yeni Talep — ' . $name . ' (' . $typeLabel . ')';
+    $mail->Body = $body;
+};
+
 $sent = false;
+$method = null;
 $errors = [];
 
 foreach ($modes as $mode) {
@@ -145,38 +160,55 @@ foreach ($modes as $mode) {
         $mail->SMTPSecure = $mode === 'tls'
             ? PHPMailer::ENCRYPTION_STARTTLS
             : PHPMailer::ENCRYPTION_SMTPS;
-        $mail->CharSet = PHPMailer::CHARSET_UTF8;
         $mail->Timeout = 15;
-
-        // Gönderen kendi alan adımız olmalı, yoksa SPF düşer ve posta spam'e gider.
-        $mail->setFrom($config['from'], $config['from_name'] ?? 'Vetozone Web');
-        $mail->addAddress($config['recipient']);
-        // "Yanıtla" doğrudan formu dolduran kişiye gitsin.
-        $mail->addReplyTo($email, $name);
-
-        $mail->Subject = 'Yeni Talep — ' . $name . ' (' . $typeLabel . ')';
-        $mail->Body = $body;
+        $compose($mail);
 
         $mail->send();
         $sent = true;
+        $method = 'smtp/' . $mode;
         break;
     } catch (MailException $e) {
-        $errors[] = $mode . ' → ' . ($mail->ErrorInfo ?: $e->getMessage());
+        $errors[] = 'smtp/' . $mode . ' → ' . ($mail->ErrorInfo ?: $e->getMessage());
     }
 }
 
+// Paylaşımlı hosting dışarıya 465/587 açmıyorsa yukarıdakilerin hiçbiri
+// bağlanamaz. Bu durumda sunucunun kendi MTA'sına düşüyoruz — alan adının
+// SPF kaydı bu sunucunun IP'sini yetkilendirdiği için posta geçerli kalır.
 if (!$sent) {
-    // Ayrıntı yalnızca sunucu tarafında kalır; istemciye sızdırılmaz.
-    // PHP'nin kendi günlüğünün nerede olduğu panelden panele değiştiği için
-    // sebebi config dosyasının yanına da yazıyoruz — şifre içermez.
-    $detail = implode('  ||  ', $errors);
-    error_log('[vetozone] mail gönderilemedi: ' . $detail);
+    $mail = new PHPMailer(true);
+    try {
+        $mail->isMail();
+        $compose($mail);
+
+        $mail->send();
+        $sent = true;
+        $method = 'mail()';
+    } catch (MailException $e) {
+        $errors[] = 'mail() → ' . ($mail->ErrorInfo ?: $e->getMessage());
+    }
+}
+
+// PHP'nin kendi günlüğünün yeri panelden panele değiştiği için config
+// dosyasının yanına da yazıyoruz. Satırlar şifre içermez.
+$log = function (string $line) use ($configDir): void {
     @file_put_contents(
-        $configDir . '/vetozone-mail-error.log',
-        date('d.m.Y H:i') . ' — ' . $detail . "\n",
+        $configDir . '/vetozone-mail.log',
+        date('d.m.Y H:i') . ' — ' . $line . "\n",
         FILE_APPEND
     );
+};
+
+if (!$sent) {
+    // Ayrıntı yalnızca sunucu tarafında kalır; istemciye sızdırılmaz.
+    $detail = implode('  ||  ', $errors);
+    error_log('[vetozone] mail gönderilemedi: ' . $detail);
+    $log('BASARISIZ — ' . $detail);
     respond(500, ['ok' => false, 'error' => 'send_failed']);
 }
+
+// Hangi yolun işe yaradığı kayda geçsin: SMTP düşüp mail() devreye girdiyse
+// bu, SMTP'nin hâlâ kapalı olduğunu gösterir.
+$log('gonderildi: ' . $method . ($errors ? '  (once basarisiz: ' . implode(' | ', $errors) . ')' : ''));
 
 respond(200, ['ok' => true]);

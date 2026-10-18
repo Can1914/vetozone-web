@@ -1,6 +1,6 @@
 # SMTP credentials. The file belongs above the web root; this is the backstop
 # for when it has to sit next to contact.php instead.
-<FilesMatch "^(mail-config|mail-config\.example)\.php$|^vetozone-mail-error\.log$">
+<FilesMatch "^(mail-config|mail-config\.example)\.php$|^vetozone-mail(-error)?\.log$">
   Require all denied
 </FilesMatch>
 
