@@ -144,13 +144,13 @@ $compose = function (PHPMailer $mail) use ($config, $email, $name, $typeLabel, $
     $mail->Body = $body;
 };
 
-$sent = false;
-$method = null;
-$errors = [];
+// Denenecek taşıma yolları, sırayla. İlk başaran kazanır; hangisi olduğu
+// log'a yazılır. Yapılandırılmış SMTP hesabı en başta, çünkü postayı asıl
+// oraya teslim etmek istiyoruz.
+$transports = [];
 
 foreach ($modes as $mode) {
-    $mail = new PHPMailer(true);
-    try {
+    $transports['smtp/' . $mode] = function (PHPMailer $mail) use ($config, $port, $mode): void {
         $mail->isSMTP();
         $mail->Host = $config['host'];
         $mail->Port = $port;
@@ -160,32 +160,55 @@ foreach ($modes as $mode) {
         $mail->SMTPSecure = $mode === 'tls'
             ? PHPMailer::ENCRYPTION_STARTTLS
             : PHPMailer::ENCRYPTION_SMTPS;
-        $mail->Timeout = 15;
-        $compose($mail);
-
-        $mail->send();
-        $sent = true;
-        $method = 'smtp/' . $mode;
-        break;
-    } catch (MailException $e) {
-        $errors[] = 'smtp/' . $mode . ' → ' . ($mail->ErrorInfo ?: $e->getMessage());
-    }
+        $mail->Timeout = 10;
+    };
 }
 
-// Paylaşımlı hosting dışarıya 465/587 açmıyorsa yukarıdakilerin hiçbiri
-// bağlanamaz. Bu durumda sunucunun kendi MTA'sına düşüyoruz — alan adının
-// SPF kaydı bu sunucunun IP'sini yetkilendirdiği için posta geçerli kalır.
-if (!$sent) {
+// 587'nin "TLS support is not enabled" demesi, dışarıya çıkmak yerine
+// sunucunun kendi postacısına yönlendirildiğimizi gösteriyor. Plesk'te o
+// postacı 25. portta dinler ve localhost'tan geleni kimlik doğrulaması
+// istemeden kabul eder.
+$transports['smtp/yerel'] = function (PHPMailer $mail): void {
+    $mail->isSMTP();
+    $mail->Host = '127.0.0.1';
+    $mail->Port = 25;
+    $mail->SMTPAuth = false;
+    $mail->SMTPAutoTLS = false;
+    $mail->SMTPSecure = '';
+    $mail->Timeout = 5;
+};
+
+// Sunucunun kendi mail() fonksiyonu — alan adının SPF kaydı bu sunucunun
+// IP'sini yetkilendirdiği için buradan çıkan posta da geçerli kalır.
+$transports['mail()'] = function (PHPMailer $mail): void {
+    $mail->isMail();
+};
+
+// Bazı paylaşımlı sunucular mail()'e zarf göndericisini -f ile geçirmeye
+// izin vermez; o parametre reddedilince mail() hiç çağrılmadan false döner.
+// Sender boş kalırsa PHPMailer -f eklemez.
+$transports['mail()/zarfsiz'] = function (PHPMailer $mail): void {
+    $mail->isMail();
+    $mail->Sender = '';
+};
+
+$sent = false;
+$method = null;
+$errors = [];
+
+foreach ($transports as $label => $configure) {
     $mail = new PHPMailer(true);
     try {
-        $mail->isMail();
         $compose($mail);
+        // Taşıma ayarı en sonda: zarf göndericisini de değiştirebilmeli.
+        $configure($mail);
 
         $mail->send();
         $sent = true;
-        $method = 'mail()';
+        $method = $label;
+        break;
     } catch (MailException $e) {
-        $errors[] = 'mail() → ' . ($mail->ErrorInfo ?: $e->getMessage());
+        $errors[] = $label . ' → ' . ($mail->ErrorInfo ?: $e->getMessage());
     }
 }
 
