@@ -90,7 +90,7 @@ export const Hero = () => {
           >
             <button
               onClick={() => scrollTo("contact")}
-              className="group inline-flex items-center gap-2 bg-[var(--brand)] hover:bg-[var(--brand-hover)] text-white font-semibold px-7 py-4 rounded-sm transition-colors active:scale-[0.98]"
+              className="group inline-flex items-center gap-2 bg-[var(--brand)] hover:bg-[var(--brand-hover)] text-white font-semibold px-8 py-4 rounded-full transition-colors active:scale-[0.98]"
               data-testid="hero-cta-primary"
             >
               {h.ctaPrimary}
@@ -98,7 +98,7 @@ export const Hero = () => {
             </button>
             <button
               onClick={() => scrollTo("contact")}
-              className="inline-flex items-center gap-2 text-white font-semibold px-7 py-4 rounded-sm border border-white/20 hover:bg-white/5 transition-colors active:scale-[0.98]"
+              className="inline-flex items-center gap-2 text-white font-semibold px-8 py-4 rounded-full border border-white/20 hover:bg-white/5 transition-colors active:scale-[0.98]"
               data-testid="hero-cta-secondary"
             >
               {h.ctaSecondary}
