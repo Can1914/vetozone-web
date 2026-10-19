@@ -41,6 +41,9 @@ export default function TreatmentAreaDetail() {
   const image = override?.image || ASSETS.species.dogcat;
   const conditions = override?.conditions || item.bullets.map((b) => ({ title: b }));
   const intro = override?.intro;
+  // Yöntem kartları ortak listeden gelir; bir alan kendi başlıklarını
+  // verdiyse (aynı görsellerle) onunkiler kullanılır.
+  const methods = override?.methods || s.methods.items;
   const Icon = item.icon;
 
   const goTab = (id) => {
@@ -197,7 +200,7 @@ export default function TreatmentAreaDetail() {
           </Reveal>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-            {s.methods.items.map((m, i) => {
+            {methods.map((m, i) => {
               const MIcon = m.icon;
               return (
                 <Reveal key={i} delay={(i % 5) * 0.06}>

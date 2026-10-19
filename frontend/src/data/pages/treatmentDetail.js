@@ -178,6 +178,13 @@ export const DETAIL_OVERRIDES = {
         { title: "Ülseratif Lezyonlar ve Bası Yaraları", text: "Deri bütünlüğünün bozulduğu, derin doku hasarının gelişebildiği bölgelerde" },
         { title: "Doku Kaybı ve Rekonstrüktif Cerrahi", text: "Deri flepleri ve greftlerle gerçekleştirilen cerrahi onarımın öncesinde veya sonrasında" },
       ],
+      methods: [
+        { icon: Drop, image: ASSETS.methods.water, title: "Ozonlu Su", text: "Yara yüzeyinin temizlenmesi ve irrigasyonu" },
+        { icon: Eyedropper, image: ASSETS.methods.oil, title: "Ozonlu Yağ", text: "Yara yüzeyine yönelik lokal bakım" },
+        { icon: Syringe, image: ASSETS.methods.local, title: "Ozon İnfiltrasyonu (POİ)", text: "Yara çevresindeki dokulara ozon gazı uygulaması" },
+        { icon: Package, image: ASSETS.methods.bagging, title: "Torbalama", text: "Yara bölgesinin kontrollü ozon gazı ortamında tutulması" },
+        { icon: Syringe, image: ASSETS.methods.systemic, title: "Sistemik Uygulamalar", text: "Uygun vakalarda tamamlayıcı sistemik yaklaşımlar" },
+      ],
     },
     en: {
       titleLines: ["Ozone Therapy in", "Wound Management"],
@@ -201,6 +208,13 @@ export const DETAIL_OVERRIDES = {
         { title: "Infected Wounds", text: "Treatment combining infection control, wound cleansing and local care" },
         { title: "Ulcerative Lesions and Pressure Sores", text: "Areas where skin integrity is lost and deep tissue damage can develop" },
         { title: "Tissue Loss and Reconstructive Surgery", text: "Before or after surgical repair with skin flaps and grafts" },
+      ],
+      methods: [
+        { icon: Drop, image: ASSETS.methods.water, title: "Ozonated Water", text: "Cleansing and irrigation of the wound surface" },
+        { icon: Eyedropper, image: ASSETS.methods.oil, title: "Ozonated Oil", text: "Local care applied to the wound surface" },
+        { icon: Syringe, image: ASSETS.methods.local, title: "Ozone Infiltration (POI)", text: "Ozone gas applied to the tissue around the wound" },
+        { icon: Package, image: ASSETS.methods.bagging, title: "Bagging", text: "Holding the wound area in a controlled ozone gas environment" },
+        { icon: Syringe, image: ASSETS.methods.systemic, title: "Systemic Applications", text: "Complementary systemic approaches in suitable cases" },
       ],
     },
   },
