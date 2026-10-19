@@ -227,9 +227,20 @@ export const DETAIL_OVERRIDES = {
       lead: "Tekrarlayan otitis vakalarında destekleyici yaklaşım.",
       body: "Dış kulak yolu hastalıklarında medikal ozon; ozonlu yağ ve lokal uygulama yöntemleriyle, mevcut tedaviye destek olarak değerlendirilmektedir.",
       image: ASSETS.species.dogcat,
+      intro: {
+        lead: "Veteriner ozon tedavisi, dış kulak yolu hastalıklarında enfeksiyon kontrolünü ve lokal bakımı destekleyen tamamlayıcı uygulamalar arasında yer alır.",
+        paragraphs: [
+          "Özellikle bakteriyel enfeksiyonların eşlik ettiği otitis vakalarında, kulak temizliği ve hastalığın nedenine yönelik tedaviyle birlikte kullanılır.",
+        ],
+        closing:
+          "Uygulama yöntemi; kulak kanalının durumu, kulak zarı bütünlüğü ve enfeksiyonun özellikleri değerlendirilerek belirlenir.",
+      },
       conditions: [
-        { title: "Otitis Externa", text: "Dış kulak yolu iltihapları" },
-        { title: "Kronik Otitis", text: "Tekrarlayan ve uzun süreli vakalar" },
+        { title: "Otitis Eksterna (Dış Kulak Yolu İltihabı)", text: "Bakteriyel enfeksiyonların eşlik ettiği dış kulak yolu iltihaplarında lokal ozon uygulamaları" },
+        { title: "Kronik Otitis", text: "Uzun süreli inflamasyon, akıntı ve kulak kanalında değişikliklerle seyreden vakalarda tamamlayıcı bakım" },
+        { title: "Tekrarlayan Kulak Enfeksiyonları", text: "Nükseden otitis vakalarında, altta yatan nedenin tedavisiyle birlikte lokal ozon uygulamaları" },
+        { title: "Bakteriyel Kulak Enfeksiyonları", text: "Bakteriyel yükün azaltılmasına yönelik kulak temizliği ve antimikrobiyal tedavi süreçlerinde destekleyici uygulamalar" },
+        { title: "Kulak Kepçesi Lezyonları", text: "Yüzeysel yaralar, tahriş ve deri bütünlüğünün bozulduğu alanlarda ozonlu su ve ozonlu yağ ile lokal bakım" },
       ],
     },
     en: {
@@ -239,9 +250,20 @@ export const DETAIL_OVERRIDES = {
       lead: "A supportive approach in recurrent otitis cases.",
       body: "In conditions of the external ear canal, medical ozone is evaluated as a support to existing treatment through ozonated oil and local application methods.",
       image: ASSETS.species.dogcat,
+      intro: {
+        lead: "Veterinary ozone therapy is among the complementary applications that support infection control and local care in conditions of the external ear canal.",
+        paragraphs: [
+          "It is used above all in otitis cases accompanied by bacterial infection, alongside ear cleansing and treatment directed at the underlying cause.",
+        ],
+        closing:
+          "The method of application is decided by assessing the state of the ear canal, the integrity of the eardrum and the characteristics of the infection.",
+      },
       conditions: [
-        { title: "Otitis Externa", text: "Inflammation of the external ear canal" },
-        { title: "Chronic Otitis", text: "Recurrent and long-standing cases" },
+        { title: "Otitis Externa (External Ear Canal Inflammation)", text: "Local ozone applications in inflammation of the external ear canal accompanied by bacterial infection" },
+        { title: "Chronic Otitis", text: "Complementary care in cases with long-standing inflammation, discharge and changes in the ear canal" },
+        { title: "Recurrent Ear Infections", text: "Local ozone applications in relapsing otitis, alongside treatment of the underlying cause" },
+        { title: "Bacterial Ear Infections", text: "Supportive applications during ear cleansing and antimicrobial treatment aimed at reducing bacterial load" },
+        { title: "Pinna Lesions", text: "Local care with ozonated water and ozonated oil on superficial wounds, irritation and areas where skin integrity is lost" },
       ],
     },
   },
