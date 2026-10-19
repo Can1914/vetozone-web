@@ -247,7 +247,7 @@ export const Navbar = () => {
           <Link
             to="/iletisim"
             onClick={() => setOpen(false)}
-            className="hidden sm:inline-flex items-center bg-[var(--brand)] hover:bg-[var(--brand-hover)] text-white text-sm font-semibold px-5 py-2.5 rounded-sm transition-colors"
+            className="lift hidden sm:inline-flex items-center bg-[var(--brand)] hover:bg-[var(--brand-hover)] text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors"
             data-testid="nav-quote-btn"
           >
             {t.nav.quote}
@@ -362,7 +362,7 @@ export const Navbar = () => {
               <Link
                 to="/iletisim"
                 onClick={() => setOpen(false)}
-                className="mt-4 block text-center bg-[var(--brand)] text-white font-semibold py-3 rounded-sm"
+                className="mt-4 block text-center bg-[var(--brand)] text-white font-semibold py-3 rounded-full"
                 data-testid="nav-mobile-quote"
               >
                 {t.nav.quote}

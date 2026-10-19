@@ -16,6 +16,16 @@ export const ASSETS = {
     local: `${BASE}/methods/lokal-ozon.jpg`,
     bagging: `${BASE}/methods/torbalama.jpg`,
     systemic: `${BASE}/methods/sistemik.jpg`,
+    // Kulak sayfasına özel çekimler — kanal içi uygulamalar genel
+    // fotoğraflarla anlatılamıyor.
+    earWater: `${BASE}/methods/kulak-ozonlu-su.jpg`,
+    earOil: `${BASE}/methods/kulak-ozon-yagi.jpg`,
+    earGas: `${BASE}/methods/kulak-ozon-gazi.jpg`,
+    // Yara sayfası için: ekstremite torbalaması, perilezyonel infiltrasyon
+    // ve otohemoterapi.
+    baggingLimb: `${BASE}/methods/torbalama-bagging.jpg`,
+    poi: `${BASE}/methods/ozon-infiltrasyonu-poi.jpg`,
+    autohemotherapy: `${BASE}/methods/sistemik-otohemoterapi.jpg`,
   },
   species: {
     dogcat:
