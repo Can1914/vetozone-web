@@ -90,3 +90,6 @@ frontend/node_modules/.cache/default-development/0.pack
 
 # SMTP sifresi iceren gercek yapilandirma - asla commit edilmemeli
 frontend/public/mail-config.php
+
+# Holding sayfasinin uretilen paketi (scripts/build-landing.sh)
+landing-dist/
