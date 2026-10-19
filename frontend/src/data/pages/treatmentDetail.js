@@ -162,11 +162,21 @@ export const DETAIL_OVERRIDES = {
       lead: "Zor iyileşen yaralarda ek bir seçenek.",
       body: "Medikal ozon; antimikrobiyal etkileri ve doku iyileşmesi üzerindeki potansiyel etkileri nedeniyle akut ve kronik yara yönetiminde lokal ve sistemik yöntemlerle değerlendirilmektedir.",
       image: ASSETS.species.dogcat,
+      intro: {
+        lead: "Veteriner ozon uygulamaları, yara bakımı ve hasarlı dokuların onarımına yönelik tedavi süreçlerinde farklı yöntemlerle değerlendirilmektedir.",
+        paragraphs: [
+          "Uygulama seçimi, doku hasarının türüne ve hastanın klinik ihtiyaçlarına göre yapılır.",
+        ],
+        closing:
+          "Bu alanlarda ozonlu su, ozonlu yağ, torbalama ve perilezyonel ozon infiltrasyonu gibi yöntemler kullanılmaktadır. Ozon uygulamaları, gerekli cerrahi müdahalelerin ve standart yara tedavisinin yerine değil, bunlara ek olarak değerlendirilir.",
+      },
       conditions: [
-        { title: "Kronik Yaralar", text: "İyileşmesi uzayan, tekrarlayan yaralar" },
-        { title: "Enfekte Yaralar", text: "Bakteriyel yük taşıyan yara zeminleri" },
-        { title: "Cerrahi Yaralar", text: "Operasyon sonrası yara takibi" },
-        { title: "Doku İyileşmesi", text: "Granülasyon ve epitelizasyon sürecinin desteklenmesi" },
+        { title: "Travmatik Yaralar", text: "Isırık, kesik, sıyrık ve kazalara bağlı oluşan açık yaraların bakımında" },
+        { title: "Cerrahi Yaralar", text: "Operasyon sonrası yara bakımında ve doku iyileşmesinin takip edildiği süreçlerde" },
+        { title: "Kronik ve Geç İyileşen Yaralar", text: "Uzun süre kapanmayan, tekrarlayan bakım gerektiren ve doku kaybının eşlik ettiği yaralarda" },
+        { title: "Enfekte Yaralar", text: "Enfeksiyon kontrolü, yara temizliği ve lokal bakımın birlikte yürütüldüğü tedavi süreçlerinde" },
+        { title: "Ülseratif Lezyonlar ve Bası Yaraları", text: "Deri bütünlüğünün bozulduğu, derin doku hasarının gelişebildiği bölgelerde" },
+        { title: "Doku Kaybı ve Rekonstrüktif Cerrahi", text: "Deri flepleri ve greftlerle gerçekleştirilen cerrahi onarımın öncesinde veya sonrasında" },
       ],
     },
     en: {
@@ -176,11 +186,21 @@ export const DETAIL_OVERRIDES = {
       lead: "An additional option in slow-healing wounds.",
       body: "Medical ozone is evaluated in acute and chronic wound management through local and systemic methods, owing to its antimicrobial effects and potential effects on tissue healing.",
       image: ASSETS.species.dogcat,
+      intro: {
+        lead: "Veterinary ozone applications are considered through a range of methods in wound care and in the repair of damaged tissue.",
+        paragraphs: [
+          "The choice of application is made according to the type of tissue damage and the clinical needs of the patient.",
+        ],
+        closing:
+          "Methods such as ozonated water, ozonated oil, bagging and perilesional ozone infiltration are used in these areas. Ozone applications are considered as an addition to necessary surgical intervention and standard wound treatment, not as a replacement for them.",
+      },
       conditions: [
-        { title: "Chronic Wounds", text: "Recurrent wounds with prolonged healing" },
-        { title: "Infected Wounds", text: "Wound beds carrying a bacterial load" },
-        { title: "Surgical Wounds", text: "Post-operative wound follow-up" },
-        { title: "Tissue Healing", text: "Support for granulation and epithelialisation" },
+        { title: "Traumatic Wounds", text: "Care of open wounds from bites, cuts, abrasions and accidents" },
+        { title: "Surgical Wounds", text: "Post-operative wound care and follow-up of tissue healing" },
+        { title: "Chronic and Slow-Healing Wounds", text: "Wounds that stay open, need repeated care, or come with tissue loss" },
+        { title: "Infected Wounds", text: "Treatment combining infection control, wound cleansing and local care" },
+        { title: "Ulcerative Lesions and Pressure Sores", text: "Areas where skin integrity is lost and deep tissue damage can develop" },
+        { title: "Tissue Loss and Reconstructive Surgery", text: "Before or after surgical repair with skin flaps and grafts" },
       ],
     },
   },
