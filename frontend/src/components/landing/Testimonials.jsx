@@ -24,7 +24,7 @@ export const Testimonials = () => {
           {tm.items.map((it, i) => (
             <Reveal key={i} delay={i * 0.1}>
               <div
-                className="h-full bg-[var(--surface)] border border-white/10 rounded-sm p-8 flex flex-col hover:border-[var(--brand)]/50 transition-colors duration-500"
+                className="lift h-full bg-[var(--surface)] border border-white/10 rounded-sm p-8 flex flex-col hover:border-[var(--brand)]/50"
                 data-testid={`testimonial-${i}`}
               >
                 <Quotes size={34} weight="fill" className="text-[var(--brand)]" />

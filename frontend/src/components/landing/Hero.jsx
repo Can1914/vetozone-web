@@ -60,9 +60,13 @@ export const Hero = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="mb-4 flex items-baseline gap-1.5"
           >
-            <span className="font-display font-black text-3xl sm:text-4xl text-white lowercase tracking-tight">
-              vetozone
-            </span>
+            <img
+              src={ASSETS.logoWhite}
+              alt="Vetozone"
+              width="875"
+              height="212"
+              className="h-9 sm:h-11 w-auto"
+            />
           </motion.div>
 
           <h1 className="font-display font-black text-white text-[3rem] leading-[0.92] sm:text-6xl lg:text-[5.5rem] tracking-tighter">

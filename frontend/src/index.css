@@ -144,3 +144,44 @@ body {
   padding-block: 0.15em;
   margin-block: -0.15em;
 }
+
+/* Hover'da hafif yükselme. Kart ve düğmelerde kullanılıyor; mesafe bilerek
+   küçük tutuldu, sayfa zıplamasın diye. */
+.lift {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease;
+}
+.lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px -12px rgba(10, 10, 10, 0.25);
+}
+
+/* Cihaz görselinin yerinde duruyormuş gibi değil, hafifçe süzülmesi. */
+.float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Hareket azaltma tercihine saygı: süsleme animasyonları kapanır, geçişler
+   anlık olur. İçerik aynı kalır. */
+@media (prefers-reduced-motion: reduce) {
+  .float-slow {
+    animation: none;
+  }
+  .lift,
+  .link-underline::after {
+    transition-duration: 0.01ms;
+  }
+  .lift:hover {
+    transform: none;
+  }
+}

@@ -3,6 +3,10 @@
 const BASE = process.env.PUBLIC_URL || "";
 
 export const ASSETS = {
+  // Marka logosu. Mavi hâli açık zeminler, beyaz hâli koyu zeminler için;
+  // ikisi de aynı maskeden üretilir (scripts/build-logos.py).
+  logo: `${BASE}/vetozone-logo.png`,
+  logoWhite: `${BASE}/vetozone-logo-white.png`,
   deviceHero: `${BASE}/devices/vetozone-plus-blue.png`,
   deviceSpecs: `${BASE}/devices/vetozone-plus-gold.png`,
   deviceMobile: `${BASE}/devices/vetozone-case.png`,

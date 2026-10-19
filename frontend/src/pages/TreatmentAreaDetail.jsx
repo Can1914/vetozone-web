@@ -159,16 +159,23 @@ export default function TreatmentAreaDetail() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="mt-10 flex flex-wrap gap-2.5">
+            <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {conditions.map((c, i) => (
-                <span
+                <div
                   key={i}
-                  className="inline-flex items-center gap-2 bg-white border border-black/10 rounded-sm px-4 py-2.5 text-sm font-semibold text-[var(--ink)]"
+                  className="lift h-full bg-white border border-black/10 hover:border-[var(--brand)]/40 rounded-sm px-5 py-4"
                   data-testid={`area-condition-${i}`}
                 >
-                  {Icon && <Icon size={16} weight="duotone" className="text-[var(--brand)]" />}
-                  {c.title}
-                </span>
+                  <div className="flex items-start gap-2">
+                    {Icon && (
+                      <Icon size={17} weight="duotone" className="mt-0.5 shrink-0 text-[var(--brand)]" />
+                    )}
+                    <h3 className="text-sm font-semibold leading-snug text-[var(--ink)]">{c.title}</h3>
+                  </div>
+                  {c.text && (
+                    <p className="mt-2 text-sm leading-relaxed text-[var(--muted-light)]">{c.text}</p>
+                  )}
+                </div>
               ))}
             </div>
           </Reveal>
@@ -205,7 +212,7 @@ export default function TreatmentAreaDetail() {
               return (
                 <Reveal key={i} delay={(i % 5) * 0.06}>
                   <div
-                    className="group h-full bg-white border border-black/10 rounded-sm overflow-hidden hover:border-[var(--brand)]/40 transition-colors duration-500"
+                    className="lift group h-full bg-white border border-black/10 rounded-sm overflow-hidden hover:border-[var(--brand)]/40"
                     data-testid={`area-method-${i}`}
                   >
                     <div className="relative aspect-square overflow-hidden bg-[var(--paper-2)]">

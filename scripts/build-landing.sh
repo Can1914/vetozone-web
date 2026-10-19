@@ -11,8 +11,9 @@ out=landing-dist
 rm -rf "$out"
 mkdir -p "$out"
 
-cp landing/index.html landing/vetozone-logo.png "$out/"
-cp frontend/public/favicon.png frontend/public/og-image.jpg "$out/"
+cp landing/index.html "$out/"
+# Logo sitenin kendi varliklariyla ayni yerden gelir; iki kopya ayrismasin.
+cp frontend/public/vetozone-logo.png frontend/public/favicon.png frontend/public/og-image.jpg "$out/"
 
 # .htaccess olmadan sayfa yine açılır, ama config ve log dosyalarını dışarıya
 # kapatan kurallar ile her adresi index.html'e yönlendiren kural kaybolurdu;

@@ -242,6 +242,12 @@ export const DETAIL_OVERRIDES = {
         { title: "Bakteriyel Kulak Enfeksiyonları", text: "Bakteriyel yükün azaltılmasına yönelik kulak temizliği ve antimikrobiyal tedavi süreçlerinde destekleyici uygulamalar" },
         { title: "Kulak Kepçesi Lezyonları", text: "Yüzeysel yaralar, tahriş ve deri bütünlüğünün bozulduğu alanlarda ozonlu su ve ozonlu yağ ile lokal bakım" },
       ],
+      methods: [
+        { icon: Sparkle, image: ASSETS.methods.local, title: "Ozon Gazı Uygulaması", text: "Dış kulak yoluna kontrollü lokal ozon uygulaması" },
+        { icon: Drop, image: ASSETS.methods.water, title: "Ozonlu Su", text: "Dış kulak yolunun temizlenmesi ve irrigasyonu" },
+        { icon: Eyedropper, image: ASSETS.methods.oil, title: "Ozonlu Yağ", text: "Kulak kepçesi ve dış kulak girişinde lokal bakım" },
+        { icon: Syringe, image: ASSETS.methods.systemic, title: "Sistemik Uygulamalar", text: "Uygun vakalarda tamamlayıcı sistemik yaklaşımlar" },
+      ],
     },
     en: {
       titleLines: ["Ozone Therapy in", "Ear Conditions"],
@@ -264,6 +270,12 @@ export const DETAIL_OVERRIDES = {
         { title: "Recurrent Ear Infections", text: "Local ozone applications in relapsing otitis, alongside treatment of the underlying cause" },
         { title: "Bacterial Ear Infections", text: "Supportive applications during ear cleansing and antimicrobial treatment aimed at reducing bacterial load" },
         { title: "Pinna Lesions", text: "Local care with ozonated water and ozonated oil on superficial wounds, irritation and areas where skin integrity is lost" },
+      ],
+      methods: [
+        { icon: Sparkle, image: ASSETS.methods.local, title: "Ozone Gas Application", text: "Controlled local ozone application into the external ear canal" },
+        { icon: Drop, image: ASSETS.methods.water, title: "Ozonated Water", text: "Cleansing and irrigation of the external ear canal" },
+        { icon: Eyedropper, image: ASSETS.methods.oil, title: "Ozonated Oil", text: "Local care on the pinna and at the entrance of the ear canal" },
+        { icon: Syringe, image: ASSETS.methods.systemic, title: "Systemic Applications", text: "Complementary systemic approaches in suitable cases" },
       ],
     },
   },

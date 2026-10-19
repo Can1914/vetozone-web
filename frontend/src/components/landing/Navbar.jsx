@@ -3,7 +3,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { CaretDown, ArrowRight, BookOpen } from "@phosphor-icons/react";
 import { useLang } from "@/context/LanguageContext";
-import { NAV_TREE, HOMEPAGE_ANCHOR } from "@/data/navTree";
+import { NAV_TREE, HOMEPAGE_ANCHOR, navText } from "@/data/navTree";
+import { ASSETS } from "@/data/content";
 import { scrollToId } from "@/lib/scrollToId";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
@@ -73,10 +74,14 @@ export const Navbar = () => {
       data-testid="navbar"
     >
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 h-16 sm:h-20 flex items-center justify-between">
-        <button onClick={handleLogoClick} className="flex items-center gap-2.5" data-testid="nav-logo">
-          <span className="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-white lowercase">
-            vetozone
-          </span>
+        <button onClick={handleLogoClick} className="flex items-center" data-testid="nav-logo">
+          <img
+            src={ASSETS.logoWhite}
+            alt="Vetozone"
+            width="875"
+            height="212"
+            className="h-6 sm:h-7 w-auto transition-opacity duration-300 hover:opacity-80"
+          />
         </button>
 
         <nav className="hidden lg:flex items-stretch gap-1 h-full">
@@ -123,7 +128,7 @@ export const Navbar = () => {
                                   <div className="relative h-32 overflow-hidden rounded-sm">
                                     <img
                                       src={col.image}
-                                      alt={col.title}
+                                      alt={navText(col, "title", lang)}
                                       className="absolute inset-0 w-full h-full object-cover"
                                       loading="lazy"
                                     />
@@ -137,11 +142,11 @@ export const Navbar = () => {
                                       </span>
                                     )}
                                     <span className="text-[11px] uppercase tracking-[0.18em] font-bold text-[var(--brand)]">
-                                      {col.title}
+                                      {navText(col, "title", lang)}
                                     </span>
                                   </div>
-                                  {col.desc && (
-                                    <p className="mt-2 text-xs leading-relaxed text-white/45">{col.desc}</p>
+                                  {navText(col, "desc", lang) && (
+                                    <p className="mt-2 text-xs leading-relaxed text-white/45">{navText(col, "desc", lang)}</p>
                                   )}
 
                                   <div className="mt-4 pt-3 border-t border-white/10">
@@ -153,7 +158,7 @@ export const Navbar = () => {
                                         className="group/link flex items-center justify-between gap-3 py-2 border-b border-white/[0.06] text-sm text-white/70 hover:text-white transition-colors"
                                         data-testid={`nav-mega-item-${item.key}-${ci}-${i}`}
                                       >
-                                        {child.label}
+                                        {navText(child, "label", lang)}
                                         <ArrowRight
                                           size={13}
                                           className="shrink-0 text-white/20 transition-all group-hover/link:text-[var(--brand)] group-hover/link:translate-x-0.5"
@@ -167,7 +172,7 @@ export const Navbar = () => {
                                     onClick={handleChildClick}
                                     className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--brand)] hover:gap-2.5 transition-all"
                                   >
-                                    Tümünü Gör <ArrowRight size={12} weight="bold" />
+                                    {lang === "en" ? "See All" : "Tümünü Gör"} <ArrowRight size={12} weight="bold" />
                                   </Link>
                                 </div>
                               );
@@ -185,10 +190,10 @@ export const Navbar = () => {
                                 <BookOpen size={22} className="shrink-0 text-[var(--brand)]" weight="duotone" />
                                 <span className="flex-1">
                                   <span className="block font-display font-bold text-white">
-                                    {item.megaFooter.title}
+                                    {navText(item.megaFooter, "title", lang)}
                                   </span>
                                   <span className="block text-xs text-white/45 mt-0.5">
-                                    {item.megaFooter.desc}
+                                    {navText(item.megaFooter, "desc", lang)}
                                   </span>
                                 </span>
                                 <ArrowRight
@@ -209,7 +214,7 @@ export const Navbar = () => {
                               className="block px-3 py-2.5 rounded-sm text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors"
                               data-testid={`nav-dropdown-item-${item.key}-${i}`}
                             >
-                              {child.label}
+                              {navText(child, "label", lang)}
                             </Link>
                           ))}
                         </div>
@@ -223,13 +228,14 @@ export const Navbar = () => {
         </nav>
 
         <div className="flex items-center gap-3 sm:gap-5">
-          <div className="hidden sm:flex items-center text-xs font-bold text-white/60 border border-white/15 rounded-sm overflow-hidden">
+          {/* Hap biçimli; seçili dil yumuşak bir geçişle dolduruluyor. */}
+          <div className="hidden sm:flex items-center gap-0.5 p-0.5 text-xs font-bold text-white/60 border border-white/15 rounded-full">
             {["tr", "en"].map((code) => (
               <button
                 key={code}
                 onClick={() => setLang(code)}
-                className={`px-2.5 py-1.5 uppercase transition-colors ${
-                  lang === code ? "bg-[var(--brand)] text-white" : "hover:text-white"
+                className={`px-3 py-1 rounded-full uppercase transition-all duration-300 ${
+                  lang === code ? "bg-[var(--brand)] text-white shadow-sm" : "hover:text-white hover:bg-white/5"
                 }`}
                 data-testid={`lang-${code}`}
               >
@@ -290,7 +296,7 @@ export const Navbar = () => {
                         {item.mega.map((col, ci) => (
                           <div key={ci} className="mt-3">
                             <div className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/40 mb-1">
-                              {col.title}
+                              {navText(col, "title", lang)}
                             </div>
                             {col.items.map((child, i) => (
                               <Link
@@ -300,7 +306,7 @@ export const Navbar = () => {
                                 className="block py-1.5 text-sm text-white/70"
                                 data-testid={`nav-mobile-mega-${item.key}-${ci}-${i}`}
                               >
-                                {child.label}
+                                {navText(child, "label", lang)}
                               </Link>
                             ))}
                           </div>
@@ -332,7 +338,7 @@ export const Navbar = () => {
                               className="py-2 text-sm text-white/70"
                               data-testid={`nav-mobile-item-${item.key}-${i}`}
                             >
-                              {child.label}
+                              {navText(child, "label", lang)}
                             </Link>
                           ))}
                         </div>
@@ -367,8 +373,8 @@ export const Navbar = () => {
                   <button
                     key={code}
                     onClick={() => setLang(code)}
-                    className={`px-3 py-1.5 uppercase rounded-sm border border-white/15 transition-colors ${
-                      lang === code ? "bg-[var(--brand)] text-white border-[var(--brand)]" : "hover:text-white"
+                    className={`px-4 py-1.5 uppercase rounded-full border border-white/15 transition-all duration-300 ${
+                      lang === code ? "bg-[var(--brand)] text-white border-[var(--brand)]" : "hover:text-white hover:bg-white/5"
                     }`}
                     data-testid={`lang-mobile-${code}`}
                   >

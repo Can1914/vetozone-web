@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useLang } from "@/context/LanguageContext";
 import { NAV_TREE } from "@/data/navTree";
+import { ASSETS } from "@/data/content";
 
 export const Footer = () => {
   const { t } = useLang();
@@ -11,9 +12,13 @@ export const Footer = () => {
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8">
         <div className="grid md:grid-cols-3 gap-8 pb-12">
           <div className="md:col-span-1">
-            <div className="flex items-center gap-2">
-              <span className="font-display font-extrabold text-2xl lowercase">vetozone</span>
-            </div>
+            <img
+              src={ASSETS.logoWhite}
+              alt="Vetozone"
+              width="875"
+              height="212"
+              className="h-8 w-auto"
+            />
             <p className="mt-4 text-sm text-white/50 max-w-xs leading-relaxed">{fo.tagline}</p>
           </div>
           <div className="md:col-span-2 flex flex-wrap gap-3 md:justify-end items-start">
@@ -26,15 +31,15 @@ export const Footer = () => {
         </div>
 
         <nav className="grid grid-cols-2 sm:grid-cols-4 gap-x-4 gap-y-3 pb-12 border-t border-white/10 pt-10" data-testid="footer-sitemap">
-          <Link to="/" className="text-sm text-white/60 hover:text-white transition-colors">
+          <Link to="/" className="link-underline text-sm text-white/60 hover:text-white transition-colors">
             {t.nav.home}
           </Link>
           {NAV_TREE.map((item) => (
-            <Link key={item.key} to={item.to} className="text-sm text-white/60 hover:text-white transition-colors">
+            <Link key={item.key} to={item.to} className="link-underline text-sm text-white/60 hover:text-white transition-colors">
               {t.nav[item.key]}
             </Link>
           ))}
-          <Link to="/iletisim" className="text-sm text-white/60 hover:text-white transition-colors">
+          <Link to="/iletisim" className="link-underline text-sm text-white/60 hover:text-white transition-colors">
             {t.nav.contact}
           </Link>
         </nav>
