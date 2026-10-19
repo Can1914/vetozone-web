@@ -179,7 +179,7 @@ export const DETAIL_OVERRIDES = {
         { title: "Doku Kaybı ve Rekonstrüktif Cerrahi", text: "Deri flepleri ve greftlerle gerçekleştirilen cerrahi onarımın öncesinde veya sonrasında" },
       ],
       methods: [
-        { icon: Drop, image: ASSETS.methods.water, title: "Ozonlu Su", text: "Yara yüzeyinin temizlenmesi ve irrigasyonu" },
+        { icon: Drop, image: ASSETS.methods.woundIrrigation, title: "Ozonlu Su", text: "Yara yüzeyinin temizlenmesi ve irrigasyonu" },
         { icon: Eyedropper, image: ASSETS.methods.oil, title: "Ozonlu Yağ", text: "Yara yüzeyine yönelik lokal bakım" },
         { icon: Syringe, image: ASSETS.methods.poi, title: "Ozon İnfiltrasyonu (POİ)", text: "Yara çevresindeki dokulara ozon gazı uygulaması" },
         { icon: Package, image: ASSETS.methods.baggingLimb, title: "Torbalama", text: "Yara bölgesinin kontrollü ozon gazı ortamında tutulması" },
@@ -210,7 +210,7 @@ export const DETAIL_OVERRIDES = {
         { title: "Tissue Loss and Reconstructive Surgery", text: "Before or after surgical repair with skin flaps and grafts" },
       ],
       methods: [
-        { icon: Drop, image: ASSETS.methods.water, title: "Ozonated Water", text: "Cleansing and irrigation of the wound surface" },
+        { icon: Drop, image: ASSETS.methods.woundIrrigation, title: "Ozonated Water", text: "Cleansing and irrigation of the wound surface" },
         { icon: Eyedropper, image: ASSETS.methods.oil, title: "Ozonated Oil", text: "Local care applied to the wound surface" },
         { icon: Syringe, image: ASSETS.methods.poi, title: "Ozone Infiltration (POI)", text: "Ozone gas applied to the tissue around the wound" },
         { icon: Package, image: ASSETS.methods.baggingLimb, title: "Bagging", text: "Holding the wound area in a controlled ozone gas environment" },
@@ -288,10 +288,26 @@ export const DETAIL_OVERRIDES = {
       lead: "Oral mukozanın desteklenmesinde ek bir araç.",
       body: "Gingivitis, stomatitis ve periodontal problemlerde medikal ozon; ozonlu su ve lokal uygulamalarla, diş hekimliği pratiğine destekleyici olarak değerlendirilmektedir.",
       image: ASSETS.species.dogcat,
+      intro: {
+        lead: "Veteriner ozon tedavisi; diş eti hastalıkları, ağız içi lezyonlar ve periodontal bakımda tamamlayıcı olarak kullanılır.",
+        paragraphs: [
+          "Ozonlu su, ozonlu yağ ve diş eti çevresindeki dokulara lokal ozon gazı infiltrasyonu başlıca uygulama yöntemleridir.",
+        ],
+        closing:
+          "Uygulamalar, veteriner hekimin muayenesi doğrultusunda gerekli diş hekimliği ve medikal tedavilerle birlikte yürütülür.",
+      },
       conditions: [
-        { title: "Gingivitis", text: "Dişeti iltihapları" },
-        { title: "Stomatitis", text: "Ağız mukozası inflamasyonu" },
-        { title: "Periodontal Hastalıklar", text: "Destek doku kaynaklı tablolar" },
+        { title: "Gingivitis (Diş Eti İltihabı)", text: "Diş eti inflamasyonunda lokal ozon gazı infiltrasyonu ve ozonlu su uygulamaları" },
+        { title: "Periodontal Hastalıklar", text: "Diş taşı temizliği ve periodontal tedaviye ek olarak ozonlu su ve lokal ozon gazı uygulamaları" },
+        { title: "Stomatitis", text: "Ağız mukozasındaki inflamasyon ve lezyonlarda ozonlu su ve ozonlu yağ ile lokal bakım" },
+        { title: "Oral Papillomatozis", text: "Ağız içi papillomların çevresindeki mukozanın temizliği ve bakımında tamamlayıcı uygulamalar" },
+        { title: "Ağız İçi Ülserler", text: "Mukozal yaraların temizliği ve lokal bakımında ozonlu su ve ozonlu yağ uygulamaları" },
+        { title: "Diş Çekimi ve Oral Cerrahi", text: "Cerrahi sonrası yara bakımında lokal ozon uygulamaları" },
+      ],
+      methods: [
+        { icon: Syringe, image: ASSETS.methods.oralInfiltration, title: "Lokal Ozon Gazı İnfiltrasyonu", text: "Diş eti çevresindeki dokulara ozon gazı uygulaması" },
+        { icon: Drop, image: ASSETS.methods.water, title: "Ozonlu Su", text: "Ağız içi temizlik ve irrigasyon uygulamaları" },
+        { icon: Eyedropper, image: ASSETS.methods.oil, title: "Ozonlu Yağ", text: "Mukozal lezyonlarda lokal bakım" },
       ],
     },
     en: {
@@ -301,10 +317,26 @@ export const DETAIL_OVERRIDES = {
       lead: "An additional tool in supporting the oral mucosa.",
       body: "In gingivitis, stomatitis and periodontal problems, medical ozone is evaluated as a support to dental practice through ozonated water and local applications.",
       image: ASSETS.species.dogcat,
+      intro: {
+        lead: "Veterinary ozone therapy is used as a complement in gum disease, intraoral lesions and periodontal care.",
+        paragraphs: [
+          "Ozonated water, ozonated oil and local ozone gas infiltration into the tissue around the gums are the principal methods of application.",
+        ],
+        closing:
+          "Applications are carried out in line with the veterinarian's examination, alongside the dental and medical treatment the case requires.",
+      },
       conditions: [
-        { title: "Gingivitis", text: "Inflammation of the gums" },
-        { title: "Stomatitis", text: "Inflammation of the oral mucosa" },
-        { title: "Periodontal Disease", text: "Presentations arising from supporting tissue" },
+        { title: "Gingivitis (Inflammation of the Gums)", text: "Local ozone gas infiltration and ozonated water applications in gum inflammation" },
+        { title: "Periodontal Disease", text: "Ozonated water and local ozone gas applications in addition to scaling and periodontal treatment" },
+        { title: "Stomatitis", text: "Local care with ozonated water and ozonated oil in inflammation and lesions of the oral mucosa" },
+        { title: "Oral Papillomatosis", text: "Complementary applications in cleansing and caring for the mucosa around intraoral papillomas" },
+        { title: "Intraoral Ulcers", text: "Ozonated water and ozonated oil applications in cleansing and local care of mucosal wounds" },
+        { title: "Tooth Extraction and Oral Surgery", text: "Local ozone applications in post-operative wound care" },
+      ],
+      methods: [
+        { icon: Syringe, image: ASSETS.methods.oralInfiltration, title: "Local Ozone Gas Infiltration", text: "Ozone gas applied to the tissue around the gums" },
+        { icon: Drop, image: ASSETS.methods.water, title: "Ozonated Water", text: "Intraoral cleansing and irrigation" },
+        { icon: Eyedropper, image: ASSETS.methods.oil, title: "Ozonated Oil", text: "Local care on mucosal lesions" },
       ],
     },
   },

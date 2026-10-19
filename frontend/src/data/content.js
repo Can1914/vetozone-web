@@ -26,6 +26,9 @@ export const ASSETS = {
     baggingLimb: `${BASE}/methods/torbalama-bagging.jpg`,
     poi: `${BASE}/methods/ozon-infiltrasyonu-poi.jpg`,
     autohemotherapy: `${BASE}/methods/sistemik-otohemoterapi.jpg`,
+    woundIrrigation: `${BASE}/methods/yara-ozonlu-serum.jpg`,
+    // Diş eti çevresine lokal ozon gazı infiltrasyonu.
+    oralInfiltration: `${BASE}/methods/agiz-ozon-infiltrasyonu.jpg`,
   },
   species: {
     dogcat:

@@ -13,7 +13,9 @@ mkdir -p "$out"
 
 cp landing/index.html "$out/"
 # Logo sitenin kendi varliklariyla ayni yerden gelir; iki kopya ayrismasin.
-cp frontend/public/vetozone-logo.png frontend/public/favicon.png frontend/public/og-image.jpg "$out/"
+cp frontend/public/vetozone-logo.png frontend/public/og-image.jpg "$out/"
+cp frontend/public/favicon.ico frontend/public/favicon-32.png \
+   frontend/public/apple-touch-icon.png "$out/"
 
 # .htaccess olmadan sayfa yine açılır, ama config ve log dosyalarını dışarıya
 # kapatan kurallar ile her adresi index.html'e yönlendiren kural kaybolurdu;
