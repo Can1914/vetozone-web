@@ -15,7 +15,7 @@ use PHPMailer\PHPMailer\Exception as MailException;
 
 // Sunucuya hangi sürümün yüklendiğini dışarıdan doğrulamak için; her yanıtta
 // "v" alanı olarak döner. İçinde yapılandırma veya kimlik bilgisi yok.
-const CONTACT_VERSION = '2026-10-18d';
+const CONTACT_VERSION = '2026-10-19a';
 
 header('Content-Type: application/json; charset=utf-8');
 
@@ -168,6 +168,22 @@ foreach ($modes as $mode) {
         $mail->Timeout = 10;
     };
 }
+
+// Natro'nun verdiği ayar: 587 şifrelemesiz, STARTTLS kapalı. PHPMailer
+// kendiliğinden STARTTLS'e yükseltmeye kalkarsa sunucu yine reddeder, o
+// yüzden SMTPAutoTLS de kapatılıyor. Şifre bu yolda açık metin gider;
+// 465/SSL çalıştığı anda sıra oraya geleceği için bu adım yedekte durur.
+$transports['smtp/587-duz'] = function (PHPMailer $mail) use ($config): void {
+    $mail->isSMTP();
+    $mail->Host = $config['host'];
+    $mail->Port = 587;
+    $mail->SMTPAuth = true;
+    $mail->Username = $config['username'];
+    $mail->Password = $config['password'];
+    $mail->SMTPAutoTLS = false;
+    $mail->SMTPSecure = '';
+    $mail->Timeout = 10;
+};
 
 // 587'nin "TLS support is not enabled" demesi, dışarıya çıkmak yerine
 // sunucunun kendi postacısına yönlendirildiğimizi gösteriyor. Plesk'te o

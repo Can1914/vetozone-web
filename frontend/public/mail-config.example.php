@@ -28,7 +28,12 @@ return [
     // Doğru değeri Natro panelindeki e-posta hesabı ayarlarından teyit edin.
     'host' => 'mail.kurumsaleposta.com',
 
-    // 465 → SSL, 587 → STARTTLS. Panelde hangisi yazıyorsa onu kullanın.
+    // Natro desteğinin verdiği iki seçenek (19.10.2026 tarihli talep):
+    //   465 → SSL açık
+    //   587 → şifreleme KAPALI (STARTTLS yok). Dikkat: bu portta şifre açık
+    //         metin gider, bu yüzden tercih 465'tir.
+    // Buradaki ayar başarısız olursa contact.php sırayla diğer yolları da
+    // dener; hangisinin işe yaradığını vetozone-mail.log'a yazar.
     'port' => 465,
     'secure' => 'ssl', // 'ssl' veya 'tls'
 
