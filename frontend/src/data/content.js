@@ -29,6 +29,8 @@ export const ASSETS = {
     woundIrrigation: `${BASE}/methods/yara-ozonlu-serum.jpg`,
     // Diş eti çevresine lokal ozon gazı infiltrasyonu.
     oralInfiltration: `${BASE}/methods/agiz-ozon-infiltrasyonu.jpg`,
+    oralWater: `${BASE}/methods/agiz-ozonlu-su.jpg`,
+    oralOil: `${BASE}/methods/agiz-ozon-yagi.jpg`,
   },
   species: {
     dogcat:
@@ -136,7 +138,7 @@ export const CONTENT = {
       home: "Ana Sayfa",
     },
     hero: {
-      overline: "Veteriner Hekimler İçin — 2021",
+      overline: "Veteriner Hekimler İçin",
       titleLines: ["Ozon Tedavisini", "Kliniğinize", "Entegre Edin."],
       accentWord: "Ozon Tedavisini",
       sub: "Medikal ozon teknolojisi, uygulamaya özel ekipmanlar, eğitim ve klinik destek tek bir sistemde.",
@@ -516,7 +518,7 @@ export const CONTENT = {
       home: "Home",
     },
     hero: {
-      overline: "For Veterinarians — Since 2021",
+      overline: "For Veterinarians",
       titleLines: ["Integrate Ozone", "Therapy Into", "Your Clinic."],
       accentWord: "Integrate Ozone",
       sub: "Medical ozone technology, application-specific equipment, training and clinical support in a single system.",

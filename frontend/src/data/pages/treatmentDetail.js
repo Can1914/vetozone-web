@@ -306,8 +306,8 @@ export const DETAIL_OVERRIDES = {
       ],
       methods: [
         { icon: Syringe, image: ASSETS.methods.oralInfiltration, title: "Lokal Ozon Gazı İnfiltrasyonu", text: "Diş eti çevresindeki dokulara ozon gazı uygulaması" },
-        { icon: Drop, image: ASSETS.methods.water, title: "Ozonlu Su", text: "Ağız içi temizlik ve irrigasyon uygulamaları" },
-        { icon: Eyedropper, image: ASSETS.methods.oil, title: "Ozonlu Yağ", text: "Mukozal lezyonlarda lokal bakım" },
+        { icon: Drop, image: ASSETS.methods.oralWater, title: "Ozonlu Su", text: "Ağız içi temizlik ve irrigasyon uygulamaları" },
+        { icon: Eyedropper, image: ASSETS.methods.oralOil, title: "Ozonlu Yağ", text: "Mukozal lezyonlarda lokal bakım" },
       ],
     },
     en: {
@@ -335,8 +335,8 @@ export const DETAIL_OVERRIDES = {
       ],
       methods: [
         { icon: Syringe, image: ASSETS.methods.oralInfiltration, title: "Local Ozone Gas Infiltration", text: "Ozone gas applied to the tissue around the gums" },
-        { icon: Drop, image: ASSETS.methods.water, title: "Ozonated Water", text: "Intraoral cleansing and irrigation" },
-        { icon: Eyedropper, image: ASSETS.methods.oil, title: "Ozonated Oil", text: "Local care on mucosal lesions" },
+        { icon: Drop, image: ASSETS.methods.oralWater, title: "Ozonated Water", text: "Intraoral cleansing and irrigation" },
+        { icon: Eyedropper, image: ASSETS.methods.oralOil, title: "Ozonated Oil", text: "Local care on mucosal lesions" },
       ],
     },
   },

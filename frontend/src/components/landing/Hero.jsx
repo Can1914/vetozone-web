@@ -46,27 +46,11 @@ export const Hero = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="flex items-center gap-3 mb-7"
+            className="mb-6"
           >
-            <span className="w-8 h-px bg-[var(--brand)]" />
-            <span className="text-[11px] uppercase tracking-[0.25em] font-bold text-white/60">
+            <span className="text-sm sm:text-base uppercase tracking-[0.2em] font-bold text-white/70">
               {h.overline}
             </span>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="mb-4 flex items-baseline gap-1.5"
-          >
-            <img
-              src={ASSETS.logoWhite}
-              alt="Vetozone"
-              width="875"
-              height="212"
-              className="h-9 sm:h-11 w-auto"
-            />
           </motion.div>
 
           <h1 className="font-display font-black text-white text-[3rem] leading-[0.92] sm:text-6xl lg:text-[5.5rem] tracking-tighter">
