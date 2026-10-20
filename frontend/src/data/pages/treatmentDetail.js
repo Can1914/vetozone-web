@@ -349,9 +349,26 @@ export const DETAIL_OVERRIDES = {
       lead: "Alt üriner sistem vakalarında destekleyici uygulama.",
       body: "Sistit ve üriner sistem enfeksiyonlarında medikal ozon; ozonlanmış solüsyonlarla lokal destek amacıyla değerlendirilmektedir.",
       image: ASSETS.species.dogcat,
+      intro: {
+        lead: "Veteriner ozon uygulamaları; böbrek hastalıkları, mesane problemleri ve idrar yolu enfeksiyonlarında standart tedaviyi tamamlayan yöntemler arasında yer alır.",
+        paragraphs: [
+          "Klinik uygulamalarda rektal ozon, ozonlanmış serum fizyolojik ve lokal uygulama yöntemleri kullanılır.",
+        ],
+        closing:
+          "Uygulama yöntemi; hastanın böbrek fonksiyonları, idrar tahlili, enfeksiyon durumu ve klinik bulguları doğrultusunda veteriner hekim tarafından belirlenir.",
+      },
       conditions: [
-        { title: "Sistit", text: "İdrar kesesi inflamasyonu" },
-        { title: "Üriner Enfeksiyonlar", text: "Lokal destek uygulamaları" },
+        { title: "Akut ve Kronik Böbrek Hastalıkları", text: "Böbrek fonksiyonlarının etkilendiği hastalarda, standart tedaviye ek olarak rektal ozon ve intravenöz ozonlanmış serum fizyolojik uygulamaları. Birlikte çalıştığımız veteriner kliniklerinden, bu uygulamaların ardından kreatinin ve üre değerlerinde olumlu değişimler görüldüğüne ilişkin geri bildirimler alıyoruz." },
+        { title: "Sistit (Mesane İltihabı)", text: "Mesane mukozasında inflamasyonun görüldüğü vakalarda, hastalığın nedenine yönelik tedaviyle birlikte tamamlayıcı lokal uygulamalar" },
+        { title: "Tekrarlayan İdrar Yolu Enfeksiyonları", text: "Bakteriyel enfeksiyonların tekrarladığı vakalarda, kültür ve antibiyogram sonuçlarına göre belirlenen tedaviye ek ozon uygulamaları" },
+        { title: "Kronik Sistit", text: "Uzun süreli mesane inflamasyonunda, mesane mukozasına yönelik lokal bakım uygulamaları" },
+        { title: "Mesane Mukozası Hasarları", text: "Mesane iç yüzeyinde irritasyon ve doku hasarının bulunduğu vakalarda, lokal bakım ve doku onarımına yönelik tamamlayıcı uygulamalar" },
+      ],
+      methods: [
+        { icon: Sparkle, image: ASSETS.methods.rectal, title: "Rektal Ozon Uygulaması", text: "Böbrek hastalıklarında tamamlayıcı sistemik uygulama" },
+        { icon: Drop, image: ASSETS.methods.ozonatedSaline, title: "Ozonlanmış Serum Fizyolojik", text: "İntravenöz uygulamayla sistemik destek" },
+        { icon: Drop, image: ASSETS.methods.water, title: "Mesane İrrigasyonu", text: "Mesane içinin ozonlanmış serum fizyolojik ile yıkanması" },
+        { icon: Syringe, image: ASSETS.methods.majorAutohemotherapy, title: "Majör Otohemoterapi (MAH)", text: "Hastanın kanı üzerinden gerçekleştirilen sistemik ozon uygulaması" },
       ],
     },
     en: {
@@ -361,9 +378,26 @@ export const DETAIL_OVERRIDES = {
       lead: "A supportive application in lower urinary tract cases.",
       body: "In cystitis and urinary tract infections, medical ozone is evaluated for local support through ozonated solutions.",
       image: ASSETS.species.dogcat,
+      intro: {
+        lead: "Veterinary ozone applications are among the methods that complement standard treatment in kidney disease, bladder problems and urinary tract infections.",
+        paragraphs: [
+          "In clinical practice, rectal ozone, ozonated saline and local application methods are used.",
+        ],
+        closing:
+          "The method of application is decided by the veterinarian in line with the patient's kidney function, urinalysis, infection status and clinical findings.",
+      },
       conditions: [
-        { title: "Cystitis", text: "Inflammation of the bladder" },
-        { title: "Urinary Infections", text: "Local support applications" },
+        { title: "Acute and Chronic Kidney Disease", text: "Rectal ozone and intravenous ozonated saline in addition to standard treatment in patients whose kidney function is affected. The veterinary clinics we work with report favourable changes in creatinine and urea values following these applications." },
+        { title: "Cystitis (Inflammation of the Bladder)", text: "Complementary local applications alongside treatment directed at the underlying cause, in cases with inflammation of the bladder mucosa" },
+        { title: "Recurrent Urinary Tract Infections", text: "Ozone applications in addition to the treatment determined by culture and antibiogram results, in cases where bacterial infection recurs" },
+        { title: "Chronic Cystitis", text: "Local care directed at the bladder mucosa in long-standing bladder inflammation" },
+        { title: "Damage to the Bladder Mucosa", text: "Complementary applications for local care and tissue repair in cases with irritation and tissue damage on the inner surface of the bladder" },
+      ],
+      methods: [
+        { icon: Sparkle, image: ASSETS.methods.rectal, title: "Rectal Ozone Application", text: "Complementary systemic application in kidney disease" },
+        { icon: Drop, image: ASSETS.methods.ozonatedSaline, title: "Ozonated Saline", text: "Systemic support by intravenous application" },
+        { icon: Drop, image: ASSETS.methods.water, title: "Bladder Irrigation", text: "Flushing the inside of the bladder with ozonated saline" },
+        { icon: Syringe, image: ASSETS.methods.majorAutohemotherapy, title: "Major Autohemotherapy (MAH)", text: "Systemic ozone application carried out through the patient's own blood" },
       ],
     },
   },

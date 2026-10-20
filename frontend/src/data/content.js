@@ -31,6 +31,9 @@ export const ASSETS = {
     oralInfiltration: `${BASE}/methods/agiz-ozon-infiltrasyonu.jpg`,
     oralWater: `${BASE}/methods/agiz-ozonlu-su.jpg`,
     oralOil: `${BASE}/methods/agiz-ozon-yagi.jpg`,
+    rectal: `${BASE}/methods/rektal-ozon.jpg`,
+    ozonatedSaline: `${BASE}/methods/ozonlanmis-serum-iv.jpg`,
+    majorAutohemotherapy: `${BASE}/methods/major-otohemoterapi.jpg`,
   },
   species: {
     dogcat:
