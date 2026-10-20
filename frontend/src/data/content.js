@@ -34,6 +34,11 @@ export const ASSETS = {
     rectal: `${BASE}/methods/rektal-ozon.jpg`,
     ozonatedSaline: `${BASE}/methods/ozonlanmis-serum-iv.jpg`,
     majorAutohemotherapy: `${BASE}/methods/major-otohemoterapi.jpg`,
+    minorAutohemotherapy: `${BASE}/methods/minor-otohemoterapi.jpg`,
+    intraarticular: `${BASE}/methods/eklem-ici-ozon.jpg`,
+    periarticular: `${BASE}/methods/periartikuler-ozon.jpg`,
+    paravertebral: `${BASE}/methods/paravertebral-ozon.jpg`,
+    subcutaneous: `${BASE}/methods/subkutan-ozon.jpg`,
   },
   species: {
     dogcat:

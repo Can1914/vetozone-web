@@ -410,9 +410,26 @@ export const DETAIL_OVERRIDES = {
       lead: "Eklem konforunu desteklemeye yönelik bir seçenek.",
       body: "Osteoartrit ve eklem hastalıklarında medikal ozon; intraartiküler ve periartiküler uygulamalarla, ağrı yönetimi ve fonksiyon desteği çerçevesinde değerlendirilmektedir.",
       image: ASSETS.species.horse,
+      intro: {
+        lead: "Osteoartrit; eklem kıkırdağı, kemik ve çevre dokuları etkileyen, ağrı ve hareket kısıtlılığına neden olan kronik bir eklem hastalığıdır.",
+        paragraphs: [
+          "Veteriner ozon uygulamaları, osteoartritli hastalarda ağrı yönetimi ve hareket konforunu desteklemek amacıyla mevcut tedavi programına eklenir.",
+        ],
+        closing:
+          "Ozon uygulamaları; veteriner hekimin belirlediği ağrı tedavisi, kilo kontrolü, egzersiz düzenlemesi ve fiziksel rehabilitasyonla birlikte yürütülür.",
+      },
       conditions: [
-        { title: "Osteoartrit", text: "Dejeneratif eklem hastalığı" },
-        { title: "Eklem Hastalıkları", text: "Kronik seyirli eklem problemleri" },
+        { title: "Kalça Osteoartriti", text: "Kalça eklemindeki dejeneratif değişikliklere bağlı ağrı, tutukluk ve yürüme güçlüğünün yönetiminde" },
+        { title: "Diz ve Dirsek Osteoartriti", text: "Eklem hareketlerinde zorlanma, yük verme güçlüğü ve kronik ağrının eşlik ettiği vakalarda" },
+        { title: "Kronik Eklem Ağrısı", text: "Uzun süreli ağrı ve hassasiyetin kontrolüne yönelik tamamlayıcı uygulamalarda" },
+        { title: "Hareket Kısıtlılığı", text: "Ayağa kalkma, yürüme, merdiven çıkma ve günlük aktivitelerde zorlanan hastaların tedavi programlarında" },
+        { title: "Yaşa Bağlı Dejeneratif Eklem Problemleri", text: "İleri yaştaki hastalarda eklem sertliği ve hareket güçlüğünün yönetiminde" },
+      ],
+      methods: [
+        { icon: Syringe, image: ASSETS.methods.intraarticular, title: "Eklem İçi Ozon", text: "Eklem boşluğuna yönelik intraartiküler ozon uygulaması" },
+        { icon: Syringe, image: ASSETS.methods.periarticular, title: "Periartiküler Ozon", text: "Eklem çevresindeki dokulara lokal ozon gazı infiltrasyonu" },
+        { icon: Sparkle, image: ASSETS.methods.rectal, title: "Rektal Ozon", text: "Rektal yolla gerçekleştirilen sistemik ozon uygulaması" },
+        { icon: Syringe, image: ASSETS.methods.minorAutohemotherapy, title: "Minör Otohemoterapi (MiAH)", text: "Ozonlanan otolog kanın derin intramüsküler uygulanması" },
       ],
     },
     en: {
@@ -422,9 +439,26 @@ export const DETAIL_OVERRIDES = {
       lead: "An option aimed at supporting joint comfort.",
       body: "In osteoarthritis and joint disease, medical ozone is evaluated within the framework of pain management and functional support through intra-articular and peri-articular applications.",
       image: ASSETS.species.horse,
+      intro: {
+        lead: "Osteoarthritis is a chronic joint disease that affects the joint cartilage, bone and surrounding tissue, causing pain and restricted movement.",
+        paragraphs: [
+          "Veterinary ozone applications are added to the existing treatment programme to support pain management and comfort of movement in patients with osteoarthritis.",
+        ],
+        closing:
+          "Ozone applications are carried out alongside the pain treatment, weight control, exercise regime and physical rehabilitation set out by the veterinarian.",
+      },
       conditions: [
-        { title: "Osteoarthritis", text: "Degenerative joint disease" },
-        { title: "Joint Conditions", text: "Chronic joint problems" },
+        { title: "Hip Osteoarthritis", text: "In managing pain, stiffness and difficulty walking caused by degenerative change in the hip joint" },
+        { title: "Stifle and Elbow Osteoarthritis", text: "In cases with difficulty moving the joint, difficulty bearing weight and accompanying chronic pain" },
+        { title: "Chronic Joint Pain", text: "In complementary applications aimed at controlling long-standing pain and tenderness" },
+        { title: "Restricted Movement", text: "In treatment programmes for patients who struggle to stand, walk, climb stairs and carry out daily activities" },
+        { title: "Age-Related Degenerative Joint Problems", text: "In managing joint stiffness and difficulty moving in older patients" },
+      ],
+      methods: [
+        { icon: Syringe, image: ASSETS.methods.intraarticular, title: "Intra-Articular Ozone", text: "Intra-articular ozone application into the joint space" },
+        { icon: Syringe, image: ASSETS.methods.periarticular, title: "Peri-Articular Ozone", text: "Local ozone gas infiltration into the tissue around the joint" },
+        { icon: Sparkle, image: ASSETS.methods.rectal, title: "Rectal Ozone", text: "Systemic ozone application carried out by the rectal route" },
+        { icon: Syringe, image: ASSETS.methods.minorAutohemotherapy, title: "Minor Autohemotherapy (MiAH)", text: "Deep intramuscular application of ozonated autologous blood" },
       ],
     },
   },
@@ -437,10 +471,27 @@ export const DETAIL_OVERRIDES = {
       lead: "Nörolojik rehabilitasyon sürecine eşlik eden uygulamalar.",
       body: "IVDD ve omurga kaynaklı nörolojik tablolarda medikal ozon; paravertebral ve sistemik uygulamalarla, rehabilitasyon protokollerine destek olarak değerlendirilmektedir.",
       image: ASSETS.species.dogcat,
+      intro: {
+        lead: "İntervertebral disk hastalığı (IVDD), omurlar arasındaki disklerin yapısal değişiklikleri sonucunda ağrı, hareket güçlüğü ve nörolojik problemlere neden olabilen bir omurga hastalığıdır.",
+        paragraphs: [
+          "Veteriner ozon uygulamaları; özellikle kronik disk protrüzyonu bulunan hastalarda ağrı yönetimini, hareket konforunu ve rehabilitasyon sürecini desteklemek amacıyla mevcut tedavi programına eklenir.",
+        ],
+        closing:
+          "Ozon uygulamaları; hastanın nörolojik muayenesi, görüntüleme bulguları ve mevcut tedavi planı değerlendirilerek veteriner hekim tarafından belirlenir.",
+      },
       conditions: [
-        { title: "IVDD", text: "İntervertebral disk hastalığı" },
-        { title: "Omurga Kaynaklı Tablolar", text: "Spinal kökenli nörolojik bulgular" },
-        { title: "Rehabilitasyon Desteği", text: "Fizik tedavi sürecine eşlik eden uygulamalar" },
+        { title: "Kronik Disk Protrüzyonu (Hansen Tip II)", text: "Omurlar arasındaki diskin omurilik kanalına doğru çıkıntı oluşturduğu kronik vakalarda tamamlayıcı ozon uygulamaları" },
+        { title: "Boyun ve Sırt Ağrıları", text: "Servikal ve torakolomber bölgelerde görülen ağrı, hassasiyet ve hareket güçlüğünün yönetiminde" },
+        { title: "Geriatrik Hastalarda Omurga Problemleri", text: "İleri yaş köpeklerde kronik disk dejenerasyonu, omurga ağrısı ve hareket kısıtlılığının yönetiminde; yaşam kalitesini ve günlük hareket konforunu destekleyen tamamlayıcı uygulamalar" },
+        { title: "Omurga Kaynaklı Hareket Kısıtlılığı", text: "Ayağa kalkma, yürüme, dönme ve günlük hareketlerde zorlanan hastaların destekleyici tedavi programlarında" },
+        { title: "Paravertebral Kas Gerginliği", text: "Omurga çevresindeki kaslarda ağrıya eşlik eden gerginlik ve hassasiyetin bulunduğu vakalarda lokal uygulamalar" },
+        { title: "Kronik Nörolojik Bulgular", text: "Disk hastalığına bağlı koordinasyon ve hareket problemleri bulunan hastaların medikal tedavi ve rehabilitasyon süreçlerinde" },
+        { title: "Rehabilitasyon ve İyileşme Dönemi", text: "Veteriner hekimin uygun gördüğü hastalarda ağrı kontrolü ve hareket fonksiyonlarının desteklenmesine yönelik tamamlayıcı uygulamalar" },
+      ],
+      methods: [
+        { icon: Syringe, image: ASSETS.methods.paravertebral, title: "Paravertebral Ozon İnfiltrasyonu", text: "Omurganın iki yanındaki kas dokusuna lokal ozon gazı uygulaması" },
+        { icon: Sparkle, image: ASSETS.methods.rectal, title: "Rektal Ozon", text: "Rektal yolla gerçekleştirilen sistemik ozon uygulaması" },
+        { icon: Syringe, image: ASSETS.methods.subcutaneous, title: "Subkutan Ozon İnfiltrasyonu", text: "Omurga çevresindeki deri altı dokulara lokal ozon gazı uygulaması" },
       ],
     },
     en: {
@@ -450,10 +501,27 @@ export const DETAIL_OVERRIDES = {
       lead: "Applications that accompany the neurological rehabilitation process.",
       body: "In IVDD and spine-related neurological presentations, medical ozone is evaluated as a support to rehabilitation protocols through paravertebral and systemic applications.",
       image: ASSETS.species.dogcat,
+      intro: {
+        lead: "Intervertebral disc disease (IVDD) is a condition of the spine in which structural changes in the discs between the vertebrae can cause pain, difficulty moving and neurological problems.",
+        paragraphs: [
+          "Veterinary ozone applications are added to the existing treatment programme to support pain management, comfort of movement and the rehabilitation process, above all in patients with chronic disc protrusion.",
+        ],
+        closing:
+          "Ozone applications are decided by the veterinarian after assessing the patient's neurological examination, imaging findings and current treatment plan.",
+      },
       conditions: [
-        { title: "IVDD", text: "Intervertebral disc disease" },
-        { title: "Spine-Related Presentations", text: "Neurological findings of spinal origin" },
-        { title: "Rehabilitation Support", text: "Applications alongside physical therapy" },
+        { title: "Chronic Disc Protrusion (Hansen Type II)", text: "Complementary ozone applications in chronic cases where the disc protrudes towards the spinal canal" },
+        { title: "Neck and Back Pain", text: "In managing pain, tenderness and difficulty moving in the cervical and thoracolumbar regions" },
+        { title: "Spinal Problems in Geriatric Patients", text: "In managing chronic disc degeneration, spinal pain and restricted movement in older dogs; complementary applications supporting quality of life and everyday comfort of movement" },
+        { title: "Restricted Movement of Spinal Origin", text: "In supportive treatment programmes for patients who struggle to stand, walk, turn and carry out daily movements" },
+        { title: "Paravertebral Muscle Tension", text: "Local applications in cases with tension and tenderness accompanying pain in the muscles around the spine" },
+        { title: "Chronic Neurological Signs", text: "In the medical treatment and rehabilitation of patients with coordination and movement problems caused by disc disease" },
+        { title: "Rehabilitation and Recovery", text: "Complementary applications for pain control and support of movement function in patients the veterinarian considers suitable" },
+      ],
+      methods: [
+        { icon: Syringe, image: ASSETS.methods.paravertebral, title: "Paravertebral Ozone Infiltration", text: "Local ozone gas application into the muscle on either side of the spine" },
+        { icon: Sparkle, image: ASSETS.methods.rectal, title: "Rectal Ozone", text: "Systemic ozone application carried out by the rectal route" },
+        { icon: Syringe, image: ASSETS.methods.subcutaneous, title: "Subcutaneous Ozone Infiltration", text: "Local ozone gas application into the subcutaneous tissue around the spine" },
       ],
     },
   },
