@@ -226,9 +226,11 @@ export default function TreatmentAreaDetail() {
                       ) : (
                         <MIcon size={30} weight="duotone" className="absolute inset-0 m-auto text-[var(--brand)]" />
                       )}
-                      <span className="absolute bottom-2 left-2 inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/90 text-[var(--brand)] backdrop-blur">
-                        <MIcon size={16} weight="duotone" />
-                      </span>
+                      {m.image && (
+                        <span className="absolute bottom-2 left-2 inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/90 text-[var(--brand)] backdrop-blur">
+                          <MIcon size={16} weight="duotone" />
+                        </span>
+                      )}
                     </div>
                     <div className="p-4">
                       <h3 className="font-display font-bold text-sm text-[var(--ink)]">{m.title}</h3>

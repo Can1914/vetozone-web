@@ -367,7 +367,7 @@ export const DETAIL_OVERRIDES = {
       methods: [
         { icon: Sparkle, image: ASSETS.methods.rectal, title: "Rektal Ozon Uygulaması", text: "Böbrek hastalıklarında tamamlayıcı sistemik uygulama" },
         { icon: Drop, image: ASSETS.methods.ozonatedSaline, title: "Ozonlanmış Serum Fizyolojik", text: "İntravenöz uygulamayla sistemik destek" },
-        { icon: Drop, image: ASSETS.methods.water, title: "Mesane İrrigasyonu", text: "Mesane içinin ozonlanmış serum fizyolojik ile yıkanması" },
+        { icon: Drop, title: "Mesane İrrigasyonu", text: "Mesane içinin ozonlanmış serum fizyolojik ile yıkanması" },
         { icon: Syringe, image: ASSETS.methods.majorAutohemotherapy, title: "Majör Otohemoterapi (MAH)", text: "Hastanın kanı üzerinden gerçekleştirilen sistemik ozon uygulaması" },
       ],
     },
@@ -396,7 +396,7 @@ export const DETAIL_OVERRIDES = {
       methods: [
         { icon: Sparkle, image: ASSETS.methods.rectal, title: "Rectal Ozone Application", text: "Complementary systemic application in kidney disease" },
         { icon: Drop, image: ASSETS.methods.ozonatedSaline, title: "Ozonated Saline", text: "Systemic support by intravenous application" },
-        { icon: Drop, image: ASSETS.methods.water, title: "Bladder Irrigation", text: "Flushing the inside of the bladder with ozonated saline" },
+        { icon: Drop, title: "Bladder Irrigation", text: "Flushing the inside of the bladder with ozonated saline" },
         { icon: Syringe, image: ASSETS.methods.majorAutohemotherapy, title: "Major Autohemotherapy (MAH)", text: "Systemic ozone application carried out through the patient's own blood" },
       ],
     },
