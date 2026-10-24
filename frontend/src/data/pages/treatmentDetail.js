@@ -550,6 +550,24 @@ export const DETAIL_OVERRIDES = {
         { title: "Kas Problemleri", text: "Kas kaynaklı ağrı ve fonksiyon kaybı" },
         { title: "Rehabilitasyon", text: "Kas-iskelet sistemi rehabilitasyonu" },
       ],
+      methodGroups: [
+        {
+          title: "Ana Uygulamalar",
+          items: [
+            { icon: Syringe, image: ASSETS.methods.paravertebral, title: "İntramüsküler Ozon İnfiltrasyonu", text: "Kas dokusuna yönelik lokal ozon gazı uygulaması. Kas yaralanmaları, spazmlar ve miyofasiyal ağrıların yönetiminde kullanılır" },
+            { icon: Syringe, image: ASSETS.methods.periarticular, title: "Peritendinöz Ozon İnfiltrasyonu", text: "Tendon çevresindeki yumuşak dokulara lokal ozon gazı uygulaması. Tendinopati ve tendon çevresi ağrıların yönetiminde değerlendirilir" },
+            { icon: Syringe, image: ASSETS.methods.periligamentous, title: "Periligamentöz Ozon İnfiltrasyonu", text: "Ligament çevresindeki dokulara lokal ozon gazı uygulaması. Bağ yaralanmalarında ortopedik tedavi ve rehabilitasyona eşlik eden tamamlayıcı yöntemdir" },
+          ],
+        },
+        {
+          title: "Tamamlayıcı Yöntemler",
+          items: [
+            { icon: Syringe, title: "Subkutan Ozon İnfiltrasyonu", text: "Etkilenen anatomik bölgenin deri altı dokularına lokal ozon gazı uygulaması" },
+            { icon: Syringe, title: "Minör Otohemoterapi (MiAH)", text: "Hastadan alınan kanın ozonlanarak derin intramüsküler yolla uygulanması" },
+            { icon: Sparkle, title: "Rektal Ozon Uygulaması", text: "Rektal yolla gerçekleştirilen sistemik ozon uygulaması" },
+          ],
+        },
+      ],
     },
     en: {
       titleLines: ["Ozone Therapy in", "Muscle, Tendon and Ligament"],
@@ -573,6 +591,24 @@ export const DETAIL_OVERRIDES = {
         { title: "Ligament Problems", text: "Injuries to connective tissue" },
         { title: "Muscle Problems", text: "Muscle-related pain and loss of function" },
         { title: "Rehabilitation", text: "Musculoskeletal rehabilitation" },
+      ],
+      methodGroups: [
+        {
+          title: "Main Applications",
+          items: [
+            { icon: Syringe, image: ASSETS.methods.paravertebral, title: "Intramuscular Ozone Infiltration", text: "Local ozone gas application into the muscle tissue. Used in managing muscle injuries, spasm and myofascial pain" },
+            { icon: Syringe, image: ASSETS.methods.periarticular, title: "Peritendinous Ozone Infiltration", text: "Local ozone gas application into the soft tissue around the tendon. Considered in managing tendinopathy and pain around the tendon" },
+            { icon: Syringe, image: ASSETS.methods.periligamentous, title: "Periligamentous Ozone Infiltration", text: "Local ozone gas application into the tissue around the ligament. A complementary method accompanying orthopaedic treatment and rehabilitation in ligament injuries" },
+          ],
+        },
+        {
+          title: "Complementary Methods",
+          items: [
+            { icon: Syringe, title: "Subcutaneous Ozone Infiltration", text: "Local ozone gas application into the subcutaneous tissue of the affected anatomical region" },
+            { icon: Syringe, title: "Minor Autohemotherapy (MiAH)", text: "Blood taken from the patient, ozonated and applied by the deep intramuscular route" },
+            { icon: Sparkle, title: "Rectal Ozone Application", text: "Systemic ozone application carried out by the rectal route" },
+          ],
+        },
       ],
     },
   },

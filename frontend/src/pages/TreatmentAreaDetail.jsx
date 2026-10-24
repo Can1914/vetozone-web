@@ -44,6 +44,9 @@ export default function TreatmentAreaDetail() {
   // Yöntem kartları ortak listeden gelir; bir alan kendi başlıklarını
   // verdiyse (aynı görsellerle) onunkiler kullanılır.
   const methods = override?.methods || s.methods.items;
+  // Bir alan yöntemlerini ayırmak isterse (ana uygulamalar / tamamlayıcılar)
+  // başlıklı gruplar verir; vermezse hepsi tek listede kalır.
+  const methodGroups = override?.methodGroups || [{ items: methods }];
   const Icon = item.icon;
 
   const goTab = (id) => {
@@ -206,8 +209,17 @@ export default function TreatmentAreaDetail() {
             <p className="mt-3 mb-8 text-[var(--muted-light)] max-w-xl">{s.methods.sub}</p>
           </Reveal>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-            {methods.map((m, i) => {
+          {methodGroups.map((group, gi) => (
+            <div key={gi} className={gi > 0 ? "mt-12" : ""}>
+              {group.title && (
+                <Reveal>
+                  <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-[var(--brand)]">
+                    {group.title}
+                  </h3>
+                </Reveal>
+              )}
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+            {group.items.map((m, i) => {
               const MIcon = m.icon;
               return (
                 <Reveal key={i} delay={(i % 5) * 0.06}>
@@ -233,14 +245,16 @@ export default function TreatmentAreaDetail() {
                       )}
                     </div>
                     <div className="p-4">
-                      <h3 className="font-display font-bold text-sm text-[var(--ink)]">{m.title}</h3>
+                      <h4 className="font-display font-bold text-sm text-[var(--ink)]">{m.title}</h4>
                       <p className="mt-1.5 text-xs leading-relaxed text-[var(--muted-light)]">{m.text}</p>
                     </div>
                   </div>
                 </Reveal>
               );
             })}
-          </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 

@@ -39,6 +39,7 @@ export const ASSETS = {
     periarticular: `${BASE}/methods/periartikuler-ozon.jpg`,
     paravertebral: `${BASE}/methods/paravertebral-ozon.jpg`,
     subcutaneous: `${BASE}/methods/subkutan-ozon.jpg`,
+    periligamentous: `${BASE}/methods/periligamentoz-ozon.jpg`,
   },
   species: {
     dogcat:
