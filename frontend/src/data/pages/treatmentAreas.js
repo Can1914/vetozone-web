@@ -10,7 +10,6 @@ import {
   Leaf,
   Virus,
   HandHeart,
-  Heartbeat,
   Stethoscope,
   Cow,
   FirstAid,
@@ -106,12 +105,6 @@ export const TREATMENT_AREAS_CONTENT = {
             icon: HandHeart,
             title: "Onkoloji",
             bullets: ["Onkolojik tedavilere eşlik eden integratif uygulamalar"],
-          },
-          {
-            slug: "yogun-bakim",
-            icon: Heartbeat,
-            title: "Yoğun Bakım",
-            bullets: ["Yoğun bakım süreçlerinde destekleyici uygulamalar"],
           },
           {
             slug: "kronik-hastaliklar",
@@ -247,12 +240,6 @@ export const TREATMENT_AREAS_CONTENT = {
             icon: HandHeart,
             title: "Oncology",
             bullets: ["Integrative applications alongside oncological treatment"],
-          },
-          {
-            slug: "yogun-bakim",
-            icon: Heartbeat,
-            title: "Intensive Care",
-            bullets: ["Supportive applications during intensive care"],
           },
           {
             slug: "kronik-hastaliklar",

@@ -781,6 +781,15 @@ export const DETAIL_OVERRIDES = {
         { title: "İntegratif Uygulamalar", text: "Onkolojik tedaviye eşlik eden protokoller" },
         { title: "Genel Durum Desteği", text: "Yaşam kalitesinin desteklenmesi" },
       ],
+      methods: [
+        { icon: Syringe, image: ASSETS.methods.minorAutohemotherapy, title: "Minör Otohemoterapi (MiAH)", text: "Hastadan alınan az miktarda kanın medikal ozonla işlenerek derin intramüsküler yolla uygulanmasıdır. Veteriner onkolojide oksidatif dengenin ve yaşam kalitesinin desteklenmesi amacıyla araştırılmıştır" },
+        { icon: Syringe, title: "Majör Otohemoterapi (MAH)", text: "Hastadan alınan kanın kontrollü koşullarda ozonlanarak damar yoluyla geri verilmesidir. Sistemik antioksidan yanıtı hedefleyen tamamlayıcı uygulamalardan biridir" },
+        { icon: Sparkle, title: "Rektal Ozon Uygulaması", text: "Medikal ozon gazının rektal yolla uygulanmasıdır. Sistemik oksidatif yanıt ve inflamatuvar süreçler üzerindeki etkileri nedeniyle destekleyici tedavi programlarında değerlendirilir" },
+        { icon: Drop, title: "Ozonlanmış Serum Uygulaması", text: "Uygun infüzyon solüsyonunun ozonla işlenerek intravenöz yolla uygulanmasıdır. Onkoloji hastalarında etkinliği ve güvenliği yeterince belirlenmemiş, standardizasyon gerektiren bir yöntemdir" },
+        { icon: Eyedropper, title: "Lokal Ozon Uygulamaları", text: "Tümörle ilişkili yara ve doku problemlerinde ozonlu su, ozonlu yağ ve uygun vakalarda torbalama yöntemleriyle lokal yara bakımı desteklenir" },
+      ],
+      methodsNote:
+        "Uygulama yöntemi; tümörün türü, hastalığın evresi, eşlik eden tedaviler ve hastanın genel durumu dikkate alınarak veteriner hekim tarafından belirlenir.",
     },
     en: {
       titleLines: ["Supportive Ozone in", "Oncology"],
@@ -803,35 +812,18 @@ export const DETAIL_OVERRIDES = {
         { title: "Integrative Applications", text: "Protocols accompanying oncological treatment" },
         { title: "General Condition Support", text: "Supporting quality of life" },
       ],
+      methods: [
+        { icon: Syringe, image: ASSETS.methods.minorAutohemotherapy, title: "Minor Autohemotherapy (MiAH)", text: "A small volume of blood taken from the patient, treated with medical ozone and applied by the deep intramuscular route. Studied in veterinary oncology to support oxidative balance and quality of life" },
+        { icon: Syringe, title: "Major Autohemotherapy (MAH)", text: "Blood taken from the patient, ozonated under controlled conditions and returned intravenously. One of the complementary applications targeting the systemic antioxidant response" },
+        { icon: Sparkle, title: "Rectal Ozone Application", text: "Application of medical ozone gas by the rectal route. Considered in supportive treatment programmes for its effects on the systemic oxidative response and inflammatory processes" },
+        { icon: Drop, title: "Ozonated Saline Application", text: "A suitable infusion solution treated with ozone and applied intravenously. In oncology patients its efficacy and safety are not sufficiently established and it requires standardisation" },
+        { icon: Eyedropper, title: "Local Ozone Applications", text: "In tumour-related wound and tissue problems, local wound care is supported with ozonated water, ozonated oil and, in suitable cases, bagging" },
+      ],
+      methodsNote:
+        "The method of application is decided by the veterinarian, taking into account the type of tumour, the stage of disease, accompanying treatments and the patient's general condition.",
     },
   },
 
-  "yogun-bakim": {
-    tr: {
-      titleLines: ["Yoğun Bakımda", "Ozon Tedavisi"],
-      accentLine: "Ozon Tedavisi",
-      script: "Kritik Saatler",
-      lead: "Kritik hastada destekleyici uygulamalar.",
-      body: "Yoğun bakım süreçlerinde medikal ozon; hastanın genel durumuna göre, yoğun bakım protokollerine destek olarak değerlendirilmektedir.",
-      image: ASSETS.species.dogcat,
-      conditions: [
-        { title: "Destekleyici Uygulamalar", text: "Yoğun bakım protokollerine eşlik eden kullanım" },
-        { title: "Klinik Takip", text: "Genel duruma göre planlanan uygulamalar" },
-      ],
-    },
-    en: {
-      titleLines: ["Ozone Therapy in", "Intensive Care"],
-      accentLine: "Intensive Care",
-      script: "Critical Hours",
-      lead: "Supportive applications in the critical patient.",
-      body: "During intensive care, medical ozone is evaluated as a support to intensive care protocols, according to the patient's general condition.",
-      image: ASSETS.species.dogcat,
-      conditions: [
-        { title: "Supportive Applications", text: "Use alongside intensive care protocols" },
-        { title: "Clinical Follow-Up", text: "Applications planned around general condition" },
-      ],
-    },
-  },
 
   "kronik-hastaliklar": {
     tr: {
@@ -841,10 +833,28 @@ export const DETAIL_OVERRIDES = {
       lead: "Uzun süreli takip gerektiren vakalarda destek.",
       body: "Kronik hastalıkların yönetiminde medikal ozon; uzun süreli takip gerektiren vakalarda, mevcut tedavi planına destekleyici olarak değerlendirilmektedir.",
       image: ASSETS.species.dogcat,
+      intro: {
+        lead: "Kronik hastalıklar; uzun süreli inflamasyon, oksidatif stres ve organ fonksiyonlarındaki değişimlerle seyreden, düzenli takip ve bütüncül tedavi gerektiren klinik durumlardır.",
+        paragraphs: [
+          "Medikal ozon, hücresel savunma mekanizmaları ve bağışıklık yanıtı üzerindeki biyolojik etkileriyle kronik hastalıkların destekleyici tedavisinde kullanılan uygulamalardan biridir.",
+          "Medikal ozonun kontrollü oksidatif uyarısı, antioksidan savunma sistemlerinin aktivasyonunu ve inflamatuvar yanıtın düzenlenmesini hedefler. Bu mekanizmalar, kronik hastalıklarda hücresel dengenin korunması ve doku fonksiyonlarının desteklenmesi açısından önem taşır.",
+          "Veteriner hekimlikte ozon uygulamaları; kronik böbrek ve karaciğer hastalıkları, metabolik bozukluklar, kronik inflamatuvar süreçler ve yaşa bağlı sağlık problemlerinde destekleyici tedavi programları kapsamında değerlendirilir. Temel hedef; hastanın genel durumunu, günlük yaşam konforunu ve yaşam kalitesini desteklemektir.",
+        ],
+        closing:
+          "Uygulamalar, hastalığa özgü standart tedaviler ve düzenli klinik takip ile birlikte planlanır.",
+      },
       conditions: [
         { title: "Kronik Süreçler", text: "Uzun süreli takip gerektiren tablolar" },
         { title: "Geriatrik Hastalar", text: "Hassas hasta gruplarında planlı uygulamalar" },
       ],
+      methods: [
+        { icon: Sparkle, image: ASSETS.methods.rectal, title: "Rektal Ozon Uygulaması", text: "Medikal ozon gazının rektal yolla uygulanmasıdır. Sistemik antioksidan yanıtı ve inflamatuvar süreçleri hedefleyen, kronik hasta yönetiminde değerlendirilen tamamlayıcı yöntemdir" },
+        { icon: Syringe, image: ASSETS.methods.majorAutohemotherapy, title: "Majör Otohemoterapi (MAH)", text: "Hastadan alınan kanın kontrollü koşullarda ozonlanarak damar yoluyla geri verilmesidir. Oksidatif denge ve sistemik biyolojik yanıt üzerinde etkiler oluşturmayı hedefler" },
+        { icon: Syringe, image: ASSETS.methods.minorAutohemotherapy, title: "Minör Otohemoterapi (MiAH)", text: "Hastadan alınan az miktarda kanın ozonlanarak derin intramüsküler yolla uygulanmasıdır. Bağışıklık yanıtının düzenlenmesini hedefleyen tamamlayıcı ozon yöntemidir" },
+        { icon: Drop, image: ASSETS.methods.ozonatedSaline, title: "Ozonlanmış Serum Uygulaması", text: "Uygun infüzyon solüsyonunun ozonla işlenerek intravenöz yolla uygulanmasıdır. Klinik kullanımı, çözelti uyumluluğu, hazırlama standardizasyonu ve güvenlik koşullarının değerlendirilmesini gerektirir" },
+      ],
+      methodsNote:
+        "Uygulama yöntemi; kronik hastalığın türü, organ fonksiyonları, hastanın genel durumu ve eşlik eden tedaviler dikkate alınarak veteriner hekim tarafından belirlenir.",
     },
     en: {
       titleLines: ["Ozone Therapy in", "Chronic Conditions"],
@@ -853,10 +863,28 @@ export const DETAIL_OVERRIDES = {
       lead: "Support in cases that require long-term follow-up.",
       body: "In the management of chronic conditions, medical ozone is evaluated as a support to the existing treatment plan in cases requiring long-term follow-up.",
       image: ASSETS.species.dogcat,
+      intro: {
+        lead: "Chronic conditions are clinical states that run with long-standing inflammation, oxidative stress and changes in organ function, and that require regular follow-up and holistic treatment.",
+        paragraphs: [
+          "Medical ozone is one of the applications used in the supportive treatment of chronic conditions, through its biological effects on cellular defence mechanisms and the immune response.",
+          "The controlled oxidative stimulus of medical ozone aims to activate antioxidant defence systems and to regulate the inflammatory response. These mechanisms matter in chronic disease for preserving cellular balance and supporting tissue function.",
+          "In veterinary practice, ozone applications are considered within supportive treatment programmes in chronic kidney and liver disease, metabolic disorders, chronic inflammatory processes and age-related health problems. The central aim is to support the patient's general condition, everyday comfort and quality of life.",
+        ],
+        closing:
+          "Applications are planned together with the standard treatment specific to the disease and with regular clinical follow-up.",
+      },
       conditions: [
         { title: "Chronic Processes", text: "Presentations requiring long-term follow-up" },
         { title: "Geriatric Patients", text: "Planned applications in sensitive patient groups" },
       ],
+      methods: [
+        { icon: Sparkle, image: ASSETS.methods.rectal, title: "Rectal Ozone Application", text: "Application of medical ozone gas by the rectal route. A complementary method targeting the systemic antioxidant response and inflammatory processes, considered in the management of chronic patients" },
+        { icon: Syringe, image: ASSETS.methods.majorAutohemotherapy, title: "Major Autohemotherapy (MAH)", text: "Blood taken from the patient, ozonated under controlled conditions and returned intravenously. Aims to produce effects on oxidative balance and the systemic biological response" },
+        { icon: Syringe, image: ASSETS.methods.minorAutohemotherapy, title: "Minor Autohemotherapy (MiAH)", text: "A small volume of blood taken from the patient, ozonated and applied by the deep intramuscular route. A complementary ozone method aimed at regulating the immune response" },
+        { icon: Drop, image: ASSETS.methods.ozonatedSaline, title: "Ozonated Saline Application", text: "A suitable infusion solution treated with ozone and applied intravenously. Its clinical use requires assessment of solution compatibility, standardisation of preparation and safety conditions" },
+      ],
+      methodsNote:
+        "The method of application is decided by the veterinarian, taking into account the type of chronic disease, organ function, the patient's general condition and accompanying treatments.",
     },
   },
 

@@ -58,7 +58,6 @@ export const NAV_TREE = [
         items: [
           { label: "Enfeksiyon Hastalıkları", labelEn: "Infectious Diseases", to: "/tedavi-alanlari/enfeksiyon-hastaliklari" },
           { label: "Onkoloji", labelEn: "Oncology", to: "/tedavi-alanlari/onkoloji" },
-          { label: "Yoğun Bakım", labelEn: "Intensive Care", to: "/tedavi-alanlari/yogun-bakim" },
           { label: "Kronik Hastalıklar", labelEn: "Chronic Conditions", to: "/tedavi-alanlari/kronik-hastaliklar" },
         ],
       },
