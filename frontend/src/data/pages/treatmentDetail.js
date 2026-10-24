@@ -676,6 +676,16 @@ export const DETAIL_OVERRIDES = {
       lead: "Enfeksiyöz süreçlerde tamamlayıcı uygulama.",
       body: "Parvoviral enteritis başta olmak üzere enfeksiyöz süreçlerde medikal ozon; rektal ve sistemik uygulamalarla, standart tedaviye destek olarak değerlendirilmektedir.",
       image: ASSETS.species.dogcat,
+      intro: {
+        lead: "Enfeksiyon hastalıkları; viral, bakteriyel ve fungal etkenlerin neden olduğu, bağışıklık yanıtını ve farklı organ sistemlerini etkileyen klinik tablolardır.",
+        paragraphs: [
+          "Medikal ozon, antimikrobiyal özellikleri ve bağışıklık yanıtını düzenleyen biyolojik etkileriyle veteriner enfeksiyon hastalıklarında kullanılan tamamlayıcı uygulamalardan biridir.",
+          "Ozonun antimikrobiyal etkisi, mikroorganizmaların hücre zarı ve yapısal bileşenlerinde oluşturduğu oksidatif reaksiyonlara dayanır. Sistemik uygulamalarda ise hücresel antioksidan savunmanın aktivasyonu ve inflamatuvar yanıtın düzenlenmesi ön plana çıkar. Lokal antimikrobiyal etki ile sistemik biyolojik yanıt, ozon tedavisinin iki farklı etki mekanizmasını oluşturur.",
+          "Veteriner hekimlikte medikal ozon; köpeklerde parvovirüs enfeksiyonu, enfekte yaralar, bakteriyel deri enfeksiyonları ve kulak enfeksiyonları gibi klinik durumlarda tedavi programlarına entegre edilir.",
+        ],
+        closing:
+          "Uygulamalar, enfeksiyonun türüne ve hastanın klinik durumuna göre planlanır; gerekli antimikrobiyal tedavi, sıvı desteği ve diğer standart tedavilerle birlikte yürütülür.",
+      },
       conditions: [
         { title: "Parvoviral Enteritis", text: "Destekleyici uygulama protokolleri" },
         { title: "Enfeksiyöz Süreçler", text: "Genel destekleyici yaklaşımlar" },
@@ -688,6 +698,16 @@ export const DETAIL_OVERRIDES = {
       lead: "A complementary application in infectious processes.",
       body: "In infectious processes, parvoviral enteritis in particular, medical ozone is evaluated as a support to standard treatment through rectal and systemic applications.",
       image: ASSETS.species.dogcat,
+      intro: {
+        lead: "Infectious diseases are clinical pictures caused by viral, bacterial and fungal agents that affect the immune response and different organ systems.",
+        paragraphs: [
+          "Medical ozone is one of the complementary applications used in veterinary infectious disease, through its antimicrobial properties and its biological effects in regulating the immune response.",
+          "The antimicrobial effect of ozone rests on the oxidative reactions it produces in the cell membrane and structural components of microorganisms. In systemic applications, the activation of cellular antioxidant defence and the regulation of the inflammatory response come to the fore. Local antimicrobial action and systemic biological response form the two distinct mechanisms of ozone therapy.",
+          "In veterinary practice, medical ozone is integrated into treatment programmes in clinical situations such as parvovirus infection in dogs, infected wounds, bacterial skin infections and ear infections.",
+        ],
+        closing:
+          "Applications are planned according to the type of infection and the patient's clinical condition, and are carried out alongside the antimicrobial treatment, fluid support and other standard treatment the case requires.",
+      },
       conditions: [
         { title: "Parvoviral Enteritis", text: "Supportive application protocols" },
         { title: "Infectious Processes", text: "General supportive approaches" },
