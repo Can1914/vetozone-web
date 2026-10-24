@@ -534,6 +534,16 @@ export const DETAIL_OVERRIDES = {
       lead: "Yumuşak doku yaralanmalarında destekleyici yaklaşım.",
       body: "Kas, tendon ve ligament problemlerinde medikal ozon; lokal uygulamalarla, iyileşme ve rehabilitasyon sürecine destek çerçevesinde değerlendirilmektedir.",
       image: ASSETS.species.horse,
+      intro: {
+        lead: "Kas yaralanmalarında ağrı, spazm ve hareket kısıtlılığı tedavinin temel odaklarıdır.",
+        paragraphs: [
+          "Medikal ozon, hücresel antioksidan savunmayı ve inflamatuvar yanıtı düzenleyen biyolojik mekanizmaları üzerinden değerlendirilir. Veteriner klinik uygulamalarında kas kaynaklı ağrıların yönetimi ve hareket konforunun desteklenmesi amacıyla kullanılır.",
+          "Tendon problemlerinde kolajen liflerinin organizasyonu ve dokunun yük taşıma kapasitesi, ligament yaralanmalarında ise bağ dokusunun bütünlüğü ve eklem stabilitesi ön plandadır. Medikal ozonun fibroblast aktivitesi, kolajen metabolizması ve inflamatuvar süreçlerle ilişkili etkileri, bu dokuların onarımına yönelik rejeneratif araştırmaların temelini oluşturur.",
+          "Veteriner ozon uygulamaları; kas zorlanmaları, kronik tendinopatiler ve ligament yaralanmalarında ortopedik tedavi ve rehabilitasyon programlarının bir parçası olarak kullanılır. Ağrı yönetimi, hareket kabiliyetinin desteklenmesi ve fonksiyonel iyileşme, klinik uygulamaların başlıca hedefleridir.",
+        ],
+        closing:
+          "Uygulama yöntemi, yaralanmanın türüne ve hastanın klinik durumuna göre veteriner hekim tarafından belirlenir.",
+      },
       conditions: [
         { title: "Tendon Yaralanmaları", text: "Tendon kaynaklı hasar ve topallık" },
         { title: "Ligament Problemleri", text: "Bağ dokusu yaralanmaları" },
@@ -548,6 +558,16 @@ export const DETAIL_OVERRIDES = {
       lead: "A supportive approach in soft tissue injuries.",
       body: "In muscle, tendon and ligament problems, medical ozone is evaluated through local applications as support for the healing and rehabilitation process.",
       image: ASSETS.species.horse,
+      intro: {
+        lead: "In muscle injuries, pain, spasm and restricted movement are the central concerns of treatment.",
+        paragraphs: [
+          "Medical ozone is evaluated through the biological mechanisms by which it regulates cellular antioxidant defence and the inflammatory response. In veterinary clinical practice it is used to manage muscle-related pain and to support comfort of movement.",
+          "In tendon problems, the organisation of the collagen fibres and the tissue's load-bearing capacity come to the fore; in ligament injuries, the integrity of the connective tissue and the stability of the joint. The effects of medical ozone on fibroblast activity, collagen metabolism and inflammatory processes form the basis of regenerative research into the repair of these tissues.",
+          "Veterinary ozone applications are used as part of orthopaedic treatment and rehabilitation programmes in muscle strains, chronic tendinopathies and ligament injuries. Pain management, support for mobility and functional recovery are the principal aims of clinical practice.",
+        ],
+        closing:
+          "The method of application is decided by the veterinarian according to the type of injury and the patient's clinical condition.",
+      },
       conditions: [
         { title: "Tendon Injuries", text: "Tendon-related damage and lameness" },
         { title: "Ligament Problems", text: "Injuries to connective tissue" },
