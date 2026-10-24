@@ -621,12 +621,25 @@ export const DETAIL_OVERRIDES = {
       lead: "Kombinasyon protokollerinde ozonun yeri.",
       body: "Rejeneratif ortopedi uygulamalarında medikal ozon; PRP, proloterapi ve kök hücre gibi yaklaşımlarla birlikte kombinasyon protokolleri çerçevesinde değerlendirilmektedir.",
       image: ASSETS.species.horse,
-      conditions: [
-        { title: "Ozon + PRP", text: "Trombositten zengin plazma ile kombinasyon" },
-        { title: "Ozon + Proloterapi", text: "Proloterapi protokollerine eşlik eden uygulama" },
-        { title: "Ozon + Kök Hücre", text: "Kök hücre uygulamalarıyla birlikte" },
-        { title: "Eklem ve Yumuşak Doku", text: "Rehabilitasyon protokollerine destek" },
+      intro: {
+        lead: "Rejeneratif ortopedi; eklem, kıkırdak, kemik, kas, tendon ve ligament dokularının onarımını ve hareket fonksiyonlarının yeniden kazanılmasını hedefler.",
+        paragraphs: [
+          "Medikal ozon, hücresel antioksidan savunma ve inflamatuvar yanıt üzerindeki etkileriyle bu yaklaşımın tamamlayıcı uygulamaları arasında yer alır.",
+          "Ozonun biyolojik etkileri; hücresel savunma mekanizmalarının aktivasyonu, inflamasyonun düzenlenmesi ve doku onarımıyla ilişkili süreçler üzerinden açıklanır. Bu mekanizmalar, ozonun rejeneratif ortopedide diğer tedavi yöntemleriyle birlikte kullanılmasının temelini oluşturur.",
+          "Veteriner hekimler, ozonu osteoartrit, kas-tendon yaralanmaları ve ligament problemlerinde; PRP, proloterapi, kök hücre tedavileri ve rehabilitasyon programlarıyla birlikte kullanmaktadır. Klinik uygulamalardan gelen olumlu geri bildirimler; ağrı yönetimi, hareket konforu ve fonksiyonel iyileşme açısından bu kombine yaklaşımın tercih edilmesinde önemli rol oynar.",
+        ],
+      },
+      // Kombinasyonlar aşağıdaki Uygulamalar bölümünde ayrıntısıyla
+      // anlatılıyor; burada ikinci kez listelenmiyor.
+      conditions: [],
+      methods: [
+        { icon: Syringe, image: ASSETS.methods.prp, title: "Ozon + PRP (Trombositten Zengin Plazma)", text: "PRP'nin büyüme faktörleriyle ilişkili biyolojik etkileri ile medikal ozonun inflamatuvar yanıt ve hücresel antioksidan savunma üzerindeki etkilerini aynı tedavi programında bir araya getiren kombine yaklaşım" },
+        { icon: Syringe, title: "Ozon + Proloterapi", text: "Proloterapinin bağ dokusu onarımını hedefleyen uygulamalarıyla medikal ozonun ağrı ve inflamasyon yönetimindeki etkilerini birleştiren ortopedik tedavi yaklaşımı" },
+        { icon: Sparkle, title: "Ozon + Kök Hücre Uygulamaları", text: "Mezenkimal kök hücre temelli rejeneratif tedavilerle birlikte, ayrı ve kontrollü uygulamalar şeklinde planlanabilen tamamlayıcı ozon yaklaşımı" },
+        { icon: Sparkle, title: "Ozon + Eklem ve Yumuşak Doku Rehabilitasyonu", text: "Eklem hastalıkları, kas-tendon yaralanmaları ve ligament problemlerinde ağrı yönetimini ve hareket fonksiyonlarını desteklemek amacıyla rehabilitasyon programına entegre edilen ozon uygulamaları" },
       ],
+      methodsNote:
+        "Kombine tedavi planı; hastalığın türü, doku hasarının derecesi ve kullanılan rejeneratif yöntemin özellikleri dikkate alınarak veteriner hekim tarafından belirlenir.",
     },
     en: {
       titleLines: ["Ozone Therapy in", "Regenerative Orthopedics"],
@@ -635,12 +648,23 @@ export const DETAIL_OVERRIDES = {
       lead: "Where ozone sits within combination protocols.",
       body: "In regenerative orthopedic applications, medical ozone is evaluated within combination protocols alongside approaches such as PRP, prolotherapy and stem cell therapy.",
       image: ASSETS.species.horse,
-      conditions: [
-        { title: "Ozone + PRP", text: "Combination with platelet-rich plasma" },
-        { title: "Ozone + Prolotherapy", text: "Applications alongside prolotherapy protocols" },
-        { title: "Ozone + Stem Cell", text: "Together with stem cell applications" },
-        { title: "Joint and Soft Tissue", text: "Support for rehabilitation protocols" },
+      intro: {
+        lead: "Regenerative orthopaedics aims to repair joint, cartilage, bone, muscle, tendon and ligament tissue and to restore movement function.",
+        paragraphs: [
+          "Medical ozone is among the complementary applications of this approach, through its effects on cellular antioxidant defence and the inflammatory response.",
+          "The biological effects of ozone are explained through the activation of cellular defence mechanisms, the regulation of inflammation and processes related to tissue repair. These mechanisms form the basis for using ozone alongside other treatment methods in regenerative orthopaedics.",
+          "Veterinarians use ozone in osteoarthritis, muscle and tendon injuries and ligament problems, together with PRP, prolotherapy, stem cell therapies and rehabilitation programmes. Favourable feedback from clinical practice plays an important part in the preference for this combined approach in terms of pain management, comfort of movement and functional recovery.",
+        ],
+      },
+      conditions: [],
+      methods: [
+        { icon: Syringe, image: ASSETS.methods.prp, title: "Ozone + PRP (Platelet-Rich Plasma)", text: "A combined approach bringing together the biological effects associated with the growth factors in PRP and the effects of medical ozone on the inflammatory response and cellular antioxidant defence, within one treatment programme" },
+        { icon: Syringe, title: "Ozone + Prolotherapy", text: "An orthopaedic treatment approach combining prolotherapy's applications aimed at repairing connective tissue with the effects of medical ozone on pain and inflammation management" },
+        { icon: Sparkle, title: "Ozone + Stem Cell Applications", text: "A complementary ozone approach that can be planned as separate, controlled applications alongside regenerative treatments based on mesenchymal stem cells" },
+        { icon: Sparkle, title: "Ozone + Joint and Soft Tissue Rehabilitation", text: "Ozone applications integrated into the rehabilitation programme to support pain management and movement function in joint disease, muscle and tendon injuries and ligament problems" },
       ],
+      methodsNote:
+        "The combined treatment plan is decided by the veterinarian, taking into account the type of disease, the degree of tissue damage and the characteristics of the regenerative method in use.",
     },
   },
 

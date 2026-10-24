@@ -47,6 +47,9 @@ export default function TreatmentAreaDetail() {
   // Bir alan yöntemlerini ayırmak isterse (ana uygulamalar / tamamlayıcılar)
   // başlıklı gruplar verir; vermezse hepsi tek listede kalır.
   const methodGroups = override?.methodGroups || [{ items: methods }];
+  // Kartların altına düşen kapanış cümlesi (ör. tedavi planını kimin
+  // belirlediği). Durumlar bölümündeki intro.closing ile aynı biçimde.
+  const methodsNote = override?.methodsNote;
   const Icon = item.icon;
 
   const goTab = (id) => {
@@ -255,6 +258,14 @@ export default function TreatmentAreaDetail() {
               </div>
             </div>
           ))}
+
+          {methodsNote && (
+            <Reveal>
+              <p className="mt-10 max-w-3xl border-l-2 border-[var(--brand)] pl-5 text-[var(--ink)] leading-relaxed">
+                {methodsNote}
+              </p>
+            </Reveal>
+          )}
         </div>
       </section>
 
