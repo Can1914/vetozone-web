@@ -690,6 +690,28 @@ export const DETAIL_OVERRIDES = {
         { title: "Parvoviral Enteritis", text: "Destekleyici uygulama protokolleri" },
         { title: "Enfeksiyöz Süreçler", text: "Genel destekleyici yaklaşımlar" },
       ],
+      methodGroups: [
+        {
+          title: "Sistemik Ozon Uygulamaları",
+          items: [
+            { icon: Drop, image: ASSETS.methods.ozonatedSaline, title: "Ozonlanmış Serum Uygulaması", text: "Ozonla işleme alınan uygun infüzyon solüsyonunun intravenöz yolla uygulanmasıdır. Parvovirüs gibi enfeksiyon hastalıklarında standart tedaviye ek olarak araştırılmıştır" },
+            { icon: Sparkle, image: ASSETS.methods.rectal, title: "Rektal Ozon Uygulaması", text: "Medikal ozon gazının rektal yolla uygulanmasıdır. Enfeksiyon hastalıklarında sistemik inflamatuvar yanıtın ve bağışıklık mekanizmalarının düzenlenmesi amacıyla kullanılan tamamlayıcı yöntemdir" },
+            { icon: Syringe, image: ASSETS.methods.majorAutohemotherapy, title: "Majör Otohemoterapi (MAH)", text: "Hastadan alınan kanın kontrollü koşullarda ozonlanarak damar yoluyla geri verilmesidir. Sistemik biyolojik yanıtı hedefleyen ozon uygulamalarından biridir" },
+            { icon: Syringe, image: ASSETS.methods.minorAutohemotherapy, title: "Minör Otohemoterapi (MiAH)", text: "Hastadan alınan az miktarda kanın ozonlanarak derin intramüsküler yolla uygulanmasıdır. Bağışıklık yanıtının düzenlenmesini hedefleyen tamamlayıcı yöntemdir" },
+          ],
+        },
+        {
+          title: "Lokal Ozon Uygulamaları",
+          items: [
+            { icon: Drop, title: "Ozonlu Su Uygulaması", text: "Ozonlanmış suyun enfekte yara ve doku yüzeylerinin temizliğinde kullanılmasıdır. Lokal antimikrobiyal etki ve yara bakımı amacıyla uygulanır" },
+            { icon: Package, title: "Ozon Torbalama", text: "Enfekte yara veya ekstremitenin kapalı bir sistem içerisinde ozon gazıyla temas ettirilmesidir. Lokal enfeksiyon kontrolü ve yara iyileşmesi süreçlerinde kullanılır" },
+            { icon: Eyedropper, title: "Ozonlu Yağ Uygulaması", text: "Ozonlanmış yağların enfekte deri lezyonlarına ve yara yüzeylerine topikal olarak uygulanmasıdır. Lokal yara bakımında kullanılan tamamlayıcı yöntemdir" },
+            { icon: Syringe, title: "Lokal Ozon İnfiltrasyonu", text: "Medikal ozon gazının enfekte lezyonun çevresindeki uygun dokulara uygulanmasıdır. Seçilmiş vakalarda lokal doku yanıtını ve yara iyileşmesini desteklemek amacıyla değerlendirilir" },
+          ],
+        },
+      ],
+      methodsNote:
+        "Uygulama yöntemi; enfeksiyonun türü, yerleşimi ve hastanın klinik durumuna göre veteriner hekim tarafından belirlenir.",
     },
     en: {
       titleLines: ["Ozone Therapy in", "Infectious Diseases"],
@@ -712,6 +734,28 @@ export const DETAIL_OVERRIDES = {
         { title: "Parvoviral Enteritis", text: "Supportive application protocols" },
         { title: "Infectious Processes", text: "General supportive approaches" },
       ],
+      methodGroups: [
+        {
+          title: "Systemic Ozone Applications",
+          items: [
+            { icon: Drop, image: ASSETS.methods.ozonatedSaline, title: "Ozonated Saline Application", text: "Intravenous application of a suitable infusion solution treated with ozone. Studied in addition to standard treatment in infectious diseases such as parvovirus" },
+            { icon: Sparkle, image: ASSETS.methods.rectal, title: "Rectal Ozone Application", text: "Application of medical ozone gas by the rectal route. A complementary method used to regulate the systemic inflammatory response and immune mechanisms in infectious disease" },
+            { icon: Syringe, image: ASSETS.methods.majorAutohemotherapy, title: "Major Autohemotherapy (MAH)", text: "Blood taken from the patient, ozonated under controlled conditions and returned intravenously. One of the ozone applications that targets the systemic biological response" },
+            { icon: Syringe, image: ASSETS.methods.minorAutohemotherapy, title: "Minor Autohemotherapy (MiAH)", text: "A small volume of blood taken from the patient, ozonated and applied by the deep intramuscular route. A complementary method aimed at regulating the immune response" },
+          ],
+        },
+        {
+          title: "Local Ozone Applications",
+          items: [
+            { icon: Drop, title: "Ozonated Water Application", text: "Use of ozonated water in cleansing infected wounds and tissue surfaces. Applied for local antimicrobial action and wound care" },
+            { icon: Package, title: "Ozone Bagging", text: "Bringing an infected wound or limb into contact with ozone gas within a closed system. Used in local infection control and wound healing" },
+            { icon: Eyedropper, title: "Ozonated Oil Application", text: "Topical application of ozonated oils to infected skin lesions and wound surfaces. A complementary method used in local wound care" },
+            { icon: Syringe, title: "Local Ozone Infiltration", text: "Application of medical ozone gas into suitable tissue around the infected lesion. Considered in selected cases to support local tissue response and wound healing" },
+          ],
+        },
+      ],
+      methodsNote:
+        "The method of application is decided by the veterinarian according to the type and site of the infection and the patient's clinical condition.",
     },
   },
 
@@ -723,6 +767,16 @@ export const DETAIL_OVERRIDES = {
       lead: "Onkolojik tedavilere eşlik eden integratif yaklaşım.",
       body: "Onkoloji vakalarında medikal ozon; genel durumun ve yaşam kalitesinin desteklenmesi amacıyla, onkolojik tedavi planına eşlik eden integratif bir yaklaşım olarak değerlendirilmektedir.",
       image: ASSETS.species.dogcat,
+      intro: {
+        lead: "Veteriner onkolojide tedavi, yalnızca tümörün kontrolünü değil, hastanın genel sağlığının korunmasını ve yaşam kalitesinin desteklenmesini de kapsar.",
+        paragraphs: [
+          "Medikal ozon, kanser hastalarında oksidatif stres ve inflamatuvar yanıtla ilişkili biyolojik mekanizmaları hedefleyen tamamlayıcı uygulamalardan biridir.",
+          "Medikal ozonun kontrollü oksidatif uyarısı, hücresel antioksidan savunma sistemlerini ve inflamasyonla ilişkili sinyal yollarını etkiler. Veteriner onkolojide bu mekanizmalar; kemoterapi sürecindeki fizyolojik değişimlerin yönetimi, doku sağlığının desteklenmesi ve hastanın yaşam kalitesi açısından değerlendirilmektedir.",
+          "Köpeklerde meme tümörleri üzerine yapılan klinik araştırmalar, standart onkolojik tedavilere eklenen ozon uygulamalarıyla oksidatif stres göstergelerinde, yaşam kalitesinde ve bazı klinik sonuçlarda olumlu değişimler bildirmiştir.",
+        ],
+        closing:
+          "Ozon tedavisi; cerrahi, kemoterapi ve diğer onkolojik yaklaşımların yerine değil, veteriner hekimin planladığı bütüncül tedavi programının bir parçası olarak kullanılır.",
+      },
       conditions: [
         { title: "İntegratif Uygulamalar", text: "Onkolojik tedaviye eşlik eden protokoller" },
         { title: "Genel Durum Desteği", text: "Yaşam kalitesinin desteklenmesi" },
@@ -735,6 +789,16 @@ export const DETAIL_OVERRIDES = {
       lead: "An integrative approach alongside oncological treatment.",
       body: "In oncology cases, medical ozone is evaluated as an integrative approach accompanying the oncological treatment plan, with the aim of supporting general condition and quality of life.",
       image: ASSETS.species.dogcat,
+      intro: {
+        lead: "In veterinary oncology, treatment covers not only control of the tumour but also the protection of the patient's general health and the support of quality of life.",
+        paragraphs: [
+          "Medical ozone is one of the complementary applications targeting the biological mechanisms associated with oxidative stress and the inflammatory response in cancer patients.",
+          "The controlled oxidative stimulus of medical ozone affects cellular antioxidant defence systems and signalling pathways associated with inflammation. In veterinary oncology these mechanisms are evaluated in terms of managing the physiological changes during chemotherapy, supporting tissue health, and the patient's quality of life.",
+          "Clinical research on mammary tumours in dogs has reported favourable changes in markers of oxidative stress, in quality of life and in some clinical outcomes with ozone applications added to standard oncological treatment.",
+        ],
+        closing:
+          "Ozone therapy is used as part of the holistic treatment programme planned by the veterinarian, not in place of surgery, chemotherapy or other oncological approaches.",
+      },
       conditions: [
         { title: "Integrative Applications", text: "Protocols accompanying oncological treatment" },
         { title: "General Condition Support", text: "Supporting quality of life" },
