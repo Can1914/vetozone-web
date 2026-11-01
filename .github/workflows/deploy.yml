@@ -6,10 +6,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  # vetozone.com.tr şimdilik "çok yakında" sayfasını gösteriyor. Tam site
-  # GitHub Pages'te geliştirilmeye devam ediyor (aşağıdaki iş).
+  # Tam site artık ana alan adında yayında.
   hosting:
-    name: Holding page to hosting
+    name: Full site to vetozone.com.tr
     runs-on: ubuntu-latest
     # İki yükleme aynı anda aynı FTP ağacına yazmasın.
     concurrency:
@@ -19,10 +18,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Holding sayfası React'a ihtiyaç duymuyor; paket düz kopyalamayla
-      # hazırlanıyor, bu yüzden bu iş npm kurmadan saniyeler içinde biter.
-      - name: Assemble the holding page
-        run: sh scripts/build-landing.sh
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: frontend
+        run: npm ci --legacy-peer-deps
+
+      # build:host, Pages'in alt dizin önekini kullanmaz: PUBLIC_URL'i / yapar
+      # ve dosya yetkilerini 644/755'e çeker. contact.php, phpmailer ve
+      # .htaccess public/ içinde olduğu için build'e kendiliğinden giriyor.
+      - name: Build
+        working-directory: frontend
+        run: npm run build:host
 
       # Düz FTP bu sunucuda veri bağlantılarını düşürüyordu (ECONNRESET);
       # FTPS veri kanalını şifrelediği için kesilmiyor, `loose` ise bu
@@ -39,11 +50,14 @@ jobs:
           protocol: ftps
           security: loose
           timeout: 60000
-          state-name: .vetozone-deploy-state.json
+          # Sunucudaki içerik tümüyle değişiyor (holding sayfası yerine site),
+          # eski durum dosyası artık o ağacı tarif etmiyor: yeni isimle
+          # bookkeeping sıfırdan başlıyor.
+          state-name: .vetozone-site-state.json
           # FTP hesabı zaten site klasörüne açılıyor.
-          local-dir: ./landing-dist/
+          local-dir: ./frontend/build/
           server-dir: ./
-          # Yalnızca landing-dist yükleniyor; backend, tests ve memory
+          # Yalnızca build çıktısı yükleniyor; backend, tests ve memory
           # klasörleri senkronize edilen ağacın içinde olmadığı için
           # sunucuya hiçbir koşulda ulaşamaz.
           #
@@ -89,7 +103,7 @@ jobs:
           set net:timeout 20;
           set xfer:clobber on;
           open -u '$FTP_USERNAME' --env-password '$FTP_SERVER';
-          mirror --reverse --only-newer --parallel=1 --delete --verbose --exclude-glob .cl.selector/ --exclude-glob .cagefs/ --exclude-glob .well-known/ --exclude-glob mail-config.php ./landing-dist/ ./;
+          mirror --reverse --only-newer --parallel=1 --delete --verbose --exclude-glob .cl.selector/ --exclude-glob .cagefs/ --exclude-glob .well-known/ --exclude-glob mail-config.php ./frontend/build/ ./;
           bye
           "
 

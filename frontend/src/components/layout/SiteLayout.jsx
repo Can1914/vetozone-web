@@ -28,6 +28,22 @@ export default function SiteLayout() {
     };
   }, []);
 
+  // index.html'deki canonical her sayfada ana sayfayı işaret ediyordu; tek
+  // sayfa uygulamada o etiket rota değişince güncellenmiyor. Arama motoruna
+  // bütün sayfaları ana sayfanın kopyası diye bildirmemek için rotaya göre
+  // yazıyoruz. Alan adı www'li sürüm: içerik hem www'li hem www'siz adreste
+  // açıldığı için hangisinin asıl olduğu bir yerde söylenmeli.
+  useEffect(() => {
+    const href = `https://www.vetozone.com.tr${location.pathname}`;
+    let tag = document.querySelector('link[rel="canonical"]');
+    if (!tag) {
+      tag = document.createElement("link");
+      tag.rel = "canonical";
+      document.head.appendChild(tag);
+    }
+    tag.href = href;
+  }, [location.pathname]);
+
   useEffect(() => {
     if (location.hash) return;
     window.lenis?.scrollTo(0, { immediate: true });
