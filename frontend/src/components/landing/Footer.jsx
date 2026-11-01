@@ -42,6 +42,12 @@ export const Footer = () => {
           <Link to="/iletisim" className="link-underline text-sm text-white/60 hover:text-white transition-colors">
             {t.nav.contact}
           </Link>
+          <Link to="/gizlilik" className="link-underline text-sm text-white/60 hover:text-white transition-colors">
+            {t.nav.privacy}
+          </Link>
+          <Link to="/hesap-silme" className="link-underline text-sm text-white/60 hover:text-white transition-colors">
+            {t.nav.accountDeletion}
+          </Link>
         </nav>
 
         <div className="relative">

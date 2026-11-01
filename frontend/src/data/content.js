@@ -146,6 +146,8 @@ export const CONTENT = {
       library: "Bilimsel Kütüphane",
       corporate: "Kurumsal",
       home: "Ana Sayfa",
+      privacy: "Gizlilik Politikası",
+      accountDeletion: "Hesap Silme",
     },
     hero: {
       overline: "Veteriner Hekimler İçin",
@@ -526,6 +528,8 @@ export const CONTENT = {
       library: "Scientific Library",
       corporate: "Corporate",
       home: "Home",
+      privacy: "Privacy Policy",
+      accountDeletion: "Account Deletion",
     },
     hero: {
       overline: "For Veterinarians",

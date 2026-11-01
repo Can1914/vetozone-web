@@ -16,6 +16,12 @@ cp landing/index.html "$out/"
 cp frontend/public/vetozone-logo.png frontend/public/og-image.jpg "$out/"
 cp frontend/public/favicon.ico frontend/public/favicon-32.png \
    frontend/public/apple-touch-icon.png "$out/"
+# Koyu başlıklı yasal sayfalar beyaz logoyu kullanıyor.
+cp frontend/public/vetozone-logo-white.png "$out/"
+
+# Gizlilik ve hesap silme sayfaları: mağazalar bu adresleri doğrudan
+# açtığı için site yayına girmeden önce de çalışmaları gerekiyor.
+node scripts/build-legal.js
 
 # .htaccess olmadan sayfa yine açılır, ama config ve log dosyalarını dışarıya
 # kapatan kurallar ile her adresi index.html'e yönlendiren kural kaybolurdu;

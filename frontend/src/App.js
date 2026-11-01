@@ -13,6 +13,7 @@ import CaseCenter from "@/pages/CaseCenter";
 import ScientificLibrary from "@/pages/ScientificLibrary";
 import Corporate from "@/pages/Corporate";
 import ContactPage from "@/pages/ContactPage";
+import LegalPage from "@/pages/LegalPage";
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
               <Route path="/bilimsel-kutuphane" element={<ScientificLibrary />} />
               <Route path="/kurumsal" element={<Corporate />} />
               <Route path="/iletisim" element={<ContactPage />} />
+              {/* Mağaza incelemeleri bu adresleri doğrudan açıyor. */}
+              <Route path="/gizlilik" element={<LegalPage docKey="gizlilik" />} />
+              <Route path="/hesap-silme" element={<LegalPage docKey="hesap-silme" />} />
             </Route>
           </Routes>
         </BrowserRouter>

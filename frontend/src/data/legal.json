@@ -1,0 +1,204 @@
+{
+  "_comment": "Yasal sayfaların tek kaynağı. React sayfaları bu dosyayı okur; scripts/build-legal.js aynı dosyadan ana alan adına konan statik HTML'i üretir. Metin müşterinin gönderdiği hâliyle, değiştirilmeden durur. Köşeli parantezli alanlar bilerek boştur. Vurgu **yıldız** ile yazılır.",
+  "gizlilik": {
+    "path": "/gizlilik",
+    "tr": {
+      "title": "Gizlilik Politikası — Vetozone",
+      "overline": "Yasal",
+      "heading": "Vetozone Mobil Uygulaması Gizlilik Politikası",
+      "blocks": [
+        { "type": "p", "text": "**Son güncelleme:** [YAYIN TARİHİ]" },
+        { "type": "p", "text": "Bu politika, Vetozone mobil uygulamasını (\"Uygulama\") kullanan veteriner hekimlerin kişisel verilerinin nasıl işlendiğini, 6698 sayılı Kişisel Verilerin Korunması Kanunu (\"KVKK\") kapsamında açıklar." },
+
+        { "type": "h2", "text": "1. Veri sorumlusu" },
+        { "type": "lines", "items": ["[ŞİRKET TAM UNVANI]", "Adres: [ŞİRKET ADRESİ]", "E-posta: info@vetozone.com.tr", "Telefon: 0530 020 83 13"] },
+
+        { "type": "h2", "text": "2. Hangi verileri işliyoruz?" },
+        { "type": "p", "text": "Uygulama yalnızca sizin girdiğiniz bilgileri işler:" },
+        { "type": "h3", "text": "Hesap bilgileri" },
+        { "type": "ul", "items": [
+          "Ad soyad",
+          "Klinik adı (isteğe bağlı)",
+          "E-posta adresi",
+          "Şifre (sunucuda yalnızca şifrelenmiş/özetlenmiş biçimde saklanır; kimse göremez)"
+        ] },
+        { "type": "h3", "text": "Vaka kayıtları (yalnızca siz eklerseniz)" },
+        { "type": "ul", "items": [
+          "Hasta hayvanın adı, türü, ırkı, yaşı, kilosu",
+          "Şikayet/tanı, uygulanan yöntem, doz, hacim, sıklık, seans sayısı, tedavi tarihi",
+          "Sonuç ve serbest notlar"
+        ] },
+        { "type": "note", "text": "Vaka kayıtları hayvanlara ait klinik bilgilerdir. **Lütfen not alanlarına hayvan sahibinin adı, telefonu, adresi gibi kişisel verilerini yazmayın.**" },
+        { "type": "h3", "text": "İşlemediğimiz veriler" },
+        { "type": "ul", "items": [
+          "Konum, rehber, kamera, fotoğraf veya mikrofon verisine erişmeyiz.",
+          "Reklam kimliği kullanmayız; Uygulamada reklam yoktur.",
+          "Üçüncü taraf analiz veya kullanıcı takibi aracı kullanmayız.",
+          "Ödeme bilgisi almayız."
+        ] },
+
+        { "type": "h2", "text": "3. Verileri neden işliyoruz? (Amaç ve hukuki sebep)" },
+        { "type": "table", "head": ["Amaç", "Hukuki sebep (KVKK m. 5)"], "rows": [
+          ["Hesabınızı oluşturmak, giriş yapmanızı sağlamak", "Sözleşmenin kurulması ve ifası (m. 5/2-c)"],
+          ["Vaka kayıtlarınızı saklamak ve yalnızca size göstermek", "Sözleşmenin ifası (m. 5/2-c)"],
+          ["Güvenliği sağlamak, kötüye kullanımı önlemek", "Meşru menfaat (m. 5/2-f)"],
+          ["Yasal yükümlülükleri yerine getirmek", "Kanuni yükümlülük (m. 5/2-ç)"]
+        ] },
+        { "type": "p", "text": "Verileriniz pazarlama, profilleme veya reklam amacıyla kullanılmaz ve satılmaz." },
+
+        { "type": "h2", "text": "4. Verileriniz nerede saklanır, kimler erişebilir?" },
+        { "type": "ul", "items": [
+          "Veriler Türkiye'de (İstanbul) bulunan sunucularımızda saklanır.",
+          "Uygulama ile sunucu arasındaki bağlantı şifrelidir (HTTPS).",
+          "Vaka kayıtlarınızı **yalnızca siz** görebilirsiniz. Diğer hekimler kayıtlarınızı göremez; bu kural sunucu tarafında uygulanır.",
+          "Teknik bakım için yetkili sistem yöneticilerimiz sunucuya erişebilir; bu erişim gizlilik yükümlülüğü altındadır.",
+          "Verileriniz, yasal zorunluluk (mahkeme kararı vb.) dışında üçüncü kişilerle paylaşılmaz ve yurt dışına aktarılmaz."
+        ] },
+
+        { "type": "h2", "text": "5. Uygulama dışı bağlantılar" },
+        { "type": "p", "text": "Uygulamadaki WhatsApp, telefon, e-posta ve web sitesi bağlantıları ilgili uygulamayı açar. Bu uygulamalar üzerinden bizimle paylaştığınız bilgiler, o hizmetlerin kendi gizlilik politikalarına tabidir." },
+
+        { "type": "h2", "text": "6. Saklama süresi" },
+        { "type": "ul", "items": [
+          "Hesabınız ve vaka kayıtlarınız, hesabınızı silene kadar saklanır.",
+          "Hesabınızı sildiğinizde hesabınız ve **tüm vaka kayıtlarınız kalıcı olarak silinir**.",
+          "Sunucu yedeklerinde kalan kopyalar en geç [YEDEK SAKLAMA SÜRESİ, örn. 30] gün içinde yedek döngüsüyle silinir."
+        ] },
+
+        { "type": "h2", "text": "7. Hesabınızı ve verilerinizi silme" },
+        { "type": "p", "text": "**Uygulamadan:** Hesabım → **Hesabımı sil** → onaylayın. Hesabınız ve tüm vaka kayıtlarınız hemen silinir." },
+        { "type": "p", "text": "**Uygulamaya erişemiyorsanız:** Kayıtlı e-posta adresinizden info@vetozone.com.tr adresine \"Hesap silme talebi\" konulu bir e-posta gönderin. Talebiniz en geç 30 gün içinde sonuçlandırılır." },
+
+        { "type": "h2", "text": "8. KVKK kapsamındaki haklarınız" },
+        { "type": "p", "text": "KVKK m. 11 uyarınca; verilerinizin işlenip işlenmediğini öğrenme, bilgi talep etme, işleme amacını öğrenme, aktarıldığı kişileri bilme, eksik/yanlış işlenmişse düzeltilmesini, silinmesini veya yok edilmesini isteme, bu işlemlerin aktarılan kişilere bildirilmesini isteme, otomatik analiz sonucu aleyhinize bir sonuca itiraz etme ve kanuna aykırı işleme nedeniyle zararın giderilmesini talep etme haklarına sahipsiniz." },
+        { "type": "p", "text": "Başvurularınızı info@vetozone.com.tr adresine iletebilirsiniz. Başvurular en geç 30 gün içinde ücretsiz olarak sonuçlandırılır." },
+
+        { "type": "h2", "text": "9. Çocuklar" },
+        { "type": "p", "text": "Uygulama veteriner hekimler içindir; 18 yaşından küçüklere yönelik değildir ve bilerek çocuklardan veri toplanmaz." },
+
+        { "type": "h2", "text": "10. Değişiklikler" },
+        { "type": "p", "text": "Bu politikayı güncelleyebiliriz. Önemli değişiklikleri Uygulama veya web sitemiz üzerinden duyururuz. Güncel sürüm her zaman bu sayfadadır." },
+
+        { "type": "h2", "text": "11. İletişim" },
+        { "type": "p", "text": "Sorularınız için: info@vetozone.com.tr · 0530 020 83 13" }
+      ]
+    },
+    "en": {
+      "title": "Privacy Policy — Vetozone",
+      "overline": "Legal",
+      "heading": "Vetozone Mobile Application Privacy Policy",
+      "blocks": [
+        { "type": "p", "text": "**Last updated:** [YAYIN TARİHİ]" },
+        { "type": "p", "text": "This policy explains how the personal data of veterinarians using the Vetozone mobile application (the \"Application\") is processed, within the scope of Law No. 6698 on the Protection of Personal Data (\"KVKK\")." },
+
+        { "type": "h2", "text": "1. Data controller" },
+        { "type": "lines", "items": ["[ŞİRKET TAM UNVANI]", "Address: [ŞİRKET ADRESİ]", "E-mail: info@vetozone.com.tr", "Telephone: 0530 020 83 13"] },
+
+        { "type": "h2", "text": "2. What data do we process?" },
+        { "type": "p", "text": "The Application processes only the information you enter:" },
+        { "type": "h3", "text": "Account information" },
+        { "type": "ul", "items": [
+          "Full name",
+          "Clinic name (optional)",
+          "E-mail address",
+          "Password (stored on the server only in encrypted/hashed form; no one can see it)"
+        ] },
+        { "type": "h3", "text": "Case records (only if you add them)" },
+        { "type": "ul", "items": [
+          "The patient animal's name, species, breed, age, weight",
+          "Complaint/diagnosis, method applied, dose, volume, frequency, number of sessions, date of treatment",
+          "Outcome and free-text notes"
+        ] },
+        { "type": "note", "text": "Case records are clinical information about animals. **Please do not write personal data of the animal's owner, such as name, telephone or address, into the note fields.**" },
+        { "type": "h3", "text": "Data we do not process" },
+        { "type": "ul", "items": [
+          "We do not access location, contacts, camera, photo or microphone data.",
+          "We do not use an advertising identifier; there are no adverts in the Application.",
+          "We do not use third-party analytics or user tracking tools.",
+          "We do not take payment information."
+        ] },
+
+        { "type": "h2", "text": "3. Why do we process data? (Purpose and legal basis)" },
+        { "type": "table", "head": ["Purpose", "Legal basis (KVKK art. 5)"], "rows": [
+          ["To create your account and allow you to sign in", "Conclusion and performance of a contract (art. 5/2-c)"],
+          ["To store your case records and show them only to you", "Performance of a contract (art. 5/2-c)"],
+          ["To ensure security and prevent misuse", "Legitimate interest (art. 5/2-f)"],
+          ["To fulfil legal obligations", "Legal obligation (art. 5/2-ç)"]
+        ] },
+        { "type": "p", "text": "Your data is not used or sold for marketing, profiling or advertising purposes." },
+
+        { "type": "h2", "text": "4. Where is your data stored, and who can access it?" },
+        { "type": "ul", "items": [
+          "Data is stored on our servers located in Türkiye (Istanbul).",
+          "The connection between the Application and the server is encrypted (HTTPS).",
+          "**Only you** can see your case records. Other veterinarians cannot see your records; this rule is enforced on the server side.",
+          "Our authorised system administrators can access the server for technical maintenance; that access is subject to an obligation of confidentiality.",
+          "Your data is not shared with third parties and is not transferred abroad, except where legally required (court order and the like)."
+        ] },
+
+        { "type": "h2", "text": "5. Links outside the Application" },
+        { "type": "p", "text": "The WhatsApp, telephone, e-mail and website links in the Application open the relevant application. Information you share with us through those applications is subject to the privacy policies of those services." },
+
+        { "type": "h2", "text": "6. Retention period" },
+        { "type": "ul", "items": [
+          "Your account and case records are kept until you delete your account.",
+          "When you delete your account, your account and **all of your case records are permanently deleted**.",
+          "Copies remaining in server backups are deleted with the backup cycle within [YEDEK SAKLAMA SÜRESİ, örn. 30] days at the latest."
+        ] },
+
+        { "type": "h2", "text": "7. Deleting your account and your data" },
+        { "type": "p", "text": "**From the Application:** My Account → **Delete my account** → confirm. Your account and all of your case records are deleted immediately." },
+        { "type": "p", "text": "**If you cannot access the Application:** Send an e-mail with the subject \"Hesap silme talebi\" to info@vetozone.com.tr from your registered e-mail address. Your request is concluded within 30 days at the latest." },
+
+        { "type": "h2", "text": "8. Your rights under the KVKK" },
+        { "type": "p", "text": "Under article 11 of the KVKK you have the right to learn whether your data is processed, to request information, to learn the purpose of processing, to know the parties to whom it is transferred, to request correction if processed incompletely or incorrectly, to request erasure or destruction, to request that these actions be notified to the parties to whom the data was transferred, to object to a result against you arising from automated analysis, and to claim compensation for damage caused by unlawful processing." },
+        { "type": "p", "text": "You can send your applications to info@vetozone.com.tr. Applications are concluded free of charge within 30 days at the latest." },
+
+        { "type": "h2", "text": "9. Children" },
+        { "type": "p", "text": "The Application is intended for veterinarians; it is not directed at those under 18 and data is not knowingly collected from children." },
+
+        { "type": "h2", "text": "10. Changes" },
+        { "type": "p", "text": "We may update this policy. We announce significant changes through the Application or our website. The current version is always on this page." },
+
+        { "type": "h2", "text": "11. Contact" },
+        { "type": "p", "text": "For your questions: info@vetozone.com.tr · 0530 020 83 13" }
+      ]
+    }
+  },
+
+  "hesap-silme": {
+    "path": "/hesap-silme",
+    "tr": {
+      "title": "Hesap Silme — Vetozone",
+      "overline": "Yasal",
+      "heading": "Vetozone Hesabı ve Verilerini Silme",
+      "blocks": [
+        { "type": "h2", "text": "Uygulamadan" },
+        { "type": "p", "text": "Hesabım → **Hesabımı sil** → onaylayın. Hesap ve tüm vaka kayıtları hemen ve kalıcı olarak silinir." },
+
+        { "type": "h2", "text": "Uygulamaya erişemiyorsanız" },
+        { "type": "p", "text": "Kayıtlı e-posta adresinizden **info@vetozone.com.tr** adresine \"Hesap silme talebi\" konulu bir e-posta gönderin. Talep en geç 30 gün içinde sonuçlandırılır." },
+        { "type": "button", "label": "Hesap silme talebi gönder", "href": "mailto:info@vetozone.com.tr?subject=Hesap%20silme%20talebi" },
+
+        { "type": "h2", "text": "Silinen veriler" },
+        { "type": "p", "text": "Ad soyad, klinik adı, e-posta, şifre ve tüm vaka kayıtları. Sunucu yedeklerindeki kopyalar en geç [YEDEK SAKLAMA SÜRESİ] gün içinde silinir." }
+      ]
+    },
+    "en": {
+      "title": "Account Deletion — Vetozone",
+      "overline": "Legal",
+      "heading": "Deleting Your Vetozone Account and Data",
+      "blocks": [
+        { "type": "h2", "text": "From the Application" },
+        { "type": "p", "text": "My Account → **Delete my account** → confirm. The account and all case records are deleted immediately and permanently." },
+
+        { "type": "h2", "text": "If you cannot access the Application" },
+        { "type": "p", "text": "Send an e-mail with the subject \"Hesap silme talebi\" to **info@vetozone.com.tr** from your registered e-mail address. The request is concluded within 30 days at the latest." },
+        { "type": "button", "label": "Send an account deletion request", "href": "mailto:info@vetozone.com.tr?subject=Hesap%20silme%20talebi" },
+
+        { "type": "h2", "text": "Data that is deleted" },
+        { "type": "p", "text": "Full name, clinic name, e-mail, password and all case records. Copies in server backups are deleted within [YEDEK SAKLAMA SÜRESİ] days at the latest." }
+      ]
+    }
+  }
+}
