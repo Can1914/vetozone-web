@@ -7,11 +7,11 @@
       "overline": "Yasal",
       "heading": "Vetozone Mobil Uygulaması Gizlilik Politikası",
       "blocks": [
-        { "type": "p", "text": "**Son güncelleme:** [YAYIN TARİHİ]" },
+        { "type": "p", "text": "**Son güncelleme:** 1 Kasım 2026" },
         { "type": "p", "text": "Bu politika, Vetozone mobil uygulamasını (\"Uygulama\") kullanan veteriner hekimlerin kişisel verilerinin nasıl işlendiğini, 6698 sayılı Kişisel Verilerin Korunması Kanunu (\"KVKK\") kapsamında açıklar." },
 
         { "type": "h2", "text": "1. Veri sorumlusu" },
-        { "type": "lines", "items": ["[ŞİRKET TAM UNVANI]", "Adres: [ŞİRKET ADRESİ]", "E-posta: info@vetozone.com.tr", "Telefon: 0530 020 83 13"] },
+        { "type": "lines", "items": ["Cemil Has Medikal Tıbbi ve Elektronik Cihazlar İmalat Bakım Onarım Sanayi ve Ticaret Limited Şirketi", "Adres: Yenişehir Mh. 1145/1 Sk. No:74 Konak / İzmir, Türkiye", "E-posta: info@vetozone.com.tr", "Telefon: 0530 020 83 13"] },
 
         { "type": "h2", "text": "2. Hangi verileri işliyoruz?" },
         { "type": "p", "text": "Uygulama yalnızca sizin girdiğiniz bilgileri işler:" },
@@ -62,7 +62,7 @@
         { "type": "ul", "items": [
           "Hesabınız ve vaka kayıtlarınız, hesabınızı silene kadar saklanır.",
           "Hesabınızı sildiğinizde hesabınız ve **tüm vaka kayıtlarınız kalıcı olarak silinir**.",
-          "Sunucu yedeklerinde kalan kopyalar en geç [YEDEK SAKLAMA SÜRESİ, örn. 30] gün içinde yedek döngüsüyle silinir."
+          "Sunucu yedeklerinde kalan kopyalar en geç 30 gün içinde yedek döngüsüyle silinir."
         ] },
 
         { "type": "h2", "text": "7. Hesabınızı ve verilerinizi silme" },
@@ -88,11 +88,11 @@
       "overline": "Legal",
       "heading": "Vetozone Mobile Application Privacy Policy",
       "blocks": [
-        { "type": "p", "text": "**Last updated:** [YAYIN TARİHİ]" },
+        { "type": "p", "text": "**Last updated:** 1 November 2026" },
         { "type": "p", "text": "This policy explains how the personal data of veterinarians using the Vetozone mobile application (the \"Application\") is processed, within the scope of Law No. 6698 on the Protection of Personal Data (\"KVKK\")." },
 
         { "type": "h2", "text": "1. Data controller" },
-        { "type": "lines", "items": ["[ŞİRKET TAM UNVANI]", "Address: [ŞİRKET ADRESİ]", "E-mail: info@vetozone.com.tr", "Telephone: 0530 020 83 13"] },
+        { "type": "lines", "items": ["Cemil Has Medikal Tıbbi ve Elektronik Cihazlar İmalat Bakım Onarım Sanayi ve Ticaret Limited Şirketi", "Address: Yenişehir Mh. 1145/1 Sk. No:74 Konak / İzmir, Türkiye", "E-mail: info@vetozone.com.tr", "Telephone: 0530 020 83 13"] },
 
         { "type": "h2", "text": "2. What data do we process?" },
         { "type": "p", "text": "The Application processes only the information you enter:" },
@@ -143,7 +143,7 @@
         { "type": "ul", "items": [
           "Your account and case records are kept until you delete your account.",
           "When you delete your account, your account and **all of your case records are permanently deleted**.",
-          "Copies remaining in server backups are deleted with the backup cycle within [YEDEK SAKLAMA SÜRESİ, örn. 30] days at the latest."
+          "Copies remaining in server backups are deleted with the backup cycle within 30 days at the latest."
         ] },
 
         { "type": "h2", "text": "7. Deleting your account and your data" },
@@ -181,7 +181,7 @@
         { "type": "button", "label": "Hesap silme talebi gönder", "href": "mailto:info@vetozone.com.tr?subject=Hesap%20silme%20talebi" },
 
         { "type": "h2", "text": "Silinen veriler" },
-        { "type": "p", "text": "Ad soyad, klinik adı, e-posta, şifre ve tüm vaka kayıtları. Sunucu yedeklerindeki kopyalar en geç [YEDEK SAKLAMA SÜRESİ] gün içinde silinir." }
+        { "type": "p", "text": "Ad soyad, klinik adı, e-posta, şifre ve tüm vaka kayıtları. Sunucu yedeklerindeki kopyalar en geç 30 gün içinde silinir." }
       ]
     },
     "en": {
@@ -197,7 +197,7 @@
         { "type": "button", "label": "Send an account deletion request", "href": "mailto:info@vetozone.com.tr?subject=Hesap%20silme%20talebi" },
 
         { "type": "h2", "text": "Data that is deleted" },
-        { "type": "p", "text": "Full name, clinic name, e-mail, password and all case records. Copies in server backups are deleted within [YEDEK SAKLAMA SÜRESİ] days at the latest." }
+        { "type": "p", "text": "Full name, clinic name, e-mail, password and all case records. Copies in server backups are deleted within 30 days at the latest." }
       ]
     }
   }
