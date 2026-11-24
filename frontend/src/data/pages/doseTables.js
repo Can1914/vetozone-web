@@ -5,10 +5,12 @@
 //   K1  Atik O, Birdane YO. "Veteriner Hekimlikte Ozon Terapisi."
 //       Veteriner Farmakolojide Güncel Yaklaşımlar, Livre de Lyon, 2024,
 //       Bölüm I, s. 1-19.
-//   K2  Köpeklerde gençlik hastalığı (CDV) ve kanlı ishal (CPV) destekleyici
-//       ozon protokolleri (klinik doküman).
-//   K3  Kedi ve köpeklerde anal sakkülit ve perianal enflamasyonda ozon
-//       tedavisi (klinik doküman).
+//   K2  Vetozone klinik dokümanı — köpeklerde gençlik hastalığı (CDV) ve
+//       kanlı ishalde (CPV) destekleyici ozon protokolleri.
+//   K3  Vetozone klinik dokümanı — kedi ve köpeklerde anal sakkülit ve
+//       perianal enflamasyonda ozon tedavisi.
+//   K4  Vetozone klinik dokümanı — regülasyon temelli rejeneratif yaklaşımda
+//       kök hücre, PRP, akupunktur ve ozon tedavisinin birlikte kullanımı.
 //
 // Kaynakta birimi hatalı görünen tek satır (köpek intradiskal uygulama,
 // "32 µg/µL") bilinçli olarak dışarıda bırakıldı: o birim mililitre başına
@@ -225,6 +227,42 @@ export const DOSE_TABLES = {
         source: "Kaynak: K3",
       },
       {
+        id: "rejeneratif",
+        title: "Rejeneratif Protokollerde Ozonun Yeri",
+        intro:
+          "Kök hücre, PRP, akupunktur ve ozonun birlikte kullanıldığı çok modlu yaklaşımda her bileşenin üstlendiği rol ve bugünkü kanıt düzeyi.",
+        columns: ["Modalite", "Biyolojik rol", "Klinik kullanım alanı", "Kanıt durumu"],
+        rows: [
+          [
+            "PRP + mezenkimal kök hücre",
+            "PDGF, TGF-β, VEGF, EGF ve IGF-1 büyüme faktörleri; immunomodülasyon ve parakrin sinyalizasyon",
+            "Osteoartrit, kronik yara ve ülser, tendon hasarı",
+            "En güçlü biyolojik kombinasyon; çalışmaların çoğu küçük örneklemli ve heterojen",
+          ],
+          [
+            "Ozon",
+            "Kontrollü düşük doz oksidatif uyarı: lokal inflamasyon modülasyonu, mikrosirkülasyon artışı, antioksidan sistem aktivasyonu",
+            "Kas-iskelet sistemi ve disk hastalıkları; PRP veya kök hücre öncesinde mikroçevre hazırlama",
+            "Antiinflamatuvar ve analjezik etkileri bildirilmiş; uzun dönem rejeneratif üstünlük henüz kesin doğrulanmadı",
+          ],
+          [
+            "Akupunktur / elektroakupunktur",
+            "Adenozin salınımı, purinerjik sinyalizasyon, nöroimmün modülasyon",
+            "Analjezi, fonksiyonel rehabilitasyon, akupoint ozon uygulamaları",
+            "Kök hücre mobilizasyonu ve hücresel homing desteği preklinik düzeyde",
+          ],
+          [
+            "Dördünün birlikte kullanımı",
+            "Mikroçevre düzenlemesi + hücresel rejenerasyon + nöromodülasyon",
+            "Osteoartrit, IVDD, nörolojik rehabilitasyon, kronik yara, postoperatif iyileşme",
+            "Aynı protokolde birlikte kullanımı destekleyen standardize klinik kanıt henüz yok",
+          ],
+        ],
+        note:
+          "Bu başlıkta sayısal doz aralığı verilmemiştir; ozonun konsantrasyonu için yukarıdaki sistemik ve lokal uygulama tablolarına bakınız. Kök hücre ürünleri düzenleyici açıdan ileri tedavi tıbbi ürünü kapsamındadır.",
+        source: "Kaynak: K4",
+      },
+      {
         id: "guvenlik",
         title: "Güvenlik, Yan Etki ve Kontrendikasyonlar",
         intro: "Terapötik ozon kullanımında doz hayati öneme sahiptir.",
@@ -262,8 +300,9 @@ export const DOSE_TABLES = {
       title: "Kaynaklar",
       items: [
         "K1 — Atik O, Birdane YO. “Veteriner Hekimlikte Ozon Terapisi.” Veteriner Farmakolojide Güncel Yaklaşımlar, Livre de Lyon, Lyon 2024, Bölüm I, s. 1–19.",
-        "K2 — Köpeklerde gençlik hastalığı ve kanlı ishalde destekleyici ozon protokolleri (klinik doküman).",
-        "K3 — Kedi ve köpeklerde anal sakkülit ve perianal enflamasyonda ozon tedavisi (klinik doküman).",
+        "K2 — Vetozone klinik dokümanı: “Köpeklerde Gençlik Hastalığı ve Kanlı İshalde Ozon Terapisi — Bilimsel Değerlendirme, Klinik Kullanım ve Destekleyici Protokoller.”",
+        "K3 — Vetozone klinik dokümanı: “Kedi ve Köpeklerde Anal Sakkülit ve Perianal Enflamasyonda Ozon Tedavisi.”",
+        "K4 — Vetozone klinik dokümanı: “Regülasyon Temelli Rejeneratif Yaklaşımda Kök Hücre, PRP, Akupunktur ve Ozon Tedavisinin Birlikte Kullanımı.”",
       ],
     },
     popup: {
@@ -491,6 +530,42 @@ export const DOSE_TABLES = {
         source: "Source: K3",
       },
       {
+        id: "rejeneratif",
+        title: "The Place of Ozone in Regenerative Protocols",
+        intro:
+          "The role each component plays in the multi-modal approach that combines stem cells, PRP, acupuncture and ozone, and the level of evidence behind it today.",
+        columns: ["Modality", "Biological role", "Clinical use", "Evidence"],
+        rows: [
+          [
+            "PRP + mesenchymal stem cells",
+            "PDGF, TGF-β, VEGF, EGF and IGF-1 growth factors; immunomodulation and paracrine signalling",
+            "Osteoarthritis, chronic wounds and ulcers, tendon injury",
+            "The strongest biological combination; most studies are small and heterogeneous",
+          ],
+          [
+            "Ozone",
+            "Controlled low-dose oxidative stimulus: modulation of local inflammation, improved microcirculation, activation of antioxidant systems",
+            "Musculoskeletal and disc disease; preparing the microenvironment before PRP or stem cells",
+            "Anti-inflammatory and analgesic effects reported; long-term regenerative superiority not yet confirmed",
+          ],
+          [
+            "Acupuncture / electroacupuncture",
+            "Adenosine release, purinergic signalling, neuroimmune modulation",
+            "Analgesia, functional rehabilitation, acupoint ozone applications",
+            "Support for stem cell mobilisation and homing remains at the preclinical stage",
+          ],
+          [
+            "All four used together",
+            "Microenvironment regulation + cellular regeneration + neuromodulation",
+            "Osteoarthritis, IVDD, neurological rehabilitation, chronic wounds, post-operative recovery",
+            "No standardised clinical evidence yet supports using all four in one protocol",
+          ],
+        ],
+        note:
+          "No numerical dose range is given under this heading; for ozone concentrations see the systemic and local application tables above. Stem cell products fall under advanced therapy medicinal products in regulatory terms.",
+        source: "Source: K4",
+      },
+      {
         id: "guvenlik",
         title: "Safety, Side Effects and Contraindications",
         intro: "Dosage is of vital importance in therapeutic ozone use.",
@@ -528,8 +603,9 @@ export const DOSE_TABLES = {
       title: "Sources",
       items: [
         "K1 — Atik O, Birdane YO. “Ozone Therapy in Veterinary Medicine.” Veteriner Farmakolojide Güncel Yaklaşımlar, Livre de Lyon, Lyon 2024, Chapter I, pp. 1–19.",
-        "K2 — Supportive ozone protocols in canine distemper and haemorrhagic diarrhoea (clinical document).",
-        "K3 — Ozone therapy in feline and canine anal sacculitis and perianal inflammation (clinical document).",
+        "K2 — Vetozone clinical document: “Ozone Therapy in Canine Distemper and Haemorrhagic Diarrhoea — Scientific Assessment, Clinical Use and Supportive Protocols.”",
+        "K3 — Vetozone clinical document: “Ozone Therapy in Feline and Canine Anal Sacculitis and Perianal Inflammation.”",
+        "K4 — Vetozone clinical document: “Stem Cells, PRP, Acupuncture and Ozone Therapy Used Together in a Regulation-Based Regenerative Approach.”",
       ],
     },
     popup: {
