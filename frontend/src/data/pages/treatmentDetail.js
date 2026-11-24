@@ -34,21 +34,6 @@ export const DETAIL_SHARED = {
       cta: "Tüm Çalışmaları Gör",
       empty: "Bu alandaki bilimsel çalışma özetleri hazırlanıyor.",
     },
-    cases: {
-      overline: "Klinik Vakalar",
-      title: "Gerçek Hayattan Örnekler",
-      sub: "Bu alandaki ozon uygulamalarına ait klinik örnekler.",
-      cta: "Tüm Vakaları Gör",
-      empty: "Vaka görselleri hazırlanıyor — yakında burada.",
-      before: "Öncesi",
-      after: "Sonrası",
-    },
-    cta: {
-      title: "Bu uygulamaları kliniğinizde yapmak ister misiniz?",
-      text: "Vetozone, veteriner hekimliğin farklı alanlarında güvenli ve kontrollü ozon uygulamaları için yanınızda.",
-      button: "Vetozone'u İnceleyin",
-      to: "/cihazlar",
-    },
   },
   en: {
     tabs: [
@@ -78,21 +63,6 @@ export const DETAIL_SHARED = {
       sub: "Review some of the published scientific work on ozone therapy in this area.",
       cta: "See All Studies",
       empty: "Study summaries for this area are being prepared.",
-    },
-    cases: {
-      overline: "Clinical Cases",
-      title: "Real-World Examples",
-      sub: "Clinical examples of ozone applications in this area.",
-      cta: "See All Cases",
-      empty: "Case images are being prepared — coming soon.",
-      before: "Before",
-      after: "After",
-    },
-    cta: {
-      title: "Would you like to offer these applications in your clinic?",
-      text: "Vetozone is with you for safe, controlled ozone applications across the different fields of veterinary medicine.",
-      button: "Explore Vetozone",
-      to: "/cihazlar",
     },
   },
 };

@@ -1,4 +1,4 @@
-import { Article, ClipboardText, FileText, VideoCamera } from "@phosphor-icons/react";
+import { Article, FileText } from "@phosphor-icons/react";
 import { CONTENT } from "../content";
 
 function buildFaq(lang) {
@@ -32,8 +32,6 @@ export const LIBRARY_CONTENT = {
       { slug: "makaleler", icon: Article, title: "Makaleler", blurb: "Ozon terapi üzerine bilimsel makaleler.", comingSoon: true },
       { slug: "pdf-kaynaklar", icon: FileText, title: "PDF Kaynaklar", blurb: "İndirilebilir bilgilendirme dokümanları.", comingSoon: true },
     ],
-    whatIsTitle: "Ozon Tedavisi Nedir?",
-    whatIsBody: CONTENT.tr.manifesto.body,
     faqTitle: "Sık Sorulan Sorular",
     faq: buildFaq("tr"),
   },
@@ -47,8 +45,6 @@ export const LIBRARY_CONTENT = {
       { slug: "makaleler", icon: Article, title: "Articles", blurb: "Scientific articles on ozone therapy.", comingSoon: true },
       { slug: "pdf-kaynaklar", icon: FileText, title: "PDF Resources", blurb: "Downloadable informational documents.", comingSoon: true },
     ],
-    whatIsTitle: "What Is Ozone Therapy?",
-    whatIsBody: CONTENT.en.manifesto.body,
     faqTitle: "Frequently Asked Questions",
     faq: buildFaq("en"),
   },

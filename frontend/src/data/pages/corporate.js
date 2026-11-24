@@ -1,5 +1,3 @@
-import { Ticket, Newspaper } from "@phosphor-icons/react";
-
 export const CORPORATE_CONTENT = {
   tr: {
     hero: {
