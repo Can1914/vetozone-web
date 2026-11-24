@@ -1,4 +1,4 @@
-import { Stethoscope, Gauge, MapPin, Cube } from "@phosphor-icons/react";
+import { Stethoscope, Gauge, MapPin } from "@phosphor-icons/react";
 
 export const DEVICES_CONTENT = {
   tr: {
@@ -27,9 +27,6 @@ export const DEVICES_CONTENT = {
         text: "Saha ve büyükbaş uygulamaları için taşınabilir valiz model.",
       },
     ],
-    techTitle: "Teknoloji",
-    techIcon: Cube,
-    techText: "Patentli cam tüpler, gelişmiş oksijen sistemi ve çift katalizatörlü güvenlik teknolojisiyle donatılmış, %100 yerli üretim cihazlar.",
   },
   en: {
     hero: {
@@ -57,8 +54,5 @@ export const DEVICES_CONTENT = {
         text: "A portable case model for field and cattle applications.",
       },
     ],
-    techTitle: "Technology",
-    techIcon: Cube,
-    techText: "100% domestically manufactured devices equipped with patented glass tubes, an advanced oxygen system, and dual-catalyst safety technology.",
   },
 };
