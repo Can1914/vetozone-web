@@ -4,6 +4,7 @@ import Lenis from "lenis";
 import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
 import { WhatsAppButton } from "@/components/landing/WhatsAppButton";
+import { DoseTablesPopup } from "@/components/landing/DoseTablesPopup";
 
 export default function SiteLayout() {
   const location = useLocation();
@@ -58,6 +59,7 @@ export default function SiteLayout() {
       </main>
       <Footer />
       <WhatsAppButton />
+      <DoseTablesPopup />
     </div>
   );
 }

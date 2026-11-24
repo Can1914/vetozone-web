@@ -12,6 +12,7 @@ import DoctorsSay from "@/pages/DoctorsSay";
 import Academy from "@/pages/Academy";
 import CaseCenter from "@/pages/CaseCenter";
 import ScientificLibrary from "@/pages/ScientificLibrary";
+import DoseTables from "@/pages/DoseTables";
 import Corporate from "@/pages/Corporate";
 import ContactPage from "@/pages/ContactPage";
 import LegalPage from "@/pages/LegalPage";
@@ -33,6 +34,7 @@ function App() {
               <Route path="/kongreler-ve-egitimler" element={<Academy />} />
               <Route path="/iyilesen-hastalar" element={<CaseCenter />} />
               <Route path="/bilimsel-kutuphane" element={<ScientificLibrary />} />
+              <Route path="/doz-tablolari" element={<DoseTables />} />
               <Route path="/kurumsal" element={<Corporate />} />
               <Route path="/iletisim" element={<ContactPage />} />
               {/* Bölümler yeniden adlandırıldı; dışarıda kalmış eski

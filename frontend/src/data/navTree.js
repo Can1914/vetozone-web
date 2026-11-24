@@ -137,6 +137,10 @@ export const NAV_TREE = [
     ],
   },
   {
+    key: "doseTables",
+    to: "/doz-tablolari",
+  },
+  {
     key: "corporate",
     to: "/kurumsal",
     children: [
