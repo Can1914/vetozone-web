@@ -3,6 +3,7 @@ import { useLang } from "@/context/LanguageContext";
 import { DOCTORS_SAY_CONTENT } from "@/data/pages/doctorsSay";
 import { PageHero } from "@/components/pages/PageHero";
 import { Reveal } from "@/components/landing/Reveal";
+import { DoctorAvatar } from "@/components/landing/DoctorAvatar";
 
 export default function DoctorsSay() {
   const { t, lang } = useLang();
@@ -33,9 +34,12 @@ export default function DoctorsSay() {
                     </h3>
                   )}
                   <p className="mt-3 text-sm text-[var(--muted-light)] leading-relaxed flex-1">{it.quote}</p>
-                  <div className="mt-8 pt-6 border-t border-black/10">
-                    <div className="font-display font-bold text-lg text-[var(--ink)]">{it.name}</div>
-                    <div className="text-xs text-[var(--muted-light)] mt-1">{it.role}</div>
+                  <div className="mt-8 pt-6 border-t border-black/10 flex items-center gap-3">
+                    <DoctorAvatar name={it.name} photo={it.photo} />
+                    <div className="min-w-0">
+                      <div className="font-display font-bold text-lg text-[var(--ink)] leading-tight">{it.name}</div>
+                      <div className="text-xs text-[var(--muted-light)] mt-1">{it.role}</div>
+                    </div>
                   </div>
                 </div>
               </Reveal>

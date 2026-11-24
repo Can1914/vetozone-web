@@ -126,7 +126,13 @@ export const REFERENCES = [
   "Tralles Veteriner Kliniği Aydın",
 ];
 
-export const VIDEOS = ["VWPBA2QLogY", "s5CYEi8pax8", "Mzh2SuFvzkI"];
+// Başlıklar YouTube'daki adların aynısı; oynatıcıyı açmadan ne izleneceği
+// görünsün diye kartın altında duruyor.
+export const VIDEOS = [
+  { id: "VWPBA2QLogY", title: "Veteriner Hekimlikte Rektal Ozon Uygulaması | Rektal İnsüflasyon" },
+  { id: "s5CYEi8pax8", title: "Veteriner Hekimlikte Kan Ozonlama | Majör Otohemoterapi (MAH)" },
+  { id: "Mzh2SuFvzkI", title: "Veteriner Hekimlikte Kulak Ozonlama | Ozon İnsüflasyonu" },
+];
 
 export const CONTENT = {
   tr: {
@@ -161,9 +167,6 @@ export const CONTENT = {
     marquee: [
       "%100 YERLİ ÜRETİM",
       "VETERİNER HEKİMLERE ÖZEL",
-      "CE BELGELİ",
-      "ÜTS KAYITLI",
-      "SIFIR OZON KOKUSU",
     ],
     integration: {
       overline: "Entegrasyon",
@@ -490,25 +493,6 @@ export const CONTENT = {
       ],
       cta: "Bilgi Al",
     },
-    compare: {
-      overline: "Model Karşılaştırma",
-      title: "Size uygun Vetozone hangisi?",
-      sub: "Klinik kullanımdan sahaya, üç modeli yan yana karşılaştırın.",
-      cols: ["Vetozone", "Vetozone Plus", "Vetozone Mobil"],
-      badgeIndex: 1,
-      badge: "Popüler",
-      rows: [
-        ["Kullanım yeri", "Klinik", "Klinik / yoğun kullanım", "Saha & mobil"],
-        ["Gövde tasarımı", "Sehpalı", "Özel sehpa + 5 L tüp bölmesi", "Taşıma valizi"],
-        ["Doz aralığı", "0.1 – 50 µg/ml", "0.1 – 80 µg/ml", "0.1 – 50 µg/ml"],
-        ["Ayarlanabilir vakum", "150 – 800 mBar", "150 – 800 mBar", "150 – 800 mBar"],
-        ["Medikal oksijenle üretim", true, true, true],
-        ["Çift katalizatör", true, true, true],
-        ["Tüm ozon protokolleri", true, true, true],
-        ["İdeal kullanım", "Klinik içi uygulamalar", "Yoğun klinik kullanımı", "Gezici veteriner / büyükbaş"],
-      ],
-      brochure: "Broşür İndir (PDF)",
-    },
   },
 
   en: {
@@ -543,9 +527,6 @@ export const CONTENT = {
     marquee: [
       "100% DOMESTIC PRODUCTION",
       "VETERINARY EXCLUSIVE",
-      "CE CERTIFIED",
-      "ÜTS REGISTERED",
-      "ZERO OZONE ODOR",
     ],
     integration: {
       overline: "Integration",
@@ -871,25 +852,6 @@ export const CONTENT = {
         "Fully equipped ozone generator",
       ],
       cta: "Learn More",
-    },
-    compare: {
-      overline: "Model Comparison",
-      title: "Which Vetozone is right for you?",
-      sub: "From in-clinic use to the field — compare the three models side by side.",
-      cols: ["Vetozone", "Vetozone Plus", "Vetozone Mobile"],
-      badgeIndex: 1,
-      badge: "Popular",
-      rows: [
-        ["Place of use", "Clinic", "Clinic / high-volume use", "Field & mobile"],
-        ["Body design", "With stand", "Custom stand + 5 L tank bay", "Transport case"],
-        ["Dose range", "0.1 – 50 µg/ml", "0.1 – 80 µg/ml", "0.1 – 50 µg/ml"],
-        ["Adjustable vacuum", "150 – 800 mBar", "150 – 800 mBar", "150 – 800 mBar"],
-        ["Production from medical oxygen", true, true, true],
-        ["Dual catalyst", true, true, true],
-        ["All ozone protocols", true, true, true],
-        ["Ideal use", "In-clinic applications", "High-volume clinic use", "Mobile vet / livestock"],
-      ],
-      brochure: "Download Brochure (PDF)",
     },
   },
 };

@@ -42,17 +42,6 @@ export const Hero = () => {
       <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8 pt-28 sm:pt-36 pb-16 grid lg:grid-cols-12 gap-10 items-center min-h-screen">
         {/* Text */}
         <div className="lg:col-span-7 order-2 lg:order-1">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="mb-6"
-          >
-            <span className="text-sm sm:text-base uppercase tracking-[0.2em] font-bold text-white/70">
-              {h.overline}
-            </span>
-          </motion.div>
-
           <h1 className="font-display font-black text-white text-[3rem] leading-[0.92] sm:text-6xl lg:text-[5.5rem] tracking-tighter">
             <MaskedLines lines={h.titleLines} accent={h.accentWord} />
           </h1>

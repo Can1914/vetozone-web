@@ -90,9 +90,9 @@ export const NAV_TREE = [
     key: "devices",
     to: "/cihazlar",
     children: [
-      { label: "Vetozone", labelEn: "Vetozone", to: "/cihazlar#vetozone" },
-      { label: "Vetozone Plus", labelEn: "Vetozone Plus", to: "/cihazlar#vetozone-plus" },
-      { label: "Vetozone Mobil", labelEn: "Vetozone Mobile", to: "/cihazlar#vetozone-mobil" },
+      { label: "Vetozone", labelEn: "Vetozone", to: "/cihazlar/vetozone" },
+      { label: "Vetozone Plus", labelEn: "Vetozone Plus", to: "/cihazlar/vetozone-plus" },
+      { label: "Vetozone Mobil", labelEn: "Vetozone Mobile", to: "/cihazlar/vetozone-mobil" },
       { label: "Teknoloji", labelEn: "Technology", to: "/cihazlar#teknoloji" },
     ],
   },

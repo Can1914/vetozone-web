@@ -5,7 +5,7 @@ import { Testimonials } from "@/components/landing/Testimonials";
 import { VideoReel } from "@/components/landing/VideoReel";
 import { Features } from "@/components/landing/Features";
 import { UseCases } from "@/components/landing/UseCases";
-import { Comparison } from "@/components/landing/Comparison";
+import { DeviceLineup } from "@/components/landing/DeviceLineup";
 import { Gallery } from "@/components/landing/Gallery";
 import { ReferencesMarquee } from "@/components/landing/ReferencesMarquee";
 import { Contact } from "@/components/landing/Contact";
@@ -20,7 +20,7 @@ export default function Landing() {
       <VideoReel />
       <Features />
       <UseCases />
-      <Comparison />
+      <DeviceLineup />
       <Gallery />
       <ReferencesMarquee />
       <Contact />

@@ -7,6 +7,7 @@ import Landing from "@/pages/Landing";
 import TreatmentAreas from "@/pages/TreatmentAreas";
 import TreatmentAreaDetail from "@/pages/TreatmentAreaDetail";
 import Devices from "@/pages/Devices";
+import DeviceDetail from "@/pages/DeviceDetail";
 import DoctorsSay from "@/pages/DoctorsSay";
 import Academy from "@/pages/Academy";
 import CaseCenter from "@/pages/CaseCenter";
@@ -27,6 +28,7 @@ function App() {
               <Route path="/tedavi-alanlari" element={<TreatmentAreas />} />
               <Route path="/tedavi-alanlari/:slug" element={<TreatmentAreaDetail />} />
               <Route path="/cihazlar" element={<Devices />} />
+              <Route path="/cihazlar/:slug" element={<DeviceDetail />} />
               <Route path="/hekimler-ne-diyor" element={<DoctorsSay />} />
               <Route path="/vetozone-akademi" element={<Academy />} />
               <Route path="/vaka-merkezi" element={<CaseCenter />} />

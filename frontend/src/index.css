@@ -185,3 +185,13 @@ body {
     transform: none;
   }
 }
+
+/* Yatay kaydırılan şeritlerde çubuğu gizler; kaydırma okla, sürükleyerek
+   ve dokunmatikte çalışmaya devam eder. */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

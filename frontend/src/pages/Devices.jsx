@@ -3,7 +3,7 @@ import { DEVICES_CONTENT } from "@/data/pages/devices";
 import { PageHero } from "@/components/pages/PageHero";
 import { TopicGrid } from "@/components/pages/TopicGrid";
 import { TechSpecs } from "@/components/landing/TechSpecs";
-import { Comparison } from "@/components/landing/Comparison";
+import { DeviceLineup } from "@/components/landing/DeviceLineup";
 import { MobileProduct } from "@/components/landing/MobileProduct";
 
 export default function Devices() {
@@ -39,7 +39,7 @@ export default function Devices() {
 
       <TechSpecs />
       <MobileProduct />
-      <Comparison />
+      <DeviceLineup />
     </>
   );
 }
