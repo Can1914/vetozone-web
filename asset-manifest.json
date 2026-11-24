@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/vetozone-web/static/css/main.92105904.css",
-    "main.js": "/vetozone-web/static/js/main.146161c3.js",
+    "main.css": "/vetozone-web/static/css/main.491ea082.css",
+    "main.js": "/vetozone-web/static/js/main.6a331f96.js",
     "index.html": "/vetozone-web/index.html",
-    "main.92105904.css.map": "/vetozone-web/static/css/main.92105904.css.map",
-    "main.146161c3.js.map": "/vetozone-web/static/js/main.146161c3.js.map"
+    "main.491ea082.css.map": "/vetozone-web/static/css/main.491ea082.css.map",
+    "main.6a331f96.js.map": "/vetozone-web/static/js/main.6a331f96.js.map"
   },
   "entrypoints": [
-    "static/css/main.92105904.css",
-    "static/js/main.146161c3.js"
+    "static/css/main.491ea082.css",
+    "static/js/main.6a331f96.js"
   ]
 }
