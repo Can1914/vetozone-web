@@ -1,5 +1,5 @@
 import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "sonner";
 import { LanguageProvider } from "@/context/LanguageContext";
 import SiteLayout from "@/components/layout/SiteLayout";
@@ -30,11 +30,15 @@ function App() {
               <Route path="/cihazlar" element={<Devices />} />
               <Route path="/cihazlar/:slug" element={<DeviceDetail />} />
               <Route path="/hekimler-ne-diyor" element={<DoctorsSay />} />
-              <Route path="/vetozone-akademi" element={<Academy />} />
-              <Route path="/vaka-merkezi" element={<CaseCenter />} />
+              <Route path="/kongreler-ve-egitimler" element={<Academy />} />
+              <Route path="/iyilesen-hastalar" element={<CaseCenter />} />
               <Route path="/bilimsel-kutuphane" element={<ScientificLibrary />} />
               <Route path="/kurumsal" element={<Corporate />} />
               <Route path="/iletisim" element={<ContactPage />} />
+              {/* Bölümler yeniden adlandırıldı; dışarıda kalmış eski
+                  bağlantılar 404 yerine yeni adrese gitsin. */}
+              <Route path="/vetozone-akademi" element={<Navigate to="/kongreler-ve-egitimler" replace />} />
+              <Route path="/vaka-merkezi" element={<Navigate to="/iyilesen-hastalar" replace />} />
               {/* Mağaza incelemeleri bu adresleri doğrudan açıyor. */}
               <Route path="/gizlilik" element={<LegalPage docKey="gizlilik" />} />
               <Route path="/hesap-silme" element={<LegalPage docKey="hesap-silme" />} />

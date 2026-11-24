@@ -3,8 +3,8 @@ import { BookOpen, GraduationCap, VideoCamera, Certificate, CalendarBlank, NoteP
 export const ACADEMY_CONTENT = {
   tr: {
     hero: {
-      overline: "Vetozone Akademi",
-      title: "Ozon terapide eğitim ve sertifikasyon.",
+      overline: "Yaklaşan Kongreler ve Eğitimler",
+      title: "Yaklaşan kongreler, eğitimler ve webinarlar.",
       sub: "Hekimlerimiz için temel eğitimlerden ileri seviye sertifika programlarına kadar bir eğitim merkezi.",
     },
     items: [
@@ -23,8 +23,8 @@ export const ACADEMY_CONTENT = {
   },
   en: {
     hero: {
-      overline: "Vetozone Academy",
-      title: "Training and certification in ozone therapy.",
+      overline: "Upcoming Congresses and Training",
+      title: "Upcoming congresses, courses and webinars.",
       sub: "A training hub for our veterinarians — from foundational courses to advanced certification programs.",
     },
     items: [

@@ -3,7 +3,7 @@ import { Drop, Bandaids, Ear, Brain, Cow, Images } from "@phosphor-icons/react";
 export const CASE_CENTER_CONTENT = {
   tr: {
     hero: {
-      overline: "Vaka Merkezi",
+      overline: "İyileşen Hastalar",
       title: "Klinik vakalar ve tedavi sonuçları.",
       sub: "Sahadaki hekimlerimizin paylaştığı ozon terapi vakaları yakında burada.",
     },
@@ -18,7 +18,7 @@ export const CASE_CENTER_CONTENT = {
   },
   en: {
     hero: {
-      overline: "Case Center",
+      overline: "Recovered Patients",
       title: "Clinical cases and treatment outcomes.",
       sub: "Ozone therapy cases shared by our veterinarians in the field — coming soon.",
     },

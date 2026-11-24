@@ -25,13 +25,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.vetozone.com.tr/vetozone-akademi</loc>
+    <loc>https://www.vetozone.com.tr/kongreler-ve-egitimler</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.vetozone.com.tr/vaka-merkezi</loc>
+    <loc>https://www.vetozone.com.tr/iyilesen-hastalar</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -51,6 +51,24 @@
   <url>
     <loc>https://www.vetozone.com.tr/iletisim</loc>
     <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.vetozone.com.tr/cihazlar/vetozone</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.vetozone.com.tr/cihazlar/vetozone-plus</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.vetozone.com.tr/cihazlar/vetozone-mobil</loc>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

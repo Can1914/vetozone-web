@@ -3,9 +3,7 @@ import { ASSETS } from "../content";
 // Üç cihaz, her biri kendi sayfasıyla. Değerler kaldırılan karşılaştırma
 // tablosundan geliyor; artık yan yana değil, cihaz cihaz okunuyor.
 //
-// NOT: elimizdeki iki gövde fotoğrafı da Plus modeline ait (mavi ve altın
-// renk). Temel Vetozone için ayrı bir çekim yok; altın olan geçici olarak
-// orada duruyor, gerçek fotoğraf gelince değişmeli.
+// Gövde fotoğrafları: altın olan düz Vetozone, mavi olan Plus.
 export const DEVICE_SLUGS = ["vetozone", "vetozone-plus", "vetozone-mobil"];
 
 export const DEVICES = {
