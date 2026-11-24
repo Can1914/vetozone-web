@@ -42,6 +42,14 @@ export const Footer = () => {
           <Link to="/iletisim" className="link-underline text-sm text-white/60 hover:text-white transition-colors">
             {t.nav.contact}
           </Link>
+          <a
+            href={ASSETS.brochure}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-underline text-sm text-white/60 hover:text-white transition-colors"
+          >
+            {t.nav.brochure}
+          </a>
           <Link to="/gizlilik" className="link-underline text-sm text-white/60 hover:text-white transition-colors">
             {t.nav.privacy}
           </Link>

@@ -10,8 +10,6 @@ export const DETAIL_SHARED = {
       { id: "durumlar", label: "Hangi Durumlarda?" },
       { id: "yontemler", label: "Uygulama Yöntemleri" },
       { id: "calismalar", label: "Bilimsel Çalışmalar" },
-      { id: "vakalar", label: "Klinik Vakalar" },
-      { id: "cozum", label: "Vetozone ile Çözüm" },
     ],
     conditions: {
       title: "Hangi Durumlarda Kullanılıyor?",
@@ -57,8 +55,6 @@ export const DETAIL_SHARED = {
       { id: "durumlar", label: "Indications" },
       { id: "yontemler", label: "Application Methods" },
       { id: "calismalar", label: "Scientific Studies" },
-      { id: "vakalar", label: "Clinical Cases" },
-      { id: "cozum", label: "The Vetozone Solution" },
     ],
     conditions: {
       title: "Where Is It Used?",
@@ -896,11 +892,8 @@ export const DETAIL_OVERRIDES = {
       lead: "Meme sağlığında lokal ve sistemik uygulamalar.",
       body: "Klinik ve subklinik mastitis vakalarında medikal ozon; intramammar ve lokal uygulamalarla, sürü sağlığı yönetimine destek olarak değerlendirilmektedir.",
       image: ASSETS.species.cattle,
-      conditions: [
-        { title: "Klinik Mastitis", text: "Belirti veren meme iltihabı vakaları" },
-        { title: "Subklinik Mastitis", text: "Takip ile saptanan, belirti vermeyen vakalar" },
-        { title: "İnflamatuvar Süreçler", text: "Meme dokusunda inflamasyon" },
-      ],
+      // Müşteri isteğiyle kaldırıldı; boş kalınca bölüm ve sekmesi çıkmıyor.
+      conditions: [],
     },
     en: {
       titleLines: ["Ozone Therapy in", "Mastitis"],
@@ -909,11 +902,8 @@ export const DETAIL_OVERRIDES = {
       lead: "Local and systemic applications in udder health.",
       body: "In clinical and subclinical mastitis, medical ozone is evaluated as a support to herd health management through intramammary and local applications.",
       image: ASSETS.species.cattle,
-      conditions: [
-        { title: "Clinical Mastitis", text: "Symptomatic cases of udder inflammation" },
-        { title: "Subclinical Mastitis", text: "Asymptomatic cases identified through monitoring" },
-        { title: "Inflammatory Processes", text: "Inflammation in udder tissue" },
-      ],
+      // Müşteri isteğiyle kaldırıldı; boş kalınca bölüm ve sekmesi çıkmıyor.
+      conditions: [],
     },
   },
 

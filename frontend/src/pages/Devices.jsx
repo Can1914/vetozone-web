@@ -1,7 +1,9 @@
+import { DownloadSimple } from "@phosphor-icons/react";
 import { useLang } from "@/context/LanguageContext";
 import { DEVICES_CONTENT } from "@/data/pages/devices";
+import { ASSETS } from "@/data/content";
 import { PageHero } from "@/components/pages/PageHero";
-import { TopicGrid } from "@/components/pages/TopicGrid";
+import { Reveal } from "@/components/landing/Reveal";
 import { TechSpecs } from "@/components/landing/TechSpecs";
 import { DeviceLineup } from "@/components/landing/DeviceLineup";
 import { MobileProduct } from "@/components/landing/MobileProduct";
@@ -9,7 +11,6 @@ import { MobileProduct } from "@/components/landing/MobileProduct";
 export default function Devices() {
   const { t, lang } = useLang();
   const p = DEVICES_CONTENT[lang];
-  const TechIcon = p.techIcon;
 
   return (
     <>
@@ -19,27 +20,30 @@ export default function Devices() {
         sub={p.hero.sub}
         breadcrumb={[{ label: t.nav.home, to: "/" }, { label: t.nav.devices }]}
       />
-      <section className="bg-[var(--paper)] py-16 sm:py-24" data-testid="devices-section">
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-8">
-          <TopicGrid items={p.tiers} lang={lang} cols="sm:grid-cols-3" />
-        </div>
-      </section>
 
-      <section id="teknoloji" className="bg-[var(--ink)] text-white py-16 sm:py-24 scroll-mt-20" data-testid="devices-tech-section">
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-start sm:items-center gap-6">
-          <span className="inline-flex items-center justify-center w-14 h-14 rounded-sm bg-[var(--brand)] text-white shrink-0">
-            <TechIcon size={26} weight="duotone" />
-          </span>
-          <div>
-            <h2 className="font-display font-bold text-2xl sm:text-3xl tracking-tight">{p.techTitle}</h2>
-            <p className="mt-3 text-white/60 leading-relaxed max-w-2xl">{p.techText}</p>
-          </div>
-        </div>
-      </section>
-
-      <TechSpecs />
-      <MobileProduct />
+      {/* Sayfa doğrudan cihaz fotoğraflarıyla başlıyor: tanıtım yazısı ve
+          "Teknoloji" bölümü kaldırıldı, teknik veriler cihazın kendi
+          sayfasında ve aşağıdaki tabloda. */}
       <DeviceLineup />
+      <MobileProduct />
+      <TechSpecs />
+
+      <section className="bg-[var(--paper)] pb-16 sm:pb-24" data-testid="brochure-section">
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-8">
+          <Reveal>
+            <a
+              href={ASSETS.brochure}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="lift inline-flex items-center gap-3 rounded-full bg-[var(--ink)] px-7 py-4 font-semibold text-white transition-colors hover:bg-black"
+              data-testid="brochure-download"
+            >
+              <DownloadSimple size={18} weight="bold" />
+              {lang === "en" ? "Download the Brochure (PDF)" : "Broşürü İndir (PDF)"}
+            </a>
+          </Reveal>
+        </div>
+      </section>
     </>
   );
 }

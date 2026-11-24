@@ -7,8 +7,9 @@ export const ASSETS = {
   // ikisi de aynı maskeden üretilir (scripts/build-logos.py).
   logo: `${BASE}/vetozone-logo.png`,
   logoWhite: `${BASE}/vetozone-logo-white.png`,
+  brochure: `${BASE}/vetozone-brosur.pdf`,
   deviceHero: `${BASE}/devices/vetozone-plus-blue.png`,
-  deviceSpecs: `${BASE}/devices/vetozone-plus-gold.png`,
+  deviceSpecs: `${BASE}/devices/vetozone-gold.png`,
   deviceMobile: `${BASE}/devices/vetozone-case.png`,
   methods: {
     water: `${BASE}/methods/ozonlu-su.jpg`,
@@ -155,6 +156,7 @@ export const CONTENT = {
       home: "Ana Sayfa",
       privacy: "Gizlilik Politikası",
       accountDeletion: "Hesap Silme",
+      brochure: "Broşür (PDF)",
     },
     hero: {
       overline: "Veteriner Hekimler İçin",
@@ -516,6 +518,7 @@ export const CONTENT = {
       home: "Home",
       privacy: "Privacy Policy",
       accountDeletion: "Account Deletion",
+      brochure: "Brochure (PDF)",
     },
     hero: {
       overline: "For Veterinarians",

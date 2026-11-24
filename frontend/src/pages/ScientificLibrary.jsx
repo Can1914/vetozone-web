@@ -23,15 +23,6 @@ export default function ScientificLibrary() {
         </div>
       </section>
 
-      <section id="ozon-tedavisi-nedir" className="bg-[var(--ink)] text-white py-16 sm:py-24 scroll-mt-20" data-testid="whatis-section">
-        <div className="max-w-[900px] mx-auto px-5 sm:px-8">
-          <Reveal>
-            <h2 className="font-display font-bold text-2xl sm:text-3xl tracking-tight">{p.whatIsTitle}</h2>
-            <p className="mt-5 text-white/60 leading-relaxed">{p.whatIsBody}</p>
-          </Reveal>
-        </div>
-      </section>
-
       <section id="sik-sorulan-sorular" className="bg-[var(--paper)] py-16 sm:py-24 scroll-mt-20" data-testid="faq-section">
         <div className="max-w-[900px] mx-auto px-5 sm:px-8">
           <Reveal>

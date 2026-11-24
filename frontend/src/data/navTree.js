@@ -93,7 +93,6 @@ export const NAV_TREE = [
       { label: "Vetozone", labelEn: "Vetozone", to: "/cihazlar/vetozone" },
       { label: "Vetozone Plus", labelEn: "Vetozone Plus", to: "/cihazlar/vetozone-plus" },
       { label: "Vetozone Mobil", labelEn: "Vetozone Mobile", to: "/cihazlar/vetozone-mobil" },
-      { label: "Teknoloji", labelEn: "Technology", to: "/cihazlar#teknoloji" },
     ],
   },
   {
@@ -116,12 +115,12 @@ export const NAV_TREE = [
     key: "caseCenter",
     to: "/iyilesen-hastalar",
     children: [
-      { label: "Dermatoloji Vakaları", labelEn: "Dermatology Cases", to: "/iyilesen-hastalar#dermatoloji-vakalari" },
-      { label: "Yara Vakaları", labelEn: "Wound Cases", to: "/iyilesen-hastalar#yara-vakalari" },
-      { label: "Otitis Vakaları", labelEn: "Otitis Cases", to: "/iyilesen-hastalar#otitis-vakalari" },
-      { label: "Nörolojik Vakalar", labelEn: "Neurological Cases", to: "/iyilesen-hastalar#norolojik-vakalar" },
-      { label: "Büyükbaş Vakaları", labelEn: "Cattle Cases", to: "/iyilesen-hastalar#buyukbas-vakalari" },
-      { label: "Önce / Sonra Galerisi", labelEn: "Before / After Gallery", to: "/iyilesen-hastalar#once-sonra-galerisi" },
+      { label: "Eklem ve Omur Hasarları", labelEn: "Joint and Spinal Injury", to: "/iyilesen-hastalar#eklem-omur-hasarlari" },
+      { label: "Açık Yara Tedavisi", labelEn: "Open Wound Treatment", to: "/iyilesen-hastalar#acik-yara-tedavisi" },
+      { label: "Parvoviral Enterit", labelEn: "Parvoviral Enteritis", to: "/iyilesen-hastalar#parvoviral-enterit" },
+      { label: "Tümör Sağaltımı", labelEn: "Tumour Treatment", to: "/iyilesen-hastalar#tumor-sagaltimi" },
+      { label: "Eklem Rahatsızlıkları", labelEn: "Joint Disorders", to: "/iyilesen-hastalar#eklem-rahatsizliklari" },
+      { label: "Dermatolojik Hastalıklar", labelEn: "Dermatological Conditions", to: "/iyilesen-hastalar#dermatolojik-hastaliklar" },
     ],
   },
   {
@@ -129,11 +128,8 @@ export const NAV_TREE = [
     to: "/bilimsel-kutuphane",
     children: [
       { label: "Makaleler", labelEn: "Articles", to: "/bilimsel-kutuphane#makaleler" },
-      { label: "Klinik Rehberler", labelEn: "Clinical Guides", to: "/bilimsel-kutuphane#klinik-rehberler" },
       { label: "PDF Kaynaklar", labelEn: "PDF Resources", to: "/bilimsel-kutuphane#pdf-kaynaklar" },
-      { label: "Webinar Kayıtları", labelEn: "Webinar Recordings", to: "/bilimsel-kutuphane#webinar-kayitlari" },
       { label: "Sık Sorulan Sorular", labelEn: "Frequently Asked Questions", to: "/bilimsel-kutuphane#sik-sorulan-sorular" },
-      { label: "Ozon Tedavisi Nedir?", labelEn: "What Is Ozone Therapy?", to: "/bilimsel-kutuphane#ozon-tedavisi-nedir" },
     ],
   },
   {
@@ -145,10 +141,7 @@ export const NAV_TREE = [
     to: "/kurumsal",
     children: [
       { label: "Hakkımızda", labelEn: "About Us", to: "/kurumsal#hakkimizda" },
-      { label: "Misyonumuz", labelEn: "Our Mission", to: "/kurumsal#misyonumuz" },
       { label: "İş Ortaklarımız", labelEn: "Our Partners", to: "/kurumsal#is-ortaklarimiz" },
-      { label: "Kongre ve Etkinlikler", labelEn: "Congresses and Events", to: "/kurumsal#kongre-ve-etkinlikler" },
-      { label: "Haberler", labelEn: "News", to: "/kurumsal#haberler" },
     ],
   },
 ];

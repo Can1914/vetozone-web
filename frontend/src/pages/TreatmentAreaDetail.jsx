@@ -39,7 +39,9 @@ export default function TreatmentAreaDetail() {
   const lead = override?.lead;
   const body = override?.body;
   const image = override?.image || ASSETS.species.dogcat;
-  const conditions = override?.conditions || item.bullets.map((b) => ({ title: b }));
+  // Metni yazılmamış alanlarda burası eski şablonun iki satırını gösteriyordu;
+  // içerik gelene kadar bölüm hiç çıkmıyor.
+  const conditions = override?.conditions;
   const intro = override?.intro;
   // Yöntem kartları ortak listeden gelir; bir alan kendi başlıklarını
   // verdiyse (aynı görsellerle) onunkiler kullanılır.
@@ -115,7 +117,9 @@ export default function TreatmentAreaDetail() {
       {/* Tab bar */}
       <div className="sticky top-16 sm:top-20 z-30 bg-white/95 backdrop-blur-xl border-b border-black/10" data-testid="area-tabs">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-8 flex gap-1 overflow-x-auto">
-          {s.tabs.map((tb) => (
+          {s.tabs
+            .filter((tb) => tb.id !== "durumlar" || conditions?.length > 0)
+            .map((tb) => (
             <button
               key={tb.id}
               onClick={() => goTab(tb.id)}
@@ -133,6 +137,7 @@ export default function TreatmentAreaDetail() {
       </div>
 
       {/* Conditions */}
+      {conditions?.length > 0 && (
       <section id="durumlar" className="bg-[var(--paper)] py-16 sm:py-20 scroll-mt-32" data-testid="area-conditions">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-8">
           <Reveal>
@@ -195,6 +200,8 @@ export default function TreatmentAreaDetail() {
           )}
         </div>
       </section>
+
+      )}
 
       {/* Methods */}
       <section id="yontemler" className="bg-[var(--paper-2)] py-16 sm:py-20 scroll-mt-32" data-testid="area-methods">
@@ -302,69 +309,6 @@ export default function TreatmentAreaDetail() {
         </div>
       </section>
 
-      {/* Cases */}
-      <section id="vakalar" className="bg-[var(--paper-2)] py-16 sm:py-20 scroll-mt-32" data-testid="area-cases">
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-8 grid lg:grid-cols-12 gap-8">
-          <div className="lg:col-span-4">
-            <Reveal>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="w-8 h-px bg-[var(--brand)]" />
-                <span className="text-[11px] uppercase tracking-[0.25em] font-bold text-[var(--muted-light)]">
-                  {s.cases.overline}
-                </span>
-              </div>
-              <h2 className="font-display font-bold text-3xl sm:text-4xl tracking-tight text-[var(--ink)]">
-                {s.cases.title}
-              </h2>
-              <p className="mt-4 text-[var(--muted-light)] leading-relaxed">{s.cases.sub}</p>
-              <Link
-                to="/vaka-merkezi"
-                className="mt-7 inline-flex items-center gap-2 bg-[var(--ink)] hover:bg-black text-white font-semibold px-6 py-3.5 rounded-sm transition-colors"
-              >
-                {s.cases.cta} <ArrowRight size={16} weight="bold" />
-              </Link>
-            </Reveal>
-          </div>
-          <div className="lg:col-span-8 flex items-center">
-            <Reveal delay={0.12} className="w-full">
-              <div className="border border-dashed border-black/15 rounded-sm p-10 text-center bg-white">
-                <p className="text-sm text-[var(--muted-light)]">{s.cases.empty}</p>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section id="cozum" className="bg-[var(--paper)] pb-16 sm:pb-24 scroll-mt-32" data-testid="area-cta">
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-8">
-          <Reveal>
-            <div className="bg-[var(--ink)] text-white rounded-sm overflow-hidden grid md:grid-cols-12 items-center">
-              <div className="md:col-span-4 relative h-44 md:h-full min-h-[180px] spotlight flex items-center justify-center p-6">
-                <img
-                  src={ASSETS.deviceHero}
-                  alt="Vetozone"
-                  className="max-h-40 md:max-h-52 w-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
-                />
-              </div>
-              <div className="md:col-span-8 p-8 sm:p-10 flex flex-col sm:flex-row sm:items-center gap-6">
-                <div className="flex-1">
-                  <h2 className="font-display font-bold text-2xl sm:text-3xl tracking-tight">
-                    {s.cta.title}
-                  </h2>
-                  <p className="mt-3 text-white/60 leading-relaxed max-w-lg">{s.cta.text}</p>
-                </div>
-                <Link
-                  to={s.cta.to}
-                  className="shrink-0 inline-flex items-center gap-2 bg-[var(--brand)] hover:bg-[var(--brand-hover)] text-white font-semibold px-6 py-3.5 rounded-sm transition-colors"
-                >
-                  {s.cta.button} <ArrowRight size={16} weight="bold" />
-                </Link>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
     </>
   );
 }

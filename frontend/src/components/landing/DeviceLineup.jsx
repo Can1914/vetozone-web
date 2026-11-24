@@ -35,13 +35,14 @@ export const DeviceLineup = () => {
                 className="lift group flex h-full flex-col overflow-hidden rounded-sm border border-black/10 bg-white hover:border-[var(--brand)]/40"
                 data-testid={`device-card-${device.slug}`}
               >
-                <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-[var(--ink)]">
-                  <div className="absolute inset-0 spotlight blur-2xl scale-110 opacity-70" />
+                {/* Cihazın arkasında zemin yok: görseller saydam, gövde
+                    kartın içinde olabildiğince büyük duruyor. */}
+                <div className="flex aspect-[3/4] items-center justify-center overflow-hidden p-5">
                   <img
                     src={device.image}
                     alt={device.name}
                     loading="lazy"
-                    className="relative z-10 max-h-[78%] w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                    className="max-h-full w-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-6">

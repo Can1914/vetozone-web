@@ -9,10 +9,6 @@ export const CORPORATE_CONTENT = {
     },
     partnersOverline: "İş Ortaklarımız",
     partnersTitle: "Türkiye genelinde güvenilen kliniklerin tercihi.",
-    items: [
-      { slug: "kongre-ve-etkinlikler", icon: Ticket, title: "Kongre ve Etkinlikler", blurb: "Katıldığımız ve düzenlediğimiz etkinlikler.", comingSoon: true },
-      { slug: "haberler", icon: Newspaper, title: "Haberler", blurb: "Vetozone'dan güncel haberler ve duyurular.", comingSoon: true },
-    ],
   },
   en: {
     hero: {
@@ -22,9 +18,5 @@ export const CORPORATE_CONTENT = {
     },
     partnersOverline: "Our Partners",
     partnersTitle: "The trusted choice of clinics across Türkiye.",
-    items: [
-      { slug: "kongre-ve-etkinlikler", icon: Ticket, title: "Conferences & Events", blurb: "Events we attend and organize.", comingSoon: true },
-      { slug: "haberler", icon: Newspaper, title: "News", blurb: "Latest news and announcements from Vetozone.", comingSoon: true },
-    ],
   },
 };

@@ -19,7 +19,6 @@ export default function Corporate() {
       />
 
       <div id="hakkimizda" className="scroll-mt-20" data-testid="corporate-about">
-        <div id="misyonumuz" />
         <Manifesto />
       </div>
 
@@ -27,11 +26,6 @@ export default function Corporate() {
         <ReferencesMarquee />
       </div>
 
-      <section className="bg-[var(--paper)] py-16 sm:py-24" data-testid="corporate-section">
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-8">
-          <TopicGrid items={p.items} lang={lang} cols="sm:grid-cols-2" />
-        </div>
-      </section>
     </>
   );
 }

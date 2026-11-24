@@ -116,8 +116,8 @@ export default function DeviceDetail() {
                   className="lift group flex items-center gap-5 rounded-sm border border-black/10 bg-white p-5 hover:border-[var(--brand)]/40"
                   data-testid={`device-other-${item.slug}`}
                 >
-                  <span className="relative flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-sm bg-[var(--ink)]">
-                    <img src={item.image} alt={item.name} loading="lazy" className="max-h-[80%] w-auto object-contain" />
+                  <span className="relative flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-sm">
+                    <img src={item.image} alt={item.name} loading="lazy" className="max-h-full w-auto object-contain" />
                   </span>
                   <span className="min-w-0">
                     <span className="block font-display font-bold text-[var(--ink)]">{item.name}</span>
